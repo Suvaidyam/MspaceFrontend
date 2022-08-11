@@ -46,5 +46,22 @@ module.exports = {
         } catch (error) {
             return res.status(500).json({ massage: error.massage });
         }
+    },
+    verifyToken: async (req, res, next) => {
+        try {
+            // console.log('veryToken');
+            let { token } = req.headers;
+            // console.log('veryToken', token);
+            if (token) {
+                let decoded = JWT.verify(token, JWT_SECRET);
+                // console.log('veryToken', decoded);
+                req.user = decoded;
+                next();
+            } else {
+                return res.status(401).json({ message: 'Unauthorized: token required' });
+            }
+        } catch (error) {
+            return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+        }
     }
 }
