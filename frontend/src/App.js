@@ -1,10 +1,11 @@
-
+import Login from './Components/Login/Login'
 import './App.css';
+import './Components/Login/Login.css'
 
 function App() {
   return (
     <>
-    <h1>eygdsuifg</h1>
+      <Login />
     </>
   );
 }
