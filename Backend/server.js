@@ -2,9 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 require('./DataBase/ConnectDB.js')
+const company = require('./Api/Company/index')
 
-
-
+app.use('/company', company)
 app.get('/', (req, res) => res.send('Hello World!'))
 
 
