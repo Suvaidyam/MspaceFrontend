@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const CompanySchema = new mongoose.Schema({
-    userName: {
+    companyName: {
         type: String,
         required: true
     },
@@ -13,9 +13,14 @@ const CompanySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    companyName: {
+    companyId: {
         type: String,
         required: true
+    },
+    createMeeting:{
+        type:[
+            { }
+        ]
     }
 
 });
