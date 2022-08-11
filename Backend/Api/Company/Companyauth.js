@@ -1,5 +1,6 @@
 const Company = require('../../Module/Company');
-
+const JWT = require('jsonwebtoken');
+const JWT_SECRET = "guyhngybvguyjgbnjhum"
 module.exports = {
     register: async (req, res) => {
         try {
@@ -19,4 +20,31 @@ module.exports = {
             return res.status(500).json({ massage: error.massage });
         }
     },
+
+    login: async (req, res) => {
+        try {
+            let { companyId, password } = req.body;
+            if (!companyId || !password) {
+                return res.status(400).json({ massage: 'Bed request compantId and password required' });
+
+            }
+            let user = await Company.findOne({ companyId, password });
+            if (user) {
+                let token = JWT.sign({ _id: user._id, companyName: user.companyName }, JWT_SECRET);
+
+                return res.json({
+                    message: 'User Login  Successful',
+                    token: token
+                });
+
+            } else {
+                return res.status(400).json({
+                    massage: 'Bed request :CompanyId and password is incorrect'
+                })
+            }
+
+        } catch (error) {
+            return res.status(500).json({ massage: error.massage });
+        }
+    }
 }
