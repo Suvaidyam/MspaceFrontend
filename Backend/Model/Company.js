@@ -8,6 +8,7 @@ const CompanySchema = new mongoose.Schema({
    
     code: {
         type: String,
+        unique:true,
         required: true
     },
     logo: {

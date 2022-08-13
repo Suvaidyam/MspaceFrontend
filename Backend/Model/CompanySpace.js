@@ -4,17 +4,21 @@ const companySpaceSchema = new mongoose.Schema({
 
     code: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     spaceType: {
         type: String,
-        required: true
+        required: true,
+        enum:["SEAT", "MEETING_ROOM"],
+        default:"SEAT"
     },
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }, // Reference of Company schema
+    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: true }, // Reference of Company schema
     
     maxParticipant:{
         type:Number,
-        required: true
+        required: true,
+        default:1,
     }
 });
 
