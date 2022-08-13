@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 
-const { register, login, verifyToken } = require('./Companyauth');
+const Login = require('./Login')
+router.post('/login', Login)
+const register = require('./Register')
 router.post('/register', register)
-router.post('/login', login)
 
-router.use(verifyToken);
 
 
 

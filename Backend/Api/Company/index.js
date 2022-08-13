@@ -6,7 +6,7 @@ const { register, login, verifyToken } = require('./Companyauth');
 router.post('/register', register)
 router.post('/login', login)
 
-router.use(verifyToken);
+// router.use(verifyToken);
 
 
 // nkbk

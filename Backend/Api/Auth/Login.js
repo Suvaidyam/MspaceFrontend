@@ -10,13 +10,13 @@ const Login= async(req, res)=>{
         };
         let user = await User.findOne({ email, password });
         if (user) {
-            let token = JWT.sign({ _id: user._id, mobileNo: user.mobileNo }, JWT_SECRET);
+            let token = JWT.sign({ _id: user._id, email: user.email }, JWT_SECRET);
             return res.json({
                 message: 'Login Successful',
                 token: token
             });
         } else {
-            return res.status(400).json({ message: 'Bad Request: mobileNo and password are incorrect' });
+            return res.status(400).json({ message: 'Bad Request: email and password are incorrect' });
         };
     } catch (error) {
         return res.status(500).json({message: error.message})
