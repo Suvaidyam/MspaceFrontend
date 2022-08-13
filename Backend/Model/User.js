@@ -1,19 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    userName: {
-        type: String,
-        required: true
-    },
     name: {
-        type: String,
-        required: true
-    },
-    company: {
-        type: String,
-        required: true
-    },
-    empId: {
         type: String,
         required: true
     },
@@ -25,6 +13,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    userType:{
+        type:String,
+        enum:["ADMIN", "COMPANY_ADMIN","EMPLOYEE"],
+        default:"COMPANY_ADMIN"
+    },
+    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }, // Reference of Company schema
 });
 
 const User = mongoose.model('user', userSchema)

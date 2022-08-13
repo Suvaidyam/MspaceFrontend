@@ -1,26 +1,18 @@
 const mongoose = require('mongoose');
 
 const CompanySchema = new mongoose.Schema({
-    companyName: {
+    name: {
         type: String,
         required: true
     },
-    password: {
+   
+    code: {
         type: String,
         required: true
     },
-    email: {
+    logo: {
         type: String,
         required: true
-    },
-    companyId: {
-        type: String,
-        required: true
-    },
-    createMeeting:{
-        type:[
-            { }
-        ]
     }
 
 });
