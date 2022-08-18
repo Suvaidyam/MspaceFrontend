@@ -6,7 +6,7 @@ const Register = async (req, res) => {
         let { name, password, email, company, companyName, companyCode } = req.body;
         let userType = "EMPLOYEE";
         if (!name || !password || !email || !company) {
-            return res.status(400).json({ message: "name company,password,email is required" })
+            return res.status(400).json({ message: "name company,password,email, companyName,companyCode  is required" })
         };
         let user = await User.findOne({ email, password });
         if (user) {

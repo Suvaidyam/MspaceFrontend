@@ -7,7 +7,7 @@ router.post('/login', Login)
 const register = require('./Register')
 router.post('/register', register)
 
-const verifyToken = require('../../Middleware/VerifyToken');
+const verifyToken = require('./VerifyToken');
 const logout = require('./Logout')
 router.post('/logout', verifyToken, logout)
 
