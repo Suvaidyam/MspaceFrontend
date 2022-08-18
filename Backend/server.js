@@ -5,12 +5,10 @@ require('./DataBase/ConnectDB.js')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const Cors = require('cors')
-
-const auth =require('./Api/Auth/index');
-app.use('/', auth)
-
 app.use(Cors());
+
 app.get('/', (req, res) => res.send('Hello World!'))
 
+app.use('/', require('./Api'))
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
