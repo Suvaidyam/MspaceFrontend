@@ -7,7 +7,6 @@ app.use(express.urlencoded({ extended: true }));
 const Cors = require('cors')
 app.use(Cors());
 
-app.get('/', (req, res) => res.send('Hello World!'))
 
 app.use('/', require('./Api'))
 

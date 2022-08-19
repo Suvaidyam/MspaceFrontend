@@ -1,6 +1,6 @@
 const Company = require('../../Model/Company');
 module.exports = {
-    findAll: async (req, res, next) => {
+    findAll: async (req, res) => {
         try {
             let company = await Company.find();
             return res.status(200).json({ message: "Company List", company: company });
@@ -8,7 +8,7 @@ module.exports = {
             return res.status(500).json({ message: error.message });
         }
     },
-    findById: async (req, res, next) => {
+    findById: async (req, res) => {
         try {
             let company = await Company.findById(req.params.id);
             return res.status(200).json({ message: "Company List", company: company });
@@ -16,7 +16,7 @@ module.exports = {
             return res.status(500).json({ message: error.message });
         }
     },
-    create: async (req, res, next) => {
+    create: async (req, res) => {
         try {
             let { name, code } = req.body;
             let company = await Company.findOne({ code });
@@ -30,7 +30,7 @@ module.exports = {
             return res.status(500).json({ message: error.message });
         }
     },
-    updateOne: async (req, res, next) => {
+    updateOne: async (req, res) => {
         try {
             let { name, code } = req.body;
             let company = await Company.findByIdAndUpdate(req.params.id, { name, code });
