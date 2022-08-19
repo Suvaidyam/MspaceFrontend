@@ -24,17 +24,22 @@ module.exports = {
             if (user) {
                 return res.status(400).json({ message: "User Code is already exists" });
             } else {
-                user = await User.create({name, password, email, company  });
+                if(!name || !password || !email || !company){
+                    return res.status(400).json({ message: "name , password , email and company(company_Id) is required" });
+                }
+                let userType = "EMPLOYEE";
+                user = await User.create({name, password, email, company ,userType });
                 return res.status(200).json({ message: "Company Successfully Created", user: user });
             }
         } catch (error) {
             return res.status(500).json({ message: error.message });
         }
     },
+    // note working
     updateOne: async (req, res) => {
         try {
             let { name, password, email, company } = req.body;
-            let user = await User.findByIdAndUpdate(req.params.id, {name, password, email, company });
+            let user = await User.updateOne(req.params, {name, password, email, company });
             return res.status(200).json({ message: "Company Successfully Updated", user: user });
         } catch (error) {
             return res.status(500).json({ message: error.message });

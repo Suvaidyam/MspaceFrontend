@@ -30,10 +30,11 @@ module.exports = {
             return res.status(500).json({ message: error.message });
         }
     },
+    // not working
     updateOne: async (req, res) => {
         try {
             let { name, code } = req.body;
-            let company = await Company.findByIdAndUpdate(req.params.id, { name, code });
+            let company = await Company.findByIdAndUpdate(req.params.id,{ name, code });
             return res.status(200).json({ message: "Company Successfully Updated", company: company });
         } catch (error) {
             return res.status(500).json({ message: error.message });
