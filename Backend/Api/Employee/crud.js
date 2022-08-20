@@ -35,7 +35,6 @@ module.exports = {
             return res.status(500).json({ message: error.message });
         }
     },
-    // note working
     updateOne: async (req, res) => {
         try {
             let { name, password, email, company } = req.body;
