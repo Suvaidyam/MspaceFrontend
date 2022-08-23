@@ -10,7 +10,7 @@ module.exports = {
     },
     findById: async (req, res) => {
         try {
-            let user = await User.findById(req.params.id);
+            let user = await User.findById(req.params._id);
             return res.status(200).json({ message: "user", user: user });
         } catch (error) {
             return res.status(500).json({ message: error.message });
@@ -39,6 +39,7 @@ module.exports = {
         try {
             let { name, password, email, company } = req.body;
             let user = await User.updateOne(req.params, {name, password, email, company });
+            console.log(req.params)
             return res.status(200).json({ message: "Company Successfully Updated", user: user });
         } catch (error) {
             return res.status(500).json({ message: error.message });
