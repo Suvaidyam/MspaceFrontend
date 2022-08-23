@@ -6,5 +6,6 @@ router.get('/', crud.findAll);
 router.get('/:_id', crud.findById);
 router.post('/', crud.create);
 router.put('/:_id', crud.updateOne);
+router.delete('/:_id', crud.deleteOne);
 
 module.exports = router

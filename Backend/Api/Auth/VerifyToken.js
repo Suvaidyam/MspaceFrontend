@@ -32,7 +32,7 @@ module.exports = async (req, res, next) => {
         let { token } = req.headers;
         if (token) {
             let decoded = JWT.verify(token, JWT_SECRET);
-            console.log('veryToken', decoded);
+            // console.log('veryToken', decoded);
             let { lhId, userType , company, email, _id} = decoded;
             // console.log(decoded)
 

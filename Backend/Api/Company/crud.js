@@ -10,7 +10,7 @@ module.exports = {
     },
     findById: async (req, res) => {
         try {
-            let company = await Company.findById(req.params.id);
+            let company = await Company.findById(req.params._id);
             return res.status(200).json({ message: "Company List", company: company });
         } catch (error) {
             return res.status(500).json({ message: error.message });
