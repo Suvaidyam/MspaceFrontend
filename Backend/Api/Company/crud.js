@@ -33,7 +33,7 @@ module.exports = {
     updateOne: async (req, res) => {
         try {
             let { name, code } = req.body;
-            let company = await Company.updateOne(req.params.id,{ name, code });
+            let company = await Company.updateOne(req.params ,{ name, code });
             return res.status(200).json({ message: "Company Successfully Updated", company: company });
         } catch (error) {
             return res.status(500).json({ message: error.message });

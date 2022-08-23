@@ -22,7 +22,7 @@ module.exports = {
             let { name, password, email, company } = req.body;
             let user = await User.findOne({ email });
             if (user) {
-                return res.status(400).json({ message: "User Code is already exists" });
+                return res.status(400).json({ message: "User is already exists" });
             } else {
                 if(!name || !password || !email || !company){
                     return res.status(400).json({ message: "name , password , email and company(company_Id) is required" });

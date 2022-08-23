@@ -37,7 +37,7 @@ module.exports = {
         try {
             let { code, spaceType, company, maxParticipant } = req.body;
             let companyspace = await CompanySpace.updateOne(req.params, { code, spaceType, company, maxParticipant });
-            console.log(req.params)
+            // console.log(req.params)
             return res.status(200).json({ message: "CompanySpace Successfully Updated", companyspace: companyspace });
         } catch (error) {
             return res.status(500).json({ message: error.message });
