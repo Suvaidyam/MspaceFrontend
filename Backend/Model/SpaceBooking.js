@@ -5,19 +5,21 @@ const spaceBookingSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User',required:true }, // Reference of User schema
     companySpace: { type: mongoose.Schema.Types.ObjectId, ref: 'CompanySpace' , required:true}, // Reference of CompanySpace schema
     fromTime: {
-        type: Date,
+        // type: Date,
+        type: String,
         required: true
     },
     toTime: {
-        type: Date,
+        // type: Date,
+        type: String,
         required: true
     },
-    participants:{type:[{ type: Schema.Types.ObjectId, ref: 'User' }], default:[]},
+    participants: { type: mongoose.Schema.Types.ObjectId, ref: 'User',  default:[]},
     bookedAt: { type: Date, default: Date.now },
     deletedAt: { type: Date, default: null },
     deleted: { type: Boolean, default: false }
 });
 
-const SpaceBookingSchema = mongoose.model('SpaceBookingSchema', spaceBookingSchema)
+const SpaceBooking = mongoose.model('SpaceBookingSchema', spaceBookingSchema)
 
-module.exports = SpaceBookingSchema
+module.exports = SpaceBooking
