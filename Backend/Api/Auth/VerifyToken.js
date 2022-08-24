@@ -41,7 +41,9 @@ module.exports = async (req, res, next) => {
                 return res.status(401).json({ message: 'Unauthorized: Login history not found' });
             }else if (loginHistory.logoutTime) {
             return res.status(401).json({ message: 'Unauthorized: Invalid logoutTime' });
-            }
+            };
+
+            req.decoded = decoded
             next();
         } else {
             return res.status(401).json({ message: 'Unauthorized: token required' });

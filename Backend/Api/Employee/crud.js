@@ -16,7 +16,6 @@ module.exports = {
             return res.status(500).json({ message: error.message });
         }
     },
-    //  pending 
     create: async (req, res) => { 
         try {
             let { name, password, email, company } = req.body;
