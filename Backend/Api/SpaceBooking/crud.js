@@ -3,7 +3,6 @@ module.exports = {
     findAll: async (req, res) => {
         try {
             let spaceBooking = await SpaceBooking.find();
-            console.log(spaceBooking);
             return res.status(200).json({ message: "companyspace List", spaceBooking: spaceBooking });
         } catch (error) {
             return res.status(500).json({ message: error.message });
