@@ -3,4 +3,7 @@
 .col-2{
     clip-path: polygon(43% 0, 100% 0%, 100% 98%, 0 99%);
 }
+.col-3{
+    clip-path: polygon(0 0, 100% 0%, 56% 100%, 0% 100%);
+}
 @tailwind utilities;
