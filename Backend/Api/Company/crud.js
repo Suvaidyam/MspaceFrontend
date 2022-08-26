@@ -19,9 +19,9 @@ module.exports = {
     create: async (req, res) => {
         try {
             let { name, code } = req.body;
-            let company = await Company.findOne({ code });
+            let company = await Company.findOne({ code, name });
             if (company) {
-                return res.status(400).json({ message: "Company Code is already exists" });
+                return res.status(400).json({ message: "Company Code & name is already exists" });
             } else {
                 company = await Company.create({ name, code });
                 return res.status(200).json({ message: "Company Successfully Created", company: company });
