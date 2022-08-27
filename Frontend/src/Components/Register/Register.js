@@ -15,7 +15,9 @@ const initialValues = {
   name:'',
   email: '',
   password: '',
-
+  company:"",
+  companyName:"",
+  companyCode:""
 }
 const passwordRegex = RegExp(
   /[A-Z]+[a-z]+@+[0-9]/
@@ -30,7 +32,10 @@ const validationSchema = Yup.object({
   rePassword: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
   .min(6, 're password must be 6 characters at min ')
   .max(16, ' re password must be 16 characters at max ')
-  .required('re Password is required !')
+  .required('re Password is required !'),
+  company: Yup.string(),
+  // companyName: Yup.string().required("please Enter Company Name"),
+  // companyCode: Yup.string().required("please Enter Company Code"),
 
 })
 
@@ -38,9 +43,9 @@ const validationSchema = Yup.object({
 const Register = () => {
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2  h-[768px] max-w-screen-2xl 2xl:mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2  m-auto mb-5 max-w-screen-2xl 2xl:mx-auto">
         <div
-          className="w-[100%] bg-no-repeat"
+          className="h-screen bg-no-repeat"
           style={{ backgroundImage: `url(${blue})` }}
         >
           <div className="custom-img absolute z-100"></div>
