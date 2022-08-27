@@ -2,7 +2,7 @@ import './register.css'
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import Slect from "./AllCompany";
+import SlectCompany from "./AllCompany";
 import Logo from "../../Assets/logo.png";
 import blue from "../../Assets/blue-side.svg";
 import google from "../../Assets/google.png"
@@ -98,7 +98,7 @@ const Register = () => {
                     />
                     <ErrorMessage className='text-red-600 mb-4' name='email' component='p'/>
                   </div>
-                  <Slect/>
+                  <SlectCompany/>
                 
                   
                   <div className="mt-6">
