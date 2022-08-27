@@ -27,9 +27,9 @@ const SlectCompany = (props) => {
         <label htmlFor="company" className="block">
           Slect Company
         </label>
-        <Field value={companyId} onChange={(e)=>{setcompanyId(e.target.value)}} className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
-             border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
-              focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" id="company" name="company" as="select">
+        <Field value={companyId} onChange={(e)=>{setcompanyId(e.target.value)}} className=" rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
+             border-gray-300 placeholder-gray-500 text-gray-900 
+             sm:text-sm" id="company" name="company" as="select">
           <option  value="">Select Company</option>
            
           {company.map((ab) => {
