@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <>
      <div className="max-w-[1720px] m-auto md:flex-none flex">
-        <div className="col-1 min-h-full w-[40%] px-16">
+        <div className="col-1 min-h-full w-[50%] px-16">
         <div className="min-h-full flex min-w-[462px]  py-16 px-4 sm:px-6 lg:px-8">
   <div className="max-w-md w-full space-y-8">
     <div>
@@ -148,7 +148,7 @@ const Login = () => {
   </div>
 </div>
         </div>
-        <div className="col-2  text-white pl-32 min-h-full w-[60%] flex flex-col  items-center justify-center bg-[#5800FF]">
+        <div className="col-2  text-white pl-32 min-h-full w-[50%] flex flex-col  items-center justify-center bg-[#5800FF]">
            <p className='text-xl' >Don't Have An Account</p>
            <p className='text-sm mt-2'>Create a new account and find a better space for yourself</p>
            <Link to="/register">
