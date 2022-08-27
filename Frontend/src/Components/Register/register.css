@@ -26,4 +26,9 @@ filter: blur(40px);
 .custom-tilled{
     clip-path: polygon(0 0, 88% 0, 58% 100%, 0% 100%);
 }
+@media (max-width:1024px){
+    .custom-tilled{
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    } 
+}
 @tailwind utilities;

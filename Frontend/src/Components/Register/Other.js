@@ -10,7 +10,9 @@ const Other = () => {
                     <Field
                       type="text"
                       name="companyName"
-                      className="border p-2 w-4/5 rounded"
+                      className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
+                      border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
+                       focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Enter Your Company Name"
                     />
                     <ErrorMessage className='text-red-600 mb-4' name='companyName' component='p'/>
@@ -20,7 +22,9 @@ const Other = () => {
                     <Field
                       type="text"
                       name="companyCode"
-                      className="border p-2 w-4/5 rounded"
+                      className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
+                      border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
+                       focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Enter Your Email"
                     />
                     <ErrorMessage className='text-red-600 mb-4' name='companyCode' component='p'/>
