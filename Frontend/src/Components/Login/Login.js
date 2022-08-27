@@ -3,19 +3,20 @@ import Logo from '../../Assets/logo-1.png'
 import Google from '../../Assets/google.png'
 import Microsoft from '../../Assets/microsoft.png'
 // import Ellipse from '../Login/Ellipse.png'
-// import axios from 'axios'
+// import { useNavigate, useParams } from "react-router-dom";
+import axios from 'axios'
 import { Formik, Form, Field , ErrorMessage} from 'formik';
 import * as Yup from 'yup'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 const initialValues = {
   email: '',
   password: ''
 }
 
-const onSubmit = values => {
-  console.log('form data', values);
-}
+
 const passwordRegex = RegExp(
   /[A-Z]+[a-z]+@+[0-9]/
 )
@@ -28,10 +29,29 @@ const validationSchema = Yup.object({
 
 })
 const Login = () => {
-   document.querySelector('.eye')
+  const navigate = useNavigate();
+
+  const onSubmit = values => {
+
+    console.log('form data', values);
+    axios
+              .post(
+                  `http://localhost:4000/auth/login`,
+                  { email: values.email, password: values.password },
+                 
+              )
+              .then((res) => {
+                sessionStorage.setItem('token',res.token)
+                  console.log(res)
+                  navigate('/register')
+              })
+              .catch((err) => {
+                console.log(err)
+              });
+  }
   return (
     <>
-     <div className="max-w-[1720px] m-auto flex ">
+     <div className="max-w-[1720px] m-auto md:flex-none flex">
         <div className="col-1 min-h-full w-[40%] px-16">
         <div className="min-h-full flex min-w-[462px]  py-16 px-4 sm:px-6 lg:px-8">
   <div className="max-w-md w-full space-y-8">
