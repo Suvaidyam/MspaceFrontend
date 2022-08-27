@@ -3,4 +3,9 @@
 .col-2{
     clip-path: polygon(45% 0, 100% 0%, 100% 100%, 11% 100%);
 }
+@media (max-width:1024px){
+    .col-2{
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
 @tailwind utilities;
