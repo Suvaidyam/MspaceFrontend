@@ -40,9 +40,9 @@ const Login = () => {
   }
   return (
     <>
-     <div className="max-w-[1720px] m-auto md:flex-none flex">
-      <div className="col-1 min-h-full w-[50%] px-16">
-        <div className="min-h-full flex min-w-[462px]  py-16 px-4 sm:px-6 lg:px-8">
+     <div className="max-w-[1720px] m-auto  md:flex-none lg:flex">
+      <div className="col-1 min-h-full md:w-screen lg:w-[50%] md:px-0 lg:px-16">
+        <div className="min-h-full flex  items-center justify-center md:w-full lg:min-w-[462px]  py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8">
             <div>
               <img   className=" h-12 w-auto justify-center" src={Logo} alt="Workflow"/>
@@ -105,22 +105,22 @@ const Login = () => {
           <div>
             <p className='text-center text-xs font-medium'>Or Login Using</p>
          </div>
-         <div className="flex justify-center">
-           <div className='border-2 rounded-sm text-xs font-medium px-3 py-3 mx-2 flex'> <img className='w-4 mx-2' src={Google} alt="" /> Contnue with Google</div>
-           <div className='border-2 rounded-sm text-xs font-medium px-3 py-3 mx-2 flex'><img className='w-4 mx-2' src={Microsoft} alt="" />Contnue with Microsoft</div>
+         <div className="sm:flex xs:flex-none justify-center">
+           <div className='border-2 justify-center rounded-sm text-xs font-medium px-3 py-3 mx-2 my-3 sm:my-0 flex'> <img className='w-4 mx-2' src={Google} alt="" /> Contnue with Google</div>
+           <div className='border-2 justify-center rounded-sm text-xs font-medium px-3 py-3 mx-2 flex'><img className='w-4 mx-2' src={Microsoft} alt="" />Contnue with Microsoft</div>
          </div>
         </Form>
        </Formik>
        </div>
        </div>
         </div>
-        <div className="col-2  text-white pl-32 min-h-full w-[50%] flex flex-col  items-center justify-center bg-[#5800FF]">
+        <div className="col-2  text-white md:p-0 lg:pl-32 min-h-full md:w-screen lg:w-[50%] flex flex-col  items-center justify-center bg-[#5800FF]">
            <p className='text-xl' >Don't Have An Account</p>
            <p className='text-sm mt-2'>Create a new account and find a better space for yourself</p>
            <Link to="/register">
            <button
           type="button"
-          className="group relative border-white flex justify-center py-3 px-12 mt-5 rounded-sm border border-transparent text-md font-normal  text-white  hover:bg-indigo-700 focus:outline-none "
+          className="group relative border-white flex  mb-3 justify-center py-3 px-12 mt-5 rounded-sm border border-transparent text-md font-normal  text-white  hover:bg-indigo-700 focus:outline-none "
         >
           SIGNUP
         </button>
