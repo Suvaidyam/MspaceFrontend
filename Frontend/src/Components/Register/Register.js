@@ -1,3 +1,4 @@
+import './register.css'
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -7,6 +8,7 @@ import blue from "../../Assets/blue-side.svg";
 import google from "../../Assets/google.png"
 import microsoft from "../../Assets/microsoft.png";
 import { Link } from "react-router-dom";
+
 
 
 const initialValues = {
