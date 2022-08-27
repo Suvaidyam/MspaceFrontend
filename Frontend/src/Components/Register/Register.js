@@ -1,11 +1,12 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
+// import * as yup from "yup";
 import Slect from "./AllCompany";
 import Logo from "../../Assets/logo.png";
 import blue from "../../Assets/blue-side.svg";
 import google from "../../Assets/google.png"
-import microsoft from "../../Assets/microsoft.png"
+import microsoft from "../../Assets/microsoft.png";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -26,9 +27,11 @@ const Register = () => {
             <p className="text-[16px] mt-2">
               Login to find a better space for yourselft?
             </p>
-            <button className="border px-8  py-3 mt-5 ml-20">LOGIN</button>
+            <Link to="/" className="z-50">
+            <button type="button" className="border px-12  py-3 mt-5 ml-20 rounded hover:bg-[#4501c3]">LOGIN</button>
+            </Link>
           </div>
-          <div className="custom-img2 absolute z-100 overflow-hidden"></div>
+          <div className="custom-img2 absolute overflow-hidden"></div>
         </div>
         <div className="">
           <h1 className="text-[36px] font-bold mt-10 lg:mx-5">
@@ -64,10 +67,19 @@ const Register = () => {
                   <div className="mt-6">
                     <label htmlFor="password" className="block">Pasword</label>
                     <Field
-                      type="password"
+                      type="text"
                       name="password"
                       className="border p-2 w-4/5 rounded"
                       placeholder="Enter Your Password"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <label htmlFor="rePassword" className="block">Confirm Pasword</label>
+                    <Field
+                      type="password"
+                      name="rePassword"
+                      className="border p-2 w-4/5 rounded"
+                      placeholder="Enter Your Confirm Password"
                     />
                   </div>
                   <div>
