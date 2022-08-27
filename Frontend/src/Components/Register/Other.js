@@ -4,7 +4,6 @@ import { Field, ErrorMessage } from "formik";
 const Other = () => {
   return (
     <>
-    {/* qpjfiebsgkbfiohvncxiobvicxbiobvfiobfiobvfiobicv */}
     <div>
                   <div className="mt-6">
                     <label htmlFor="companyName" className="block">Company Name</label>
@@ -27,7 +26,6 @@ const Other = () => {
                     <ErrorMessage className='text-red-600 mb-4' name='email' component='p'/>
                   </div>
                   </div>
-                  {/* wjdhio;asgfiudsgiufgdsiyfvdsiyvigiusgfiudsgfiudiugfiu */}
     </>
   )
 }
