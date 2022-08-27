@@ -23,4 +23,7 @@ background: transparent url('../../Assets/Ellipse\ 2.svg') 0% 0% no-repeat paddi
 opacity: 1;
 filter: blur(40px);
 }
+.custom-tilled{
+    clip-path: polygon(0 0, 88% 0, 58% 100%, 0% 100%);
+}
 @tailwind utilities;

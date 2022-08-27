@@ -43,11 +43,8 @@ const validationSchema = Yup.object({
 const Register = () => {
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2  m-auto mb-5 max-w-screen-2xl 2xl:mx-auto">
-        <div
-          className="h-screen bg-no-repeat"
-          style={{ backgroundImage: `url(${blue})` }}
-        >
+      <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2  m-auto  max-w-screen-2xl 2xl:mx-auto">
+        <div className="custom-tilled bg-[#5800FF]">
           <div className="custom-img absolute z-100"></div>
           <img
             className="w-[23%] mt-[30px] ml-[85px] z-0"
@@ -132,7 +129,7 @@ const Register = () => {
                   <div className="mt-6 w-4/5">
                   <p className='text-center text-xs font-medium'>Or SignUp Using</p>
                   </div>
-                  <div className="flex justify-center w-4/5 mt-6">
+                  <div className="flex justify-center w-4/5 mt-6 mb-6">
                   <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex'> <img className="w-[20px] h-[20px] mr-3" src={google} alt="google" /><p> Contnue with Google</p></div>
                   <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex'> <img className="w-[20px] h-[20px] mr-3" src={microsoft} alt="microsoft" /><p> Contnue with Microsoft</p></div>
     
