@@ -1,10 +1,11 @@
-import './App.css'
-import Router from './Components/Router.js/Router';
+import Router from './Components/Router/Router';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
     <>
      <Router/>
+     <Footer/>
     </>
   );
 }
