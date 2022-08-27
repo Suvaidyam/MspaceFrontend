@@ -6,9 +6,9 @@ import { Field, ErrorMessage } from "formik";
 const axios = require('axios');
 
 
-const Slect = (props) => {
+const SlectCompany = (props) => {
   const [company , setcompany] = useState([]);
-  const [companyData,setcompanyData]=useState('')
+  const [companyId,setcompanyId]=useState('')
   const getCompany = () =>{
     axios.get('http://localhost:4000/company-list')
     .then((res)=>{
@@ -27,7 +27,9 @@ const Slect = (props) => {
         <label htmlFor="company" className="block">
           Slect Company
         </label>
-        <Field onChange={(e)=>{setcompanyData(e.target.value)}} className="border p-2 w-4/5 rounded" id="company" name="company" as="select">
+        <Field value={companyId} onChange={(e)=>{setcompanyId(e.target.value)}} className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
+             border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
+              focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" id="company" name="company" as="select">
           <option  value="">Select Company</option>
            
           {company.map((ab) => {
@@ -38,7 +40,7 @@ const Slect = (props) => {
         </Field>
         <ErrorMessage className='text-red-600 mb-4' name='allCompany' component='p'/>
         {
-          companyData==="newCompany" ? <Other/> : <></>
+          companyId ==="newCompany" ? <Other/> : <></>
         }
         
         
@@ -47,4 +49,4 @@ const Slect = (props) => {
   );
 };
 
-export default Slect;
+export default SlectCompany;
