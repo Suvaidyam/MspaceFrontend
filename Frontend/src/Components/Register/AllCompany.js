@@ -7,18 +7,13 @@ import { Field, ErrorMessage } from "formik";
 const axios = require('axios');
 
 
-
-
-
-
-
 const Slect = (props) => {
   const [company , setcompany] = useState([]);
   const [companyData,setcompanyData]=useState('')
   const getCompany = () =>{
     axios.get('http://localhost:4000/company-list')
     .then((res)=>{
-      console.log(res.data)
+      // console.log(res.data)
       setcompany(res.data.company)
     })
   }
@@ -26,7 +21,7 @@ const Slect = (props) => {
     getCompany()
    },[])
 
-   console.log(companyData)
+  //  console.log(companyData)
   return (
     <>
       <div className="mt-6">
