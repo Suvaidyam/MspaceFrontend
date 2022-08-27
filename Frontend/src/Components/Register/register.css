@@ -1,9 +1,5 @@
 @tailwind base;
 @tailwind components;
-.col-2{
-    clip-path: polygon(45% 0, 100% 0%, 100% 100%, 11% 100%);
-}
-
 .custom-img{
     /* Layout Properties */
 top: -400px;
@@ -11,19 +7,19 @@ left: -300px;
 width: 474px;
 height: 476px;
 /* UI Properties */
-background: transparent url('./Assets/Ellipse\ 2.svg') 0% 0% no-repeat padding-box;
+background: transparent url('../../Assets/Ellipse\ 2.svg') 0% 0% no-repeat padding-box;
 opacity: 1;
 filter: blur(50px);
 }
 .custom-img2{
     /* Layout Properties */
-top: 290px;
+top: 430px;
 left: -180px;
 width: 474px;
-height: 476px;
+height: 300px;
 bottom: 0px;
 /* UI Properties */
-background: transparent url('./Assets/Ellipse\ 2.svg') 0% 0% no-repeat padding-box;
+background: transparent url('../../Assets/Ellipse\ 2.svg') 0% 0% no-repeat padding-box;
 opacity: 1;
 filter: blur(40px);
 }
