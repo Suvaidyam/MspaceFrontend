@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 .col-2{
-    clip-path: polygon(43% 0, 100% 0%, 100% 98%, 0 99%);
+    clip-path: polygon(35% 0, 100% 0%, 100% 99%, 11% 100%);
 }
 .col-3{
     clip-path: polygon(0 0, 100% 0%, 56% 100%, 0% 100%);
