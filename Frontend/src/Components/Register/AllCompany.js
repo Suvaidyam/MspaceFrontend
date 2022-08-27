@@ -9,18 +9,16 @@ const axios = require('axios');
 
 const Slect = () => {
   const [company , setcompany] = useState([]);
-  const getCompany = async() =>{
-    try{
-      const response = await axios.get('http://localhost:4000/company-list');
-      console.log('response  ', response)
-      setcompany(response.data)
-      return response.data;
-      
-    }catch(error) {
-      console.log(error)
-      return [];
-    };
+  const getCompany = () =>{
+    axios.get('http://localhost:4000/company-list')
+    .then((res)=>{
+      console.log(res.data)
+      setcompany(res.data.company)
+    })
   }
+   useEffect(()=>{
+    getCompany()
+   },[])
 
 
   return (
@@ -30,9 +28,11 @@ const Slect = () => {
           Slect Company
         </label>
         <Field className="border p-2 w-4/5 rounded" id="allCompany" name="allCompany" as="select">
-          <option  value="None">Select State</option>
+          <option  value="None">Select Company</option>
+           
           {company.map((ab) => {
-            return <option value={ab._id}>{ab.name}</option>;
+            const {_id} = ab
+            return <option key={_id} value={ab._id}>{ab.name}</option>;
           })}
         </Field>
         <br />
