@@ -12,7 +12,7 @@ const Register = () => {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2  h-[768px] max-w-screen-2xl 2xl:mx-auto">
         <div
-          className="w-[100%] bg-no-repeat md:mx-auto"
+          className="w-[100%] bg-no-repeat"
           style={{ backgroundImage: `url(${blue})` }}
         >
           <div className="custom-img absolute z-100"></div>
@@ -30,7 +30,7 @@ const Register = () => {
           </div>
           <div className="custom-img2 absolute z-100 overflow-hidden"></div>
         </div>
-        <div className="md:mx-auto">
+        <div className="">
           <h1 className="text-[36px] font-bold mt-10 lg:mx-5">
             Sign up for an Account
           </h1>
