@@ -1,55 +1,105 @@
 import React from 'react'
+import Logo from '../../Assets/logo-1.png'
+import Google from '../../Assets/google.png'
+import Microsoft from '../../Assets/microsoft.png'
+// import Ellipse from '../Login/Ellipse.png'
+// import { useNavigate, useParams } from "react-router-dom";
+import axios from 'axios'
+import { Formik, Form, Field , ErrorMessage} from 'formik';
+import * as Yup from 'yup'
+import { Link, useNavigate } from "react-router-dom";
 
+
+
+const initialValues = {
+  email: '',
+  password: ''
+}
+
+
+const passwordRegex = RegExp(
+  /[A-Z]+[a-z]+@+[0-9]/
+)
+const validationSchema = Yup.object({
+  email: Yup.string().email('Invailid email format ?').required('Email is required !'),
+  password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
+  .min(6, 'password must be 6 characters at min ')
+  .max(16, 'password must be 16 characters at max ')
+  .required('Password is required !')
+
+})
 const Login = () => {
+  const navigate = useNavigate();
+
+  const onSubmit = values => {
+
+    console.log('form data', values);
+    axios
+              .post(
+                  `http://localhost:4000/auth/login`,
+                  { email: values.email, password: values.password },
+                 
+              )
+              .then((res) => {
+                sessionStorage.setItem('token',res.token)
+                  console.log(res)
+                  navigate('/register')
+              })
+              .catch((err) => {
+                console.log(err)
+              });
+  }
   return (
     <>
-     <div className=" w-full flex">
-        <div className="col-1 h-[700px] w-[50%]">
-        <div className="min-h-full flex   py-12 px-4 sm:px-6 lg:px-8">
+     <div className="max-w-[1720px] m-auto md:flex-none flex">
+        <div className="col-1 min-h-full w-[40%] px-16">
+        <div className="min-h-full flex min-w-[462px]  py-16 px-4 sm:px-6 lg:px-8">
   <div className="max-w-md w-full space-y-8">
     <div>
-      <imgjustify-center
-        className="my-6 h-12 w-auto"
-        src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-        alt="Workflow"
-      />
-      <h1 className="mt-6  text-3xl tracking-tight font-bold text-gray-900">
+      <img   className=" h-12 w-auto justify-center" src={Logo} alt="Workflow"/>
+      <h1 className="mt-4  text-3xl tracking-tight font-semibold text-gray-900">
         Log in to your Account
       </h1>
       <h4 className="mt-2  text-md text-gray-600">
         Please provide following details to continue
       </h4>
     </div>
-    <form className="mt-8 space-y-6" action="#" method="POST">
-      <input type="hidden" name="remember" defaultValue="true" />
+    <Formik
+     initialValues={initialValues}
+     validationSchema={validationSchema}
+     onSubmit={onSubmit}
+    >
+    <Form className="mt-8 space-y-6"  method="POST">
       <div className="rounded-md shadow-sm -space-y-px">
         <div>
-          <label htmlFor="email-address" className="text-lg ">
+          <label htmlFor="email" className="text-lg ">
             Email 
           </label>
-          <input
-            id="email-address"
+          <Field
+            id="email"
             name="email"
             type="email"
             autoComplete="email"
-            required=""
-            className="appearance-none rounded-sm relative block w-full px-3 mt-2 mb-6 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-            placeholder="Email address"
+            className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            placeholder="Enter your email"
           />
+          <ErrorMessage className='text-red-600 mb-4' name='email' component='p'/>
         </div>
-        <div>
+        <div className='relative'>
           <label htmlFor="password" className="text-lg">
             Password
           </label>
-          <input
+          <Field
             id="password"
             name="password"
             type="password"
             autoComplete="current-password"
-            required=""
-            className="appearance-none mt-2 mb-6 rounded-sm relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-            placeholder="Password"
+            className="appearance-none mt-2 mb-2  rounded-sm  block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            placeholder="Enter your Password"
+            
           />
+          <p className='absolute right-2 bottom-3 eye' id='eye'>Hide</p>
+          <ErrorMessage className='text-red-600' name='password' component='p'/>
         </div>
       </div>
       <div className="flex items-center justify-between">
@@ -69,36 +119,20 @@ const Login = () => {
           </label>
         </div>
         <div className="text-sm">
-          <a
-            href="#"
+          <Link
+            to="#"
             className="font-medium text-indigo-600 hover:text-indigo-500"
           >
             {" "}
             Forgot your password?{" "}
-          </a>
+          </Link>
         </div>
       </div>
       <div>
         <button
           type="submit"
-          className="group relative w-full flex justify-center py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="group relative w-full flex justify-center py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-[#5800FF] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
-          <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-            {/* Heroicon name: solid/lock-closed */}
-            <svg
-              className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </span>
           LOG IN
         </button>
       </div>
@@ -106,15 +140,25 @@ const Login = () => {
         <p className='text-center text-xs font-medium'>Or Login Using</p>
       </div>
       <div className="flex justify-center">
-        <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2'>Contnue with Google</div>
-        <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2'>Contnue with Microsoft</div>
+        <div className='border-2 rounded-sm text-xs font-medium px-3 py-3 mx-2 flex'> <img className='w-4 mx-2' src={Google} alt="" /> Contnue with Google</div>
+        <div className='border-2 rounded-sm text-xs font-medium px-3 py-3 mx-2 flex'><img className='w-4 mx-2' src={Microsoft} alt="" />Contnue with Microsoft</div>
       </div>
-    </form>
+    </Form>
+    </Formik>
   </div>
 </div>
         </div>
-        <div className="col-2  min-h-full w-[50%] items-center justify-center bg-indigo-600">
-           <p className='text-center '>fhf</p>
+        <div className="col-2  text-white pl-32 min-h-full w-[60%] flex flex-col  items-center justify-center bg-[#5800FF]">
+           <p className='text-xl' >Don't Have An Account</p>
+           <p className='text-sm mt-2'>Create a new account and find a better space for yourself</p>
+           <Link to="/register">
+           <button
+          type="button"
+          className="group relative border-white flex justify-center py-3 px-12 mt-5 rounded-sm border border-transparent text-md font-normal  text-white  hover:bg-indigo-700 focus:outline-none "
+        >
+          SIGNUP
+        </button>
+        </Link>
         </div>
      </div>
     </>
