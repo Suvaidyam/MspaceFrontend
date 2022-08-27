@@ -1,12 +1,37 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-// import * as yup from "yup";
+import * as Yup from "yup";
 import Slect from "./AllCompany";
 import Logo from "../../Assets/logo.png";
 import blue from "../../Assets/blue-side.svg";
 import google from "../../Assets/google.png"
 import microsoft from "../../Assets/microsoft.png";
 import { Link } from "react-router-dom";
+
+
+const initialValues = {
+  name:'',
+  email: '',
+  password: '',
+
+}
+const passwordRegex = RegExp(
+  /[A-Z]+[a-z]+@+[0-9]/
+)
+const validationSchema = Yup.object({
+  name: Yup.string().required('Full Name is required !'),
+  email: Yup.string().email('Invailid email format ?').required('Email is required !'),
+  password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
+  .min(6, 'password must be 6 characters at min ')
+  .max(16, 'password must be 16 characters at max ')
+  .required('Password is required !'),
+  rePassword: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
+  .min(6, 're password must be 6 characters at min ')
+  .max(16, ' re password must be 16 characters at max ')
+  .required('re Password is required !')
+
+})
+
 
 const Register = () => {
   return (
@@ -42,7 +67,8 @@ const Register = () => {
           </p>
           
             <Formik
-              initialValues={{ name: "", password: "" }}
+              initialValues={initialValues}
+              validationSchema={validationSchema}
               onSubmit={({ setSubmitting }) => {
                 alert("Form is validated! Submitting the form");
                 setSubmitting(false);
@@ -51,8 +77,9 @@ const Register = () => {
               {() => (
                 <Form>
                   <div className="mt-10">
-                    <label htmlFor="fullName" className="block">Full Name</label>
-                    <Field type="text" name="fullName" placeholder="Enter Your Name" className="border p-2 w-4/5 rounded" />
+                    <label htmlFor="name" className="block">Full Name</label>
+                    <Field type="text" name="name" placeholder="Enter Your Name" className="border p-2 w-4/5 rounded" />
+                    <ErrorMessage className='text-red-600 mb-4' name='name' component='p'/>
                   </div>
                   <div className="mt-6">
                     <label htmlFor="email" className="block">Email</label>
@@ -62,8 +89,11 @@ const Register = () => {
                       className="border p-2 w-4/5 rounded"
                       placeholder="Enter Your Email"
                     />
+                    <ErrorMessage className='text-red-600 mb-4' name='email' component='p'/>
                   </div>
                   <Slect/>
+                
+                  
                   <div className="mt-6">
                     <label htmlFor="password" className="block">Pasword</label>
                     <Field
@@ -72,6 +102,7 @@ const Register = () => {
                       className="border p-2 w-4/5 rounded"
                       placeholder="Enter Your Password"
                     />
+                    <ErrorMessage className='text-red-600 mb-4' name='password' component='p'/>
                   </div>
                   <div className="mt-6">
                     <label htmlFor="rePassword" className="block">Confirm Pasword</label>
@@ -81,6 +112,7 @@ const Register = () => {
                       className="border p-2 w-4/5 rounded"
                       placeholder="Enter Your Confirm Password"
                     />
+                    <ErrorMessage className='text-red-600 mb-4' name='rePassword' component='p'/>
                   </div>
                   <div>
                     
