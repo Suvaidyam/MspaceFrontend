@@ -3,8 +3,8 @@ import React from 'react'
 const SideBar = () => {
   return (
     <>
-    <div className="flex items-center justify-center min-h-scree ">
-        <div className="w-[100%] p-6 bg-white rounded-2xl shadow-xl flex flex-col border">
+      <div className="flex items-center mt-12  justify-center min-h-scree  rounded">
+        <div className="w-[100%] p-6  ml-7  bg-white rounded-2xl shadow-xl flex flex-col  border">
           <div className="flex justify-between pb-4">
             <div className="-rotate-90 cursor-pointer">
               <svg width={12} height={7} viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
