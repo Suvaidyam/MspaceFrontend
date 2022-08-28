@@ -14,7 +14,7 @@ const Overview = () => {
             <h1 className="p-2  font-bold text-xs ml-1">Meeting Area 1 </h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>Capacity:4</h1>
           </div>
           <div className='flex justify-center py-2 '>
-            <button type="button" class="text-white  flex bg-[#3CCF4E]  focus:outline-none font-medium  text-sm px-16 ml-2 py-2 text-center mr-2 mb-2"><svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Book Space</span></button>
+            <button type="button" class="text-white  flex bg-[#3CCF4E]  focus:outline-none font-medium  text-sm px-14 ml-2 py-2 text-center mr-2 mb-2"><svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Book Space</span></button>
           </div>
         </div>
 
@@ -37,7 +37,7 @@ const Overview = () => {
             <h1 className="p-2  font-bold text-xs ml-1">Meeting Area 3 </h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>Capacity:4</h1>
           </div>
           <div className='flex justify-center py-2 '>
-            <button type="button" class="text-white  flex bg-[#3CCF4E]  focus:outline-none font-medium  text-sm px-16 ml-2 py-2 text-center mr-2 mb-2"><svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Book Space</span></button>
+            <button type="button" class="text-white  flex bg-[#3CCF4E]  focus:outline-none font-medium  text-sm px-14 ml-2 py-2 text-center mr-2 mb-2"><svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Book Space</span></button>
           </div>
         </div>
 
@@ -49,7 +49,7 @@ const Overview = () => {
             <h1 className="p-2  font-bold text-xs ml-1">Meeting Area 3 </h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>Capacity:4</h1>
           </div>
           <div className='flex justify-center py-2 '>
-            <button type="button" class="text-white  flex bg-[#3CCF4E]  focus:outline-none font-medium  text-sm px-16 ml-2 py-2 text-center mr-2 mb-2"><svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Book Space</span></button>
+            <button type="button" class="text-white  flex bg-[#3CCF4E]  focus:outline-none font-medium  text-sm px-14 ml-2 py-2 text-center mr-2 mb-2"><svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Book Space</span></button>
           </div>
         </div>
 
