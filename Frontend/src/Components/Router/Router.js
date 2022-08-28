@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import Navbar from '../Navbar/Navbar'
+import HomePage from '../HomeUI/HomePage'
 import {
   BrowserRouter,
   Routes,
@@ -16,7 +16,7 @@ const Router = () => {
         <Routes>
           <Route index element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/nav" element={<Navbar />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </BrowserRouter></>
   )
