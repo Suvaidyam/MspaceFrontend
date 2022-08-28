@@ -67,7 +67,7 @@ export default function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="bg-[#5800FF] p-1 rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#5800FF] focus:ring-white"
+                  className="bg-[#9CA3AF] p-1 rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#9CA3AF] focus:ring-white"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-8 w-8" aria-hidden="true" />
