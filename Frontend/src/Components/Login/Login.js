@@ -32,7 +32,7 @@ const Login = () => {
               .then((res) => {
                 sessionStorage.setItem('token',res.token)
                   console.log(res)
-                  navigate('/register')
+                  navigate('/home')
               })
               .catch((err) => {
                 console.log(err.message)
