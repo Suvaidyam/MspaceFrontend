@@ -9,10 +9,10 @@ const HomePage = () => {
     <>
       <Navbar />
       <div className='flex'>
-        <div className='w-[20%]'>
+        <div className='w-[23%]'>
           <SideBar />
         </div>
-        <div className='w-[80%] bg-slate-50'>
+        <div className='w-[77%] bg-slate-50'>
           <Overview />
         </div>
       </div>
