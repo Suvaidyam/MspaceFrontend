@@ -2,7 +2,6 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../../Assets/logo-1.png';
-import { Link } from "react-router-dom";
 
 const navigation = [
   { name: 'Overview', href: '#', current: true },
@@ -43,7 +42,7 @@ export default function Navbar() {
                 <div className="hidden md:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
+                      <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -53,7 +52,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -99,32 +98,32 @@ export default function Navbar() {
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <Link
-                            to="#"
+                          <a
+                            href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
-                          </Link>
+                          </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <Link
-                            to="#"
+                          <a
+                            href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
-                          </Link>
+                          </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <Link
-                            to="#"
+                          <a
+                            href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
-                          </Link>
+                          </a>
                         )}
                       </Menu.Item>
                     </Menu.Items>
