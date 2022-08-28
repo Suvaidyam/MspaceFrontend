@@ -6,6 +6,7 @@ import { ChevronDownIcon, FunnelIcon, Squares2X2Icon } from '@heroicons/react/20
 import Navbar from '../Navbar/Navbar'
 import Overview from './Overview/Overview'
 import SideBar from './LeftSideBar/SideBar'
+import Time from './LeftSideBar/Time'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -69,6 +70,7 @@ export default function HomePage() {
                     <form className="mt-4 border-t bg-gray-400 border-gray-200">
 
                       <SideBar />
+                      <Time />
 
 
                     </form>
@@ -92,6 +94,7 @@ export default function HomePage() {
 
 
                   <SideBar />
+                  <Time />
 
 
                 </form>
