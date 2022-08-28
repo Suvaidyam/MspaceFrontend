@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SlectCompany from "./AllCompany";
 import Logo from "../../Assets/logo.png";
-import blue from "../../Assets/blue-side.svg";
 import google from "../../Assets/google.png"
 import microsoft from "../../Assets/microsoft.png";
 import { Link } from "react-router-dom";
@@ -44,25 +43,27 @@ const Register = () => {
   return (
     <>
       <div className="lg:flex md:flex-none  m-auto  max-w-screen-2xl">
-        <div className="custom-tilled bg-[#5800FF]   lg:w-1/2 md:w-full flex flex-col  items-center justify-center">
+        <div className="custom-tilled bg-[#5800FF] relative  lg:w-1/2 md:w-full flex flex-col  items-center justify-center">
           <div className="custom-img absolute z-100"></div>
           <img
-            className="w-[23%] mt-[30px] z-0"
+            className="w-40 absolute top-8 left-16"
             src={Logo}
             alt="Logo"
           />
-          <div className="text-white ">
-            <p className="text-[24px]">Already Have An Account?</p>
-            <p className="text-[16px] mt-2">
-              Login to find a better space for yourselft?
-            </p>
-            <Link to="/" className="z-50">
-            <button type="button" className="border px-12  py-3 mt-5 rounded hover:bg-[#4501c3]">LOGIN</button>
-            </Link>
-          </div>
-          <div className="custom-img2 absolute overflow-hidden"></div>
+           <div className=" text-white md:p-0   min-h-full md:w-screen md:ml-0 md:mr-0 lg:mr-48 lg:ml-10 flex flex-col  items-center justify-center ">
+           <p className='text-xl' >Don't Have An Account</p>
+           <p className='text-sm mt-2'>Create a new account and find a better space for yourself</p>
+           <Link to="/">
+           <button
+          type="button"
+          className="group relative border-white flex  mb-3 justify-center py-3 px-12 mt-5 rounded-sm border border-transparent text-md font-normal  text-white  hover:bg-indigo-700 focus:outline-none "
+        >
+          SIGNUP
+        </button>
+        </Link>
         </div>
-        <div className=" lg:w-1/2 md:w-full flex flex-col  items-center justify-center">
+        </div>
+        <div className="lg:w-1/2 md:w-full flex flex-col  items-center justify-center">
           
           <h1 className="text-[36px] font-bold mt-10 lg:mx-5">
             Sign up for an Account
@@ -81,7 +82,7 @@ const Register = () => {
              
             >
               {() => (
-                <Form >
+                <Form className='px-3'>
                   <div className="mt-10 ">
                     <label htmlFor="name" className="block">Full Name</label>
                     <Field type="text" name="name" placeholder="Enter Your Name" className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
@@ -135,14 +136,15 @@ const Register = () => {
                   <input type="checkbox" name="remember-me" id="remember-me" />
                   <label htmlFor="remember-me"className="ml-2 block text-sm text-gray-900">I accept Mspace <b className="text-[#5800FF]">terms & condition</b></label>
                   </div>
-                  <button className="group relative w-full flex justify-center py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-[#5800FF] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">SIGNUP</button>
+                  <button className="group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm
+                   border border-transparent text-md font-medium  text-white bg-[#5800FF]
+                    hover:bg-indigo-700 ">SIGNUP</button>
                   <div className="mt-6 ">
                   <p className='text-center text-xs font-medium'>Or SignUp Using</p>
                   </div>
                   <div className="flex justify-center w-full mt-6 mb-6">
-                  <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex'> <img className="w-[20px] h-[20px] mr-3" src={google} alt="google" /><p> Contnue with Google</p></div>
-                  <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex'> <img className="w-[20px] h-[20px] mr-3" src={microsoft} alt="microsoft" /><p> Contnue with Microsoft</p></div>
-    
+                    <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex'> <img className="w-[20px] h-[20px] mr-3" src={google} alt="google" /><p> Contnue with Google</p></div>
+                    <div className='border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex'> <img className="w-[20px] h-[20px] mr-3" src={microsoft} alt="microsoft" /><p> Contnue with Microsoft</p></div>
                   </div>
                 </Form>
               )}
