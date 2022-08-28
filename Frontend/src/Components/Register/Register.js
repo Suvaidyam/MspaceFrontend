@@ -16,7 +16,7 @@ const initialValues = {
   // companyName:"",
   // companyCode:""
 };
-const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
+// const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
 const validationSchema = Yup.object({
   name: Yup.string().required("Full Name is required !"),
   email: Yup.string()
@@ -46,7 +46,7 @@ const Register = () => {
         <div className="custom-tilled bg-[#5800FF] relative  lg:w-1/2 md:w-full flex flex-col  items-center justify-center">
           <div className="custom-img absolute z-100"></div>
           <img className="w-40 absolute top-8 left-16" src={Logo} alt="Logo" />
-          <div className=" text-white md:p-0   min-h-full md:w-screen md:ml-0 md:mr-0 lg:mr-48 lg:ml-10 flex flex-col  items-center justify-center ">
+          <div className=" text-white md:p-0 min-h-full md:w-screen md:ml-0 md:mr-0 lg:mr-48 lg:ml-10 flex flex-col  items-center justify-center md:mt-28 sm:mt-28 xs:mt-28">
             <p className="text-xl">Don't Have An Account</p>
             <p className="text-sm mt-2">
               Create a new account and find a better space for yourself
@@ -116,7 +116,7 @@ const Register = () => {
 
                 <div className="mt-6">
                   <label htmlFor="password" className="block">
-                    Pasword
+                    Password
                   </label>
                   <Field
                     type="text"
@@ -157,7 +157,7 @@ const Register = () => {
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-900"
                   >
-                    I accept Mspace{" "}
+                    I accept Mspace
                     <b className="text-[#5800FF]">terms & condition</b>
                   </label>
                 </div>
@@ -174,9 +174,8 @@ const Register = () => {
                     Or SignUp Using
                   </p>
                 </div>
-                <div className="flex justify-center w-full mt-6 mb-6">
+                <div className="flex justify-center mt-6 mb-6">
                   <div className="border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex">
-                    {" "}
                     <img
                       className="w-[20px] h-[20px] mr-3"
                       src={google}
@@ -185,9 +184,8 @@ const Register = () => {
                     <p> Contnue with Google</p>
                   </div>
                   <div className="border-2 rounded-sm text-xs font-medium px-4 py-3 mx-2 flex">
-                    {" "}
                     <img
-                      className="w-[20px] h-[20px] mr-3"
+                      className="w-[20px]  h-[20px] mr-3"
                       src={microsoft}
                       alt="microsoft"
                     />
