@@ -17,7 +17,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
-          <div className="w-full mx-auto px-2 sm:px-6 lg:px-16">
+          <div className="w-full mx-auto px-2 sm:px-6 lg:px-14">
             <div className="relative flex items-center justify-between h-[70px]">
               <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                 {/* Mobile menu button*/}
