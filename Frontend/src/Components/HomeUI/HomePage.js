@@ -96,7 +96,7 @@ export default function HomePage() {
                 </form>
 
                 {/* Product grid */}
-                <div className="lg:col-span-3">
+                <div className="lg:col-span-3 ">
                   {/* Replace with your content */}
                   <div className=" h-full bg-white shadow-inner" >
                     <div className="relative z-10 mx-8 pt-2  flex items-baseline justify-between ">
