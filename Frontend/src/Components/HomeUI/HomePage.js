@@ -26,8 +26,8 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <div className=" w-full m-auto">
-        <div>
+      <div className=" w-full m-auto ">
+        <div className=''>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
             <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>
@@ -67,7 +67,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Filters */}
-                    <form className=" flex items-center flex-col justify-center mt-4 border-t border-gray-200">
+                    <form className="  flex items-center flex-col justify-center mt-4 border-t border-gray-200">
 
                       <SideBar />
                       <Time />
@@ -88,9 +88,9 @@ export default function HomePage() {
                 Products
               </h2>
 
-              <div className="flex justify-center  bg-gray-100 ">
+              <div className="flex justify-center shadow-inner   bg-slate-50 ">
                 {/* Filters */}
-                <form className="hidden lg:block w-[25%] border-r-4">
+                <form className="hidden lg:block w-[25%] shadow-inner">
                   <SideBar />
                   <Time />
                 </form>
@@ -98,8 +98,8 @@ export default function HomePage() {
                 {/* Product grid */}
                 <div className="lg:col-span-3">
                   {/* Replace with your content */}
-                  <div className=" h-full bg-[#fafafa]" >
-                    <div className="relative z-10 mx-8 pt-2 bg-[#fafafa] flex items-baseline justify-between border-gray-200">
+                  <div className=" h-full bg-white shadow-inner" >
+                    <div className="relative z-10 mx-8 pt-2  flex items-baseline justify-between ">
                       <h1 className="text-xl font-bold tracking-tight text-gray-900">Overview</h1>
 
                       <div className="flex items-center">
