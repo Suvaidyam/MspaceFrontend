@@ -1,5 +1,5 @@
 import "./register.css";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SlectCompany from "./AllCompany";
@@ -8,6 +8,7 @@ import google from "../../Assets/google.png";
 import microsoft from "../../Assets/microsoft.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ErrMessage from "../ErrorMessage/ErrMessage";
 
 const initialValues = {
   // name:'',
@@ -17,19 +18,19 @@ const initialValues = {
   // companyName:"",
   // companyCode:""
 };
-const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
+// const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
 const validationSchema = Yup.object({
-  name: Yup.string().required("Full Name is required !"),
-  email: Yup.string()
-    .email("Invailid email format ?")
-    .required("Email is required !"),
-  password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
-  .min(6, 'password must be 6 characters at min ')
-  .max(16, 'password must be 16 characters at max ')
-  .required('Password is required !'),
-  company: Yup.string(),
-  companyName: Yup.string().required("please Enter Company Name"),
-  companyCode: Yup.string().required("please Enter Company Code"),
+  // name: Yup.string().required("Full Name is required !"),
+  // email: Yup.string()
+  //   .email("Invailid email format ?")
+  //   .required("Email is required !"),
+  // password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
+  // .min(6, 'password must be 6 characters at min ')
+  // .max(16, 'password must be 16 characters at max ')
+  // .required('Password is required !'),
+  // company: Yup.string(),
+  // companyName: Yup.string().required("please Enter Company Name"),
+  // companyCode: Yup.string().required("please Enter Company Code"),
 });
 
 
@@ -38,35 +39,30 @@ const Register = () => {
   const [company , setCompany] = useState("");
   const [companyName , setcompanyName] = useState("");
   const [companyCode , setcompanyCode] = useState("");
-
+  const [errMessage , seterrMessage] = useState([]);
   const submit = (value) => {
     const {name , email , password  } = value;
-    let formData ={}
+    let formData ={name , email , password  }
     const postData =()=>{
       if(company === "newCompany"){
-        const submitValue ={
-          name:name,
-          email:email,
-          password:password,
+        Object.assign(formData, {
           companyName:companyName.toUpperCase(),
           companyCode:companyCode
-        };
-        formData=submitValue;
+        })
       }else{
-        const submitValue ={
-          name:name,
-          email:email,
-          password:password,
-          company:company
-        };
-        formData=submitValue;
+        Object.assign(formData, {
+          company
+        })
       }
     }
     postData();
     axios.post(`http://localhost:4000/auth/register`, formData).then((res)=>{
-      console.log(res.message)
+      console.log(res)
+      const{message}= res;
+      seterrMessage(message)
     }).catch((err)=>{
-      console.log(err)
+      console.log(err.response.data.message)
+      seterrMessage(err.message)
     });
   };
   const acceptTearmsCondition = (e)=>{
@@ -235,6 +231,7 @@ const Register = () => {
           </Formik>
         </div>
       </div>
+      <ErrMessage error={errMessage} />
     </>
   );
 };
