@@ -1,5 +1,5 @@
 import "./register.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SlectCompany from "./AllCompany";
@@ -7,6 +7,7 @@ import Logo from "../../Assets/logo.png";
 import google from "../../Assets/google.png";
 import microsoft from "../../Assets/microsoft.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const initialValues = {
   // name:'',
@@ -16,30 +17,62 @@ const initialValues = {
   // companyName:"",
   // companyCode:""
 };
-// const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
+const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
 const validationSchema = Yup.object({
   name: Yup.string().required("Full Name is required !"),
   email: Yup.string()
     .email("Invailid email format ?")
     .required("Email is required !"),
-  // password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
-  // .min(6, 'password must be 6 characters at min ')
-  // .max(16, 'password must be 16 characters at max ')
-  // .required('Password is required !'),
-  // rePassword: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
-  // .min(6, 're password must be 6 characters at min ')
-  // .max(16, ' re password must be 16 characters at max ')
-  // .required('re Password is required !'),
-  // company: Yup.string(),
-  // companyName: Yup.string().required("please Enter Company Name"),
-  // companyCode: Yup.string().required("please Enter Company Code"),
+  password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
+  .min(6, 'password must be 6 characters at min ')
+  .max(16, 'password must be 16 characters at max ')
+  .required('Password is required !'),
+  company: Yup.string(),
+  companyName: Yup.string().required("please Enter Company Name"),
+  companyCode: Yup.string().required("please Enter Company Code"),
 });
 
-const submit = (value) => {
-  console.log(value);
-};
+
 
 const Register = () => {
+  const [company , setCompany] = useState("");
+  const [companyName , setcompanyName] = useState("");
+  const [companyCode , setcompanyCode] = useState("");
+
+  const submit = (value) => {
+    const {name , email , password  } = value;
+    let formData ={}
+    const postData =()=>{
+      if(company === "newCompany"){
+        const submitValue ={
+          name:name,
+          email:email,
+          password:password,
+          companyName:companyName.toUpperCase(),
+          companyCode:companyCode
+        };
+        formData=submitValue;
+      }else{
+        const submitValue ={
+          name:name,
+          email:email,
+          password:password,
+          company:company
+        };
+        formData=submitValue;
+      }
+    }
+    postData();
+    axios.post(`http://localhost:4000/auth/register`, formData).then((res)=>{
+      console.log(res.message)
+    }).catch((err)=>{
+      console.log(err)
+    });
+  };
+  const acceptTearmsCondition = (e)=>{
+    console.log(e.target.checked)
+
+  }
   return (
     <>
       <div className="lg:flex md:flex-none  m-auto  max-w-screen-2xl">
@@ -112,7 +145,11 @@ const Register = () => {
                     component="p"
                   />
                 </div>
-                <SlectCompany />
+
+                <SlectCompany setCompany={setCompany}
+                setcompanyCode ={setcompanyCode}
+                setcompanyName={setcompanyName}
+                />
 
                 <div className="mt-6">
                   <label htmlFor="password" className="block">
@@ -152,7 +189,7 @@ const Register = () => {
                 </div>
                 <div></div>
                 <div className="flex mt-4">
-                  <input type="checkbox" name="remember-me" id="remember-me" />
+                  <input onChange={acceptTearmsCondition} type="checkbox" name="remember-me" id="remember-me" />
                   <label
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-900"
@@ -166,6 +203,7 @@ const Register = () => {
                   className="group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm
                    border border-transparent text-md font-medium  text-white bg-[#5800FF]
                     hover:bg-indigo-700 "
+                 
                 >
                   SIGNUP
                 </button>

@@ -19,6 +19,12 @@ const SlectCompany = (props) => {
    useEffect(()=>{
     getCompany()
    },[])
+    const getCompanyValue= (e) =>{
+      // console.log(e.target.value);
+      props.setCompany(e.target.value);
+      setcompanyId(e.target.value);
+    }
+
 
   //  console.log(companyData)
   return (
@@ -27,7 +33,7 @@ const SlectCompany = (props) => {
         <label htmlFor="company" className="block">
           Slect Company
         </label>
-        <Field value={companyId} onChange={(e)=>{setcompanyId(e.target.value)}} className=" rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
+        <Field value={companyId} onChange={getCompanyValue} className=" rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
              border-gray-300 placeholder-gray-500 text-gray-900 
              sm:text-sm" id="company" name="company" as="select">
           <option  value="">Select Company</option>
@@ -40,7 +46,9 @@ const SlectCompany = (props) => {
         </Field>
         <ErrorMessage className='text-red-600 mb-4' name='allCompany' component='p'/>
         {
-          companyId ==="newCompany" ? <Other/> : <></>
+          companyId ==="newCompany" ? <Other
+          setcompanyName={props.setcompanyName}
+          setcompanyCode={props.setcompanyCode}/> : <></>
         }
         
         
