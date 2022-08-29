@@ -5,13 +5,11 @@ const spaceBookingSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User',required:true }, // Reference of User schema
     companySpace: { type: mongoose.Schema.Types.ObjectId, ref: 'CompanySpace' , required:true}, // Reference of CompanySpace schema
     fromTime: {
-        // type: Date,
-        type: String,
+        type: Date,
         required: true
     },
     toTime: {
-        // type: Date,
-        type: String,
+        type: Date,
         required: true
     },
     participants: { type: mongoose.Schema.Types.ObjectId, ref: 'User',  default:[]},

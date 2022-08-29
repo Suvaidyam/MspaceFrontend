@@ -18,6 +18,7 @@ module.exports = {
     },
     create: async (req, res) => { 
         try {
+            const url = req.file?.path;
             let { code, spaceType, company, maxParticipant } = req.body;
             let companyspace = await CompanySpace.findOne({ code, spaceType });
             if (companyspace) {
@@ -26,7 +27,7 @@ module.exports = {
                 if(!code || !spaceType || !company || !maxParticipant){
                     return res.status(400).json({ message: "code , spaceType(SEAT, MEETING_ROOM) , maxParticipant and company(company_Id) is required" });
                 }
-                companyspace = await CompanySpace.create({code, spaceType, company ,maxParticipant });
+                companyspace = await CompanySpace.create({code, spaceType, company ,maxParticipant, url });
                 return res.status(200).json({ message: "Company Successfully Created", companyspace: companyspace });
             }
         } catch (error) {

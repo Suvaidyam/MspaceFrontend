@@ -19,6 +19,14 @@ const companySpaceSchema = new mongoose.Schema({
         type:Number,
         required: true,
         default:1,
+    },
+    url:{
+        type:String,
+        default:null
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
     }
 });
 
