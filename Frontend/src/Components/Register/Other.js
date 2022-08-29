@@ -1,7 +1,13 @@
 import React from 'react'
 import { Field, ErrorMessage } from "formik";
 
-const Other = () => {
+const Other = (props) => {
+    const getName = (e)=>{
+      props.setcompanyName(e.target.value)  
+    }
+    const getCode = (e)=>{
+      props.setcompanyCode(e.target.value)
+    }
   return (
     <>
     <div>
@@ -14,6 +20,7 @@ const Other = () => {
                       border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
                        focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Enter Your Company Name"
+                      onChange={getName}
                     />
                     <ErrorMessage className='text-red-600 mb-4' name='companyName' component='p'/>
                   </div>
@@ -26,6 +33,7 @@ const Other = () => {
                       border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
                        focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Enter Your Email"
+                      onChange={getCode}
                     />
                     <ErrorMessage className='text-red-600 mb-4' name='companyCode' component='p'/>
                   </div>
