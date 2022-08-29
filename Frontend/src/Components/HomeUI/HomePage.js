@@ -90,7 +90,7 @@ export default function HomePage() {
 
               <div className="flex justify-center  bg-gray-100 ">
                 {/* Filters */}
-                <form className="hidden lg:block border-r-4">
+                <form className="hidden lg:block w-[25%] border-r-4">
                   <SideBar />
                   <Time />
                 </form>
