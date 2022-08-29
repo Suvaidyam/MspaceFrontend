@@ -4,7 +4,7 @@ import Img from '../../../Assets/room.png'
 const Overview = () => {
   return (
     <>
-      <div className="flex justify-center items-center flex-wrap  bg-[#fafafa] ">
+      <div className="flex justify-center items-center flex-wrap  bg-[#fafafa] pb-8">
 
         <div className="w-[270px] h-[250px]  m-3 ml-8   bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">

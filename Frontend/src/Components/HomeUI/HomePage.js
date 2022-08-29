@@ -26,7 +26,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <div className="">
+      <div className=" w-full m-auto">
         <div>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -67,7 +67,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Filters */}
-                    <form className="mt-4 border-t bg-gray-400 border-gray-200">
+                    <form className=" flex items-center flex-col justify-center mt-4 border-t border-gray-200">
 
                       <SideBar />
                       <Time />
@@ -80,31 +80,27 @@ export default function HomePage() {
             </Dialog>
           </Transition.Root>
 
-          <main className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <main className="w-full mx-auto ">
 
 
-            <section aria-labelledby="products-heading" className=" pb-24">
+            <section aria-labelledby="products-heading" className=" ">
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-4 bg-gray-100 gap-x-8 gap-y-10">
+              <div className="flex justify-center  bg-gray-100 ">
                 {/* Filters */}
-                <form className="hidden lg:block  ">
-
-
+                <form className="hidden lg:block border-r-4">
                   <SideBar />
                   <Time />
-
-
                 </form>
 
                 {/* Product grid */}
                 <div className="lg:col-span-3">
                   {/* Replace with your content */}
-                  <div className=" h-full border-l-2 bg-[#fafafa]" >
-                    <div className="relative z-10 px-4 mr-3 pt-2 bg-[#fafafa] flex items-baseline justify-between border-gray-200">
-                      <h1 className="text-xl font-bold tracking-tight ml-6 text-gray-900">Overview</h1>
+                  <div className=" h-full bg-[#fafafa]" >
+                    <div className="relative z-10 mx-8 pt-2 bg-[#fafafa] flex items-baseline justify-between border-gray-200">
+                      <h1 className="text-xl font-bold tracking-tight text-gray-900">Overview</h1>
 
                       <div className="flex items-center">
                         <Menu as="div" className="relative inline-block text-left">
