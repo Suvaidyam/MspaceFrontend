@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import "flatpickr/dist/themes/material_green.css";
 
-const Calander = () => {
-  const [value, onChange] = useState(new Date());
-  console.log(value)
+import Flatpickr from "react-flatpickr";
+import { Component } from "react";
 
-  return (
-    <div className='flex   justify-center mt-12  px-4  '>
+class Calander extends Component {
+  constructor() {
+    super();
 
+    this.state = {
+      date: new Date()
 
-      <Calendar className="bg-white  items-center rounded-lg px-2 pb-2 shadow-lg border-spacing-16" onChange={onChange} value={value} />
+    };
+  }
 
-    </div>
-  );
+  render() {
+    const { date } = this.state;
+    console.log(date)
+    return (
+      <div className="flex justify-center items-center mt-12">
+        <label className="px-2">Date:</label>
+        <Flatpickr
+          className="py-2 px-3"
+          // data-enable-time
+          value={date}
+          onChange={([date]) => {
+            this.setState({ date });
+          }}
+        /></div>
+    );
+  }
 }
-
 export default Calander
