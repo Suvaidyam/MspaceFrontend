@@ -1,5 +1,5 @@
 import "./register.css";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SlectCompany from "./AllCompany";
@@ -9,74 +9,63 @@ import microsoft from "../../Assets/microsoft.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ErrMessage from "../ErrorMessage/ErrMessage";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-
 
 const initialValues = {
-  // name:'',
-  // email: '',
-  // password: '',
-  // company:"",
-  // companyName:"",
-  // companyCode:""
+  name: "",
+  email: "",
+  password: "",
 };
-// const passwordRegex = RegExp(/[A-Z]+[a-z]+@+[0-9]/);
 const validationSchema = Yup.object({
-  // name: Yup.string().required("Full Name is required !"),
-  // email: Yup.string()
-  //   .email("Invailid email format ?")
-  //   .required("Email is required !"),
-  // password: Yup.string().matches(passwordRegex,'One UpperCase ,LowerCase and Special ')
-  // .min(6, 'password must be 6 characters at min ')
-  // .max(16, 'password must be 16 characters at max ')
-  // .required('Password is required !'),
-  // company: Yup.string(),
-  // companyName: Yup.string().required("please Enter Company Name"),
-  // companyCode: Yup.string().required("please Enter Company Code"),
+  name: Yup.string().required("Full Name is required !"),
+  email: Yup.string()
+    .email()
+    .required("Email is required !"),
+    password: Yup.string().matches("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$",'Minimum eight characters, at least one letter and one number:'
+    )
+    .min(6, "password must be 6 characters at min ")
+    .max(16, "password must be 16 characters at max "),
 });
-
-
-
 const Register = () => {
   const navigate = useNavigate();
-  
-  const [company , setCompany] = useState("");
-  const [companyName , setcompanyName] = useState("");
-  const [companyCode , setcompanyCode] = useState("");
-  const [errMessage , seterrMessage] = useState([]);
+
+  const [company, setCompany] = useState("");
+  const [companyName, setcompanyName] = useState("");
+  const [companyCode, setcompanyCode] = useState("");
+  const [errMessage, seterrMessage] = useState([]);
+
   const submit = (value) => {
-    const {name , email , password  } = value;
-    let formData ={name , email , password  }
-    const postData =()=>{
-      if(company === "newCompany"){
+    const { name, email, password } = value;
+    let formData = { name, email, password };
+    const postData = () => {
+      if (company === "newCompany") {
         Object.assign(formData, {
-          companyName:companyName.toUpperCase(),
-          companyCode:companyCode
-        })
-      }else{
+          companyName: companyName.toUpperCase(),
+          companyCode: companyCode,
+        });
+      } else {
         Object.assign(formData, {
           company
-        })
+        });
       }
-    }
+    };
     postData();
-   
-    axios.post(`http://localhost:4000/auth/register`, formData).then((res)=>{
-      console.log(res)
-      console.log(res.data.message)
-      seterrMessage(res.data.message);
-      navigate('/home')
 
-    }).catch((err)=>{
-      console.log(err.response.data.message)
-      seterrMessage(err.response.data.message)
-    });
+    axios
+      .post(`http://localhost:4000/auth/register`, formData)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data.message);
+        seterrMessage(res.data.message);
+        navigate("/home");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        seterrMessage(err.response.data.message);
+      });
   };
-  const acceptTearmsCondition = (e)=>{
-    console.log(e.target.checked)
-
-  }
+  const acceptTearmsCondition = (e) => {
+    console.log(e.target.checked);
+  };
   return (
     <>
       <div className="lg:flex md:flex-none  m-auto  max-w-screen-2xl">
@@ -150,9 +139,10 @@ const Register = () => {
                   />
                 </div>
 
-                <SlectCompany setCompany={setCompany}
-                setcompanyCode ={setcompanyCode}
-                setcompanyName={setcompanyName}
+                <SlectCompany
+                  setCompany={setCompany}
+                  setcompanyCode={setcompanyCode}
+                  setcompanyName={setcompanyName}
                 />
 
                 <div className="mt-6">
@@ -193,7 +183,12 @@ const Register = () => {
                 </div>
                 <div></div>
                 <div className="flex mt-4">
-                  <input onChange={acceptTearmsCondition} type="checkbox" name="remember-me" id="remember-me" />
+                  <input
+                    onChange={acceptTearmsCondition}
+                    type="checkbox"
+                    name="remember-me"
+                    id="remember-me"
+                  />
                   <label
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-900"
@@ -207,7 +202,6 @@ const Register = () => {
                   className="group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm
                    border border-transparent text-md font-medium  text-white bg-[#5800FF]
                     hover:bg-indigo-700 "
-                 
                 >
                   SIGNUP
                 </button>
@@ -237,11 +231,9 @@ const Register = () => {
               </Form>
             )}
           </Formik>
-          
         </div>
         <ErrMessage error={errMessage} />
       </div>
-      
     </>
   );
 };
