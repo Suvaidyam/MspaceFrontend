@@ -20,10 +20,14 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email()
     .required("Email is required !"),
-    password: Yup.string().matches("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$",'Minimum eight characters, at least one letter and one number:'
-    )
-    .min(6, "password must be 6 characters at min ")
-    .max(16, "password must be 16 characters at max "),
+    password: Yup
+  .string()
+  .required('Password is required')
+  .min(5, 'Your password is too short.')
+  .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+  confirmpassword: Yup
+  .string()
+  .oneOf([Yup.ref('password'), null], 'Passwords must match')
 });
 const Register = () => {
   const navigate = useNavigate();
@@ -32,6 +36,8 @@ const Register = () => {
   const [companyName, setcompanyName] = useState("");
   const [companyCode, setcompanyCode] = useState("");
   const [errMessage, seterrMessage] = useState([]);
+  const [disable, setdisable] = useState(true);
+  const [buttonCheck, setbuttonCheck] = useState("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-indigo-400");
 
   const submit = (value) => {
     const { name, email, password } = value;
@@ -49,7 +55,6 @@ const Register = () => {
       }
     };
     postData();
-
     axios
       .post(`http://localhost:4000/auth/register`, formData)
       .then((res) => {
@@ -65,6 +70,13 @@ const Register = () => {
   };
   const acceptTearmsCondition = (e) => {
     console.log(e.target.checked);
+    if(e.target.checked === true){
+      setdisable(false)
+      setbuttonCheck("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-[#5800FF] hover:bg-indigo-100 ")
+    }else{
+      setdisable(true)
+      setbuttonCheck("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-indigo-400")
+    }
   };
   return (
     <>
@@ -164,12 +176,12 @@ const Register = () => {
                   />
                 </div>
                 <div className="mt-6">
-                  <label htmlFor="rePassword" className="block">
+                  <label htmlFor="confirmpassword" className="block">
                     Confirm Pasword
                   </label>
                   <Field
                     type="password"
-                    name="rePassword"
+                    name="confirmpassword"
                     className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
                       border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
                        focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -177,7 +189,7 @@ const Register = () => {
                   />
                   <ErrorMessage
                     className="text-red-600 mb-4"
-                    name="rePassword"
+                    name="confirmpassword"
                     component="p"
                   />
                 </div>
@@ -199,9 +211,9 @@ const Register = () => {
                 </div>
                 <button
                   type="submit"
-                  className="group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm
-                   border border-transparent text-md font-medium  text-white bg-[#5800FF]
-                    hover:bg-indigo-700 "
+                  className={buttonCheck}
+
+                    disabled={disable}
                 >
                   SIGNUP
                 </button>
