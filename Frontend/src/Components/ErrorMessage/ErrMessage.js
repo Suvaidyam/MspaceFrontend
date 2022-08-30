@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrMessage = (props) => {
   return (
-    <div>{props.error}</div>
+    <div className='absolute bg-red-600 text-white bottom-[-35%] rounded-none'>{props.error}</div>
   )
 }
 
