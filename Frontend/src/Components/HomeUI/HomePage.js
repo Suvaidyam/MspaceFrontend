@@ -70,7 +70,7 @@ export default function HomePage() {
                     <form className="  flex items-center flex-col justify-center mt-4 border-t border-gray-200">
 
                       <SideBar />
-                      <Time />
+                      {/* <Time /> */}
 
 
                     </form>
@@ -88,15 +88,15 @@ export default function HomePage() {
                 Products
               </h2>
 
-              <div className="flex justify-center shadow-inner   bg-slate-50 ">
+              <div className="flex justify-center shadow-inner  bg-slate-50 ">
                 {/* Filters */}
-                <form className="hidden lg:block w-[25%] shadow-inner">
+                <form className="hidden lg:block w-[22%] shadow-inner">
                   <SideBar />
-                  <Time />
+                  {/* <Time /> */}
                 </form>
 
                 {/* Product grid */}
-                <div className="lg:col-span-3  w-[80%]">
+                <div className="lg:col-span-3  w-[78%]">
                   {/* Replace with your content */}
                   <div className=" h-full bg-white shadow-inner" >
                     <div className="relative z-10 mx-8 pt-2  flex items-baseline justify-between ">
