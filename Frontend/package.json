@@ -13,11 +13,8 @@
     "react": "^18.2.0",
     "react-calendar": "^3.7.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
     "react-loading-skeleton": "^3.1.0",
-=======
     "react-flatpickr": "^3.10.13",
->>>>>>> a64cc58a255d456b9e7f97bc3ecd7742a714774d
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
