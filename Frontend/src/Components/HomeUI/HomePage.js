@@ -70,7 +70,7 @@ export default function HomePage() {
                     <form className="  flex items-center flex-col justify-center mt-4 border-t border-gray-200">
 
                       <SideBar />
-                      {/* <Time /> */}
+                      <Time />
 
 
                     </form>
@@ -92,7 +92,7 @@ export default function HomePage() {
                 {/* Filters */}
                 <form className="hidden lg:block w-[22%] shadow-inner">
                   <SideBar />
-                  {/* <Time /> */}
+                  <Time />
                 </form>
 
                 {/* Product grid */}

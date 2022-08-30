@@ -11,12 +11,13 @@ export default function Calander() {
   }
   return (
     <>
-      <div className="flex justify-center items-center px-2 my-2 border-none">
+      <div className="flex justify-center items-center px-3 my-4 shadow-transparent border-none">
         <Calendar
           className="px-3 py-3 border-none rounded-2xl shadow-inner"
           value={dateState}
           onChange={changeDate}
         />
+
       </div>
     </>
   )
