@@ -6,9 +6,12 @@ import SlectCompany from "./AllCompany";
 import Logo from "../../Assets/logo.png";
 import google from "../../Assets/google.png";
 import microsoft from "../../Assets/microsoft.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ErrMessage from "../ErrorMessage/ErrMessage";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const initialValues = {
   // name:'',
@@ -36,6 +39,8 @@ const validationSchema = Yup.object({
 
 
 const Register = () => {
+  const navigate = useNavigate();
+  
   const [company , setCompany] = useState("");
   const [companyName , setcompanyName] = useState("");
   const [companyCode , setcompanyCode] = useState("");
@@ -56,13 +61,16 @@ const Register = () => {
       }
     }
     postData();
+   
     axios.post(`http://localhost:4000/auth/register`, formData).then((res)=>{
       console.log(res)
-      const{message}= res;
-      seterrMessage(message)
+      console.log(res.data.message)
+      seterrMessage(res.data.message);
+      navigate('/home')
+
     }).catch((err)=>{
       console.log(err.response.data.message)
-      seterrMessage(err.message)
+      seterrMessage(err.response.data.message)
     });
   };
   const acceptTearmsCondition = (e)=>{
@@ -229,9 +237,11 @@ const Register = () => {
               </Form>
             )}
           </Formik>
+          
         </div>
+        <ErrMessage error={errMessage} />
       </div>
-      <ErrMessage error={errMessage} />
+      
     </>
   );
 };
