@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import React, { useRef } from "react";
+import Flatpickr from "react-flatpickr";
 
-const Calander = () => {
-  const [value, onChange] = useState(new Date());
-  console.log(value)
+import "flatpickr/dist/flatpickr.css";
+
+export default function Calander() {
+  const fp = useRef(null);
 
   return (
-    <div className='flex   justify-center mt-12  px-4  '>
-
-
-      <Calendar className="bg-white  items-center rounded-lg px-2 pb-2 shadow-lg border-spacing-16" onChange={onChange} value={value} />
-
+    <div>
+      <Flatpickr ref={fp} />
+      <button
+        type="button"
+        onClick={() => {
+          if (!fp?.current?.flatpickr) return;
+          fp.current.flatpickr.clear();
+        }}
+      >
+        Clear
+      </button>
     </div>
   );
 }
-
-export default Calander
