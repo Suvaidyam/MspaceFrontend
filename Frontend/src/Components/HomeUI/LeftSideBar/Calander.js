@@ -1,23 +1,33 @@
-import React, { useRef } from "react";
+import "flatpickr/dist/themes/material_green.css";
+
 import Flatpickr from "react-flatpickr";
+import { Component } from "react";
 
-import "flatpickr/dist/flatpickr.css";
+class Calander extends Component {
+  constructor() {
+    super();
 
-export default function Calander() {
-  const fp = useRef(null);
+    this.state = {
+      date: new Date()
 
-  return (
-    <div>
-      <Flatpickr ref={fp} />
-      <button
-        type="button"
-        onClick={() => {
-          if (!fp?.current?.flatpickr) return;
-          fp.current.flatpickr.clear();
-        }}
-      >
-        Clear
-      </button>
-    </div>
-  );
+    };
+  }
+
+  render() {
+    const { date } = this.state;
+    console.log(date)
+    return (
+      <div className="flex justify-center items-center mt-12">
+        <label className="px-2">Date:</label>
+        <Flatpickr
+          className="py-2 px-3"
+          // data-enable-time
+          value={date}
+          onChange={([date]) => {
+            this.setState({ date });
+          }}
+        /></div>
+    );
+  }
 }
+export default Calander
