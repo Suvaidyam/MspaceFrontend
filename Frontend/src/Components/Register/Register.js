@@ -72,7 +72,7 @@ const Register = () => {
     console.log(e.target.checked);
     if(e.target.checked === true){
       setdisable(false)
-      setbuttonCheck("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-[#5800FF] hover:bg-indigo-100 ")
+      setbuttonCheck("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-[#5800FF]")
     }else{
       setdisable(true)
       setbuttonCheck("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-indigo-400")
