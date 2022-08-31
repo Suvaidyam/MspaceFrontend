@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+
+.react-calendar__tile--active {
+    background-color: #5800FF;
+    color: white;
+}
+
+
+
+@tailwind utilities;
