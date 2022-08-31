@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, ErrorMessage } from "formik";
-import FileUploder from '../FileUploder/FileUploder';
+// import FileUploder from '../FileUploder/FileUploder';
 
 const Other = (props) => {
     const getName = (e)=>{
