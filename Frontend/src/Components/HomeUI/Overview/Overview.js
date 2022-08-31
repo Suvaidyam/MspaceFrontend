@@ -58,11 +58,11 @@ const Overview = () => {
           </div>}
         </LoadingScreen>
       </div>
-      <div className="flex justify-center items-center flex-wrap   pb-8">
+      {/* <div className="flex justify-center items-center flex-wrap   pb-8">
 
         {cardInfo.map(renderCard)}
 
-      </div>
+      </div> */}
     </>
   )
 }
