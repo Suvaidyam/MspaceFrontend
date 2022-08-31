@@ -18,6 +18,8 @@ abbr {
 /* button {
     border-radius: 55px
 } */
-
+.react-calendar__navigation {
+    color: blue
+}
 
 @tailwind utilities;
