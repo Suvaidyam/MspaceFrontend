@@ -36,12 +36,17 @@ const Register = () => {
   const [companyName, setcompanyName] = useState("");
   const [companyCode, setcompanyCode] = useState("");
   const [errMessage, seterrMessage] = useState([]);
+  const [companyLogo, setcompanyLogo] = useState(null);
   const [disable, setdisable] = useState(true);
   const [buttonCheck, setbuttonCheck] = useState("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-indigo-400");
-
+  console.log(companyLogo)
   const submit = (value) => {
     const { name, email, password } = value;
+    // console.log(companyLogo)
     let formData = { name, email, password };
+    Object.assign(formData,{
+      companyLogo
+    })
     const postData = () => {
       if (company === "newCompany") {
         Object.assign(formData, {
@@ -53,6 +58,7 @@ const Register = () => {
           company
         });
       }
+      console.log(formData)
     };
     postData();
     axios
@@ -155,6 +161,7 @@ const Register = () => {
                   setCompany={setCompany}
                   setcompanyCode={setcompanyCode}
                   setcompanyName={setcompanyName}
+                  setcompanyLogo={setcompanyLogo}
                 />
 
                 <div className="mt-6">
