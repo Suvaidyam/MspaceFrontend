@@ -48,7 +48,9 @@ const SlectCompany = (props) => {
         {
           companyId ==="newCompany" ? <Other
           setcompanyName={props.setcompanyName}
-          setcompanyCode={props.setcompanyCode}/> : <></>
+          setcompanyCode={props.setcompanyCode}
+          setcompanyLogo={props.setcompanyLogo}
+          /> : <></>
         }
         
         
