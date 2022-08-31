@@ -1,14 +1,44 @@
-import React from 'react'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
-const Time = () => {
-    return (<>
-
-        <div className='mt-3 items-center justify-center flex flex-wrap w-[100%] px-0 lg:px-8'>
-            <button type="button" class=" px-[76px] py-3    flex mb-2 text-sm font-medium text-[#2ed341] focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"> <svg className=" w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> <span className='text-lg'>Find Space</span> </button>
-
-        </div>
-    </>
-    )
+function valuetext(value) {
+    return `${value}°C`;
 }
 
-export default Time
+export default function Time() {
+    const [value, setValue] = React.useState([20, 37]);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    return (
+        <>
+            <div className='justify-center items-center pb-1'>
+                <label for="first_name" class="block px-3  py-3  text-sm font-bold text-gray-700 dark:text-gray-300">Select Time</label>
+                <div className="flex gap-2  justify-center items-center px-3 ">
+
+                    <div>
+                        <input type="text" id="first_name" className="bg-white border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="From" required />
+                    </div>
+                    <div>
+
+                        <input type="text" id="last_name" className="bg-White border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="To" required />
+                    </div>
+                </div>
+            </div>
+
+
+            <Box className='flex justify-center items-center  px-3'>
+                <Slider
+                    getAriaLabel={() => 'Temperature range'}
+                    value={value}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    getAriaValueText={valuetext}
+                />
+            </Box>
+        </>
+    );
+}
