@@ -7,6 +7,17 @@
     color: white;
 }
 
+* {
+    border: none;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+/* button {
+    border-radius: 55px
+} */
 
 
 @tailwind utilities;

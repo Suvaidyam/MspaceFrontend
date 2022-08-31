@@ -7,6 +7,8 @@ import Navbar from '../Navbar/Navbar'
 import Overview from './Overview/Overview'
 import SideBar from './LeftSideBar/SideBar'
 import Time from './LeftSideBar/Time'
+import Findbtn from './LeftSideBar/Findbtn'
+
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -71,6 +73,7 @@ export default function HomePage() {
 
                       <SideBar />
                       <Time />
+                      <Findbtn />
 
 
                     </form>
@@ -93,6 +96,8 @@ export default function HomePage() {
                 <form className="hidden lg:block w-[22%] shadow-inner">
                   <SideBar />
                   <Time />
+                  <Findbtn />
+
                 </form>
 
                 {/* Product grid */}
