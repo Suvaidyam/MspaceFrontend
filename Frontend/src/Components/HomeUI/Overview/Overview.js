@@ -9,7 +9,7 @@ const Overview = () => {
       .then((res) => {
 
         setcardInfo(res.data.companyspace)
-        console.log(setcardInfo)
+        console.log(res.data.companyspace)
       })
   }
 
@@ -24,7 +24,7 @@ const Overview = () => {
 
         <div className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  m-3 ml-8   bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
-            <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={card.url} alt />
+            <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={`http://localhost:4000/${card.url}`} alt />
           </a>
           <div className='justify-between flex'>
             <h1 className="p-2  font-bold text-xs ml-1">Meeting Room {card.code}</h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>capacity: {card.maxParticipant}</h1>
