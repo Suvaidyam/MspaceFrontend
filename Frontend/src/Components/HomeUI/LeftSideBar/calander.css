@@ -22,4 +22,9 @@ abbr {
     color: blue
 }
 
+.react-calendar__navigation button {
+    min-width: 20px;
+    background: none;
+}
+
 @tailwind utilities;
