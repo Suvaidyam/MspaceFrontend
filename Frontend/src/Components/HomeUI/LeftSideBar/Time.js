@@ -92,7 +92,25 @@ export default function Time() {
         }else if(value[0] === 14){
             setfromTime("02:00 Pm")
         }else if(value[0] === 14.5){
-            setfromTime("02:50 Pm")
+            setfromTime("02:30 Pm")
+        }else if(value[0] === 15){
+            setfromTime("03:00 Pm")
+        }else if(value[0] === 15.5){
+            setfromTime("03:30 Pm")
+        }else if(value[0] === 16){
+            setfromTime("04:00 Pm")
+        }else if(value[0] === 16.5){
+            setfromTime("04:30 Pm")
+        }else if(value[0] === 17){
+            setfromTime("05:00 Pm")
+        }else if(value[0] === 17.5){
+            setfromTime("05:30 Pm")
+        }else if(value[0] === 18){
+            setfromTime("06:00 Pm")
+        }else if(value[0] === 18.5){
+            setfromTime("06:30 Pm")
+        }else if(value[0] === 19){
+            setfromTime("07:00 Pm")
         }
     }
     
