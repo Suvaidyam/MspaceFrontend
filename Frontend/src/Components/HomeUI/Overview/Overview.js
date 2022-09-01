@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Popup from '../../CreateSpace/Popup'
 
 const Overview = (props) => {
 
@@ -43,6 +44,7 @@ const Overview = (props) => {
         {cardInfo.map(renderCard)}
 
       </div>
+      <Popup/>
     </>
   )
 }
