@@ -5,6 +5,7 @@ import HomePage from '../HomeUI/HomePage'
 import CreateSpace from '../CreateSpace/CreateSpace';
 import MyBooking from '../MyBooking/MyBooking';
 import Profile from '../Profile/Profile';
+import TermsCondition from '../TermsCondition/TermsCondition'
 import {
   BrowserRouter,
   Routes,
@@ -19,6 +20,8 @@ const Router = () => {
         <Routes>
           <Route index element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/register/termsCondition" element={<TermsCondition />} />
+
           <Route path="/home" element={<HomePage />} />
           <Route path="/space" element={<CreateSpace />} />
           <Route path="/MyBooking" element={<MyBooking />} />
