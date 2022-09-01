@@ -3,6 +3,7 @@ import { Dialog, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 
+
 import Navbar from '../Navbar/Navbar'
 import Overview from './Overview/Overview'
 import SideBar from './LeftSideBar/SideBar'
@@ -28,6 +29,12 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
+
+
+
+
+
+      {/* liuhyijluk;, */}
       <div className=" w-full m-auto ">
         <div className=''>
           {/* Mobile filter dialog */}
@@ -104,7 +111,7 @@ export default function HomePage() {
                 <div className="lg:col-span-3  w-[78%]">
                   {/* Replace with your content */}
                   <div className=" h-full bg-white shadow-inner" >
-                    <div className="relative z-10 mx-8 pt-2  flex items-baseline justify-between ">
+                    <div className="relative z-10  pt-2 px-12 flex items-baseline justify-between ">
                       <h1 className="text-xl font-bold tracking-tight text-gray-900">Overview</h1>
 
                       <div className="flex items-center">
@@ -165,6 +172,7 @@ export default function HomePage() {
                         </button>
                       </div>
                     </div>
+
                     <Overview />
                   </div>
 

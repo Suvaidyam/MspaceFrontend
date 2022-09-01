@@ -22,9 +22,9 @@ const Overview = () => {
     const { id } = card
     return (
 
-      <div className="flex justify-center items-center mt-3 flex-wrap  ">
+      <div className="flex justify-center items-center  flex-wrap py-3 ">
 
-        <div key={id} className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  m-3 ml-8   bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div key={id} className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  justify-around mx-9   bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={`http://localhost:4000/${card.url}`} alt />
           </a>
