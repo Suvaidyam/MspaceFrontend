@@ -16,15 +16,15 @@ export default function Time() {
     return (
         <>
             <div className='justify-center items-center pb-1'>
-                <label for="first_name" class="block px-3  py-3  text-sm font-bold text-gray-700 dark:text-gray-300">Select Time</label>
+                <label className="block px-3  py-3  text-sm font-bold text-gray-700 dark:text-gray-300">Select Time</label>
                 <div className="flex gap-2  justify-center items-center px-3 ">
 
                     <div>
-                        <input type="time" id="first_name" className="bg-white border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="From" required />
+                        <input type="text" id="first_name" className="bg-white border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="From" required />
                     </div>
                     <div>
 
-                        <input type="time" id="last_name" className="bg-White border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="To" required />
+                        <input type="text" id="last_name" className="bg-White border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="To" required />
                     </div>
                 </div>
             </div>

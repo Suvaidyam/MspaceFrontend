@@ -2,7 +2,7 @@ import React from 'react'
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import HomePage from '../HomeUI/HomePage'
-import CreateSpace from '../CreateSpace/CreateSpace';
+import Popup from '../CreateSpace/Popup';
 import {
   BrowserRouter,
   Routes,
@@ -18,7 +18,7 @@ const Router = () => {
           <Route index element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/space" element={<CreateSpace />} />
+          <Route path="/space" element={<Popup />} />
         </Routes>
       </BrowserRouter></>
   )
