@@ -2,10 +2,11 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../../Assets/logo-1.png';
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: 'Overview', href: '#', current: true },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Overview', to: '/home', current: true },
+  { name: 'MyBooking', to:'/MyBooking', current: false },
 ]
 
 function classNames(...classes) {
@@ -14,7 +15,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav" className="bg-white shadow-md">
       {({ open }) => (
         <>
           <div className="w-full mx-auto px-2 sm:px-6 lg:px-14">
@@ -42,9 +43,9 @@ export default function Navbar() {
                 <div className="hidden md:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current ? ' text-[#5800FF] font-bold text-base' : 'text-gray-600 ',
                           'px-3 py-3 text-base font-medium'
@@ -52,7 +53,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -98,32 +99,22 @@ export default function Navbar() {
                     <Menu.Items className="origin-top-right absolute  z-20 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="/profile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                          to="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -139,7 +130,7 @@ export default function Navbar() {
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  href={item.href}
+                  to={item.to}
                   className={classNames(
                     item.current ? 'bg-gray-200 text-[#5800FF] hover:bg-[#5800FF] hover:text-white' : 'text-gray-300 hover:bg-[#5800FF] hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
