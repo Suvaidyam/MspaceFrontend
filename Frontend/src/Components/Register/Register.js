@@ -67,7 +67,7 @@ const Register = () => {
         console.log(res);
         console.log(res.data.message);
         seterrMessage(res.data.message);
-        navigate("/home");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.response.data.message);
@@ -213,7 +213,7 @@ const Register = () => {
                     className="ml-2 block text-sm text-gray-900"
                   >
                     I accept Mspace
-                    <b className="text-[#5800FF]">terms & condition</b>
+                    <b className="text-[#5800FF]"><Link to="termsCondition"> terms & condition</Link></b>
                   </label>
                 </div>
                 <button
