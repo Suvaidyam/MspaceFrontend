@@ -30,9 +30,16 @@ const Login = () => {
                  
               )
               .then((res) => {
-                sessionStorage.setItem('token',res.token)
-                  console.log(res)
-                  navigate('/home')
+                sessionStorage.setItem('token', res.data.token)
+                // console.log(res.data.token)
+                  if(res.data.token){
+                    // const token = sessionStorage.getItem(token);
+                    console.log(res.data.token)
+                    navigate('/home')
+                  }else{
+                    console.log("unauthorized")
+                    
+                  }
               })
               .catch((err) => {
                 console.log(err.message)
