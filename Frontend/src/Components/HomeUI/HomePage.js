@@ -9,6 +9,7 @@ import Overview from './Overview/Overview'
 import SideBar from './LeftSideBar/SideBar'
 import Time from './LeftSideBar/Time'
 import Findbtn from './LeftSideBar/Findbtn'
+import add from '../../Assets/add-circle.svg'
 
 
 const sortOptions = [
@@ -173,7 +174,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <Overview />
+                    <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'}/>
                   </div>
 
                 </div>
