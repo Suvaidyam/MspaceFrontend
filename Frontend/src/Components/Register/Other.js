@@ -38,11 +38,11 @@ const Other = (props) => {
                     />
                     <ErrorMessage className='text-red-600 mb-4' name='companyCode' component='p'/>
                   </div>
-                  <div className="mt-6">
+                  {/* <div className="mt-6">
                     <label htmlFor="companyCode" className="block">Company Logo</label>
-                    {/* <FileUploder setcompanyLogo={props.setcompanyLogo}/> */}
+                    <FileUploder setcompanyLogo={props.setcompanyLogo}/>
                     <ErrorMessage className='text-red-600 mb-4' name='companyCode' component='p'/>
-                  </div>
+                  </div> */}
                   
                   </div>
     </>
