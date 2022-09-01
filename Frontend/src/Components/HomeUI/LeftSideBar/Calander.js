@@ -14,10 +14,7 @@ export default function Calander() {
     <>
       <div>
 
-        <h1 className='px-3 font-bold text-lg py-3'>Book Spaces</h1>
-        <h1 className='px-3 font-bold text-gray-700 text-sm pb-3 '>Select Date</h1>
-
-        <div className="flex justify-center items-center px-3  shadow-transparent border-none">
+        <div className="flex justify-center items-center px-3 pt-5  shadow-transparent border-none">
 
           <Calendar
             className="px-3   py-3 border-none shadow-transparent rounded "
