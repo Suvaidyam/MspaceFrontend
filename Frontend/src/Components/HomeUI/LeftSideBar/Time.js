@@ -66,6 +66,7 @@ export default function Time() {
     const [toTime, settoTime] = React.useState(18);
 
     const handleChange = (event, newValue) => {
+        console.log(event.target.value[0])
         setValue(newValue);
         // setfromTime(value[0])
         settoTime(value[1])
@@ -82,13 +83,16 @@ export default function Time() {
             setfromTime("11:30 Am")
         }else if(value[0] === 12){
             setfromTime("12:00 Pm")
-        }
-        else if(value[0] === 12){
-            setfromTime("12:00 Pm")
+        }else if(value[0] === 12.5){
+            setfromTime("12:30 Pm")
         }else if(value[0] === 13){
             setfromTime("01:00 Pm")
+        }else if(value[0] === 13.5){
+            setfromTime("01:30 Pm")
         }else if(value[0] === 14){
-            setfromTime("02:30 Am")
+            setfromTime("02:00 Pm")
+        }else if(value[0] === 14.5){
+            setfromTime("02:50 Pm")
         }
     }
     
