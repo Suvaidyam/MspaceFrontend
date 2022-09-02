@@ -26,6 +26,16 @@ filter: blur(40px);
 .custom-tilled{
     clip-path: polygon(0 0, 88% 0, 58% 100%, 0% 100%);
 }
+.notice {
+    color: white;
+    font-size: 20px;
+    display: inline;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 5px;
+    background-color: black;
+}
 @media (max-width:1024px){
     .custom-tilled{
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
