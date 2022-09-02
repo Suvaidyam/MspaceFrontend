@@ -101,7 +101,7 @@ export default function HomePage() {
 
               <div className="flex justify-center shadow-inner  bg-slate-50 ">
                 {/* Filters */}
-                <form className="hidden lg:block w-[22%] shadow-inner">
+                <form className="hidden h-full lg:block w-[22%] shadow-inner">
                   <SideBar />
                   <Time />
                   <Findbtn />
@@ -118,7 +118,7 @@ export default function HomePage() {
                       <div className="flex items-center">
                         <Menu as="div" className="relative inline-block text-left">
                           <div>
-                            <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                            <Menu.Button className="group  inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                               Sort
                               <ChevronDownIcon
                                 className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -137,7 +137,7 @@ export default function HomePage() {
                             leaveTo="transform opacity-0 scale-95"
                           >
                             <Menu.Items className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                              <div className="py-1">
+                              <div className="py-1 ">
                                 {sortOptions.map((option) => (
                                   <Menu.Item key={option.name}>
                                     {({ active }) => (
@@ -173,8 +173,10 @@ export default function HomePage() {
                         </button>
                       </div>
                     </div>
+                    <div className="h-screen scrollbar-hide overflow-y-scroll box">
 
                     <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'}/>
+                    </div>
                   </div>
 
                 </div>

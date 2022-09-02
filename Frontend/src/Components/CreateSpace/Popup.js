@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Space from '../CreateSpace/CreateSpace'
+import icon from '../../Assets/add-circle.svg'
 
 
 
@@ -14,8 +15,8 @@ export default function Popup() {
 
   return (
     <div>
-      <div className='fixed w-full bottom-0  ml-[930px] mb-8'>
-        <Button className=' ' onClick={handleOpen}>click</Button>
+      <div className='bottom-16 right-12 fixed'>
+        <Button className=' bg-green-500' onClick={handleOpen}><img className='bg-blue-700 w-16 rounded-full' src={icon} alt="" /></Button>
       </div>
       <Modal
         open={open}
@@ -25,7 +26,7 @@ export default function Popup() {
       >
         <Box
 
-          className='absolute  bg-white my-4  left-96 '>
+          className='absolute  bg-white my-4  lg:left-[28%] md:left-[22%] sm:left-[16%] xs:left-[10%] xl:left-[32%] '>
           <Typography>
             <Space />
           </Typography>
