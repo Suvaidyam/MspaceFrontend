@@ -2,7 +2,6 @@ import React from 'react'
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import HomePage from '../HomeUI/HomePage'
-import CreateSpace from '../CreateSpace/CreateSpace';
 import MyBooking from '../MyBooking/MyBooking';
 import Profile from '../Profile/Profile';
 import TermsCondition from '../TermsCondition/TermsCondition'
@@ -23,7 +22,6 @@ const Router = () => {
           <Route path="/register/termsCondition" element={<TermsCondition />} />
 
           <Route path="/home" element={<HomePage />} />
-          <Route path="/space" element={<CreateSpace />} />
           <Route path="/MyBooking" element={<MyBooking />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
