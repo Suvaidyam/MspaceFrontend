@@ -7,21 +7,23 @@ let token = sessionStorage.getItem('token')
 const Overview = (props) => {
   const navigate = useNavigate();
 
-  // if(!token){
-  //   navigate('/')
-  //   console.log("unauthorize for home page")
-  // }
+  // token require for card render
+
   const [cardInfo, setcardInfo] = useState([])
   const getData = () => {
-    axios.get("http://localhost:4000/companyspace", {
-      headers: {
-        token
-      }
-    })
-      .then((res) => {
-        setcardInfo(res.data.companyspace)
-        console.log(res.data.companyspace)
+    if (localStorage.getItem('token')) {
+      axios.get("http://localhost:4000/companyspace", {
+        headers: {
+          token
+        }
       })
+        .then((res) => {
+          setcardInfo(res.data.companyspace)
+          console.log(res.data.companyspace)
+        })
+    } else {
+      console.log("unauthorize token is require")
+    }
   }
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const Overview = (props) => {
   const renderCard = (card) => {
     return (
 
-      <div className="flex  min-h-min justify-center items-center mt-3 flex-wrap  ">
+      <div className="flex   justify-center items-center mt-3 flex-wrap  ">
 
         <div className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  justify-between mx-9 mt-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
