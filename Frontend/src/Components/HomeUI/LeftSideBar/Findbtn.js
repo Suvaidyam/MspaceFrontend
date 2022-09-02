@@ -12,7 +12,7 @@ const Findbtn = () => {
 
 
                 </div>
-                <div className='mt-5'>
+                <div className='mt-3'>
 
                     <button type="button" class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-16 py-2.5 mr-2 mb-2 dark:bg-blue-600 shadow dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">FIND A SPACE</button>
                 </div>

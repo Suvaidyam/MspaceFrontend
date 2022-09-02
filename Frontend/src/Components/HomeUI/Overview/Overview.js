@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 let token = sessionStorage.getItem('token')
 const Overview = (props) => {
   const navigate = useNavigate();
- 
+
   // if(!token){
   //   navigate('/')
   //   console.log("unauthorize for home page")
   // }
   const [cardInfo, setcardInfo] = useState([])
   const getData = () => {
-    axios.get("http://localhost:4000/companyspace",{
+    axios.get("http://localhost:4000/companyspace", {
       headers: {
         token
       }
@@ -31,9 +31,9 @@ const Overview = (props) => {
   const renderCard = (card) => {
     return (
 
-      <div className="flex justify-center items-center mt-3 flex-wrap  ">
+      <div className="flex  min-h-min justify-center items-center mt-3 flex-wrap  ">
 
-        <div className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  m-3 ml-8   bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  justify-between mx-9 mt-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={`http://localhost:4000/${card.url}`} alt />
           </a>
@@ -54,7 +54,7 @@ const Overview = (props) => {
         {cardInfo.map(renderCard)}
 
       </div>
-      <Popup/>
+      <Popup />
     </>
   )
 }

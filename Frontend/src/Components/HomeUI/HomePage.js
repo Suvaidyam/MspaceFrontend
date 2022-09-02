@@ -29,14 +29,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar />
 
 
 
 
 
       {/* liuhyijluk;, */}
-      <div className=" w-full m-auto ">
+      <div className=" w-full m-auto  ">
+        <Navbar />
         <div className=''>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -63,7 +63,7 @@ export default function HomePage() {
                   leaveFrom="translate-x-0"
                   leaveTo="translate-x-full"
                 >
-                  <Dialog.Panel className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
+                  <Dialog.Panel className="ml-auto relative max-w-xs w-full  bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
                     <div className="px-4 flex items-center justify-between">
                       <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                       <button
@@ -91,7 +91,7 @@ export default function HomePage() {
             </Dialog>
           </Transition.Root>
 
-          <main className="w-full mx-auto ">
+          <main className="w-full  mx-auto ">
 
 
             <section aria-labelledby="products-heading" className=" ">
@@ -175,7 +175,7 @@ export default function HomePage() {
                     </div>
                     <div className="h-screen scrollbar-hide overflow-y-scroll box">
 
-                    <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'}/>
+                      <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
                     </div>
                   </div>
 

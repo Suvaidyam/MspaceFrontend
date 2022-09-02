@@ -4,7 +4,10 @@ import Calander from './Calander'
 const SideBar = () => {
   return (
     <>
-      <Calander/>
+      <div className="min-h-min">
+
+        <Calander />
+      </div>
     </>
   )
 }
