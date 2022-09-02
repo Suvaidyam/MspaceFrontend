@@ -76,14 +76,14 @@ const Profile = () => {
           <div className='mt-5'>
            <input type="text" id="code" value='Rahul Kumar' className="bg-gray-50 border border-gray-300
              text-gray-900 text-xl  focus:ring-blue-500 focus:border-blue-500 
-             block w-full p-2.5 py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+             block w-full p-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white " 
               placeholder="Enter your Seat Code" />
            </div>
            <div className='mt-3'>
            <input type="email" id="code" value='rahul.suvaidyam@gmail.com' className="bg-gray-50 border border-gray-300
              text-gray-900  text-xl focus:ring-blue-500 focus:border-blue-500 
-             block w-full p-2.5 py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+             block w-full p-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white " 
               placeholder="Enter your Seat Code" />
            </div>
