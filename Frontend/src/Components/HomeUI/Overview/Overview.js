@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import { useNavigate } from "react-router-dom";
 
-let token = sessionStorage.getItem('token')
+// let token = sessionStorage.getItem('token')
 const Overview = (props) => {
   const navigate = useNavigate();
  
-  if(!token){
-    navigate('/')
-    console.log("unauthorize for home page")
-  }
+  // if(!token){
+  //   navigate('/')
+  //   console.log("unauthorize for home page")
+  // }
   const [cardInfo, setcardInfo] = useState([])
   const getData = () => {
     axios.get("http://localhost:4000/companyspace",{
