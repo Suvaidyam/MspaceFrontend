@@ -73,6 +73,8 @@ export default function Time() {
         // settoTime(value[1])
         getFromTimeValue()  
         getToTimeValue()
+        console.log("from time",fromTime.slice(0, 5))
+        console.log("to time",toTime.slice(0, 5))
     };
     const getFromTimeValue = ()=>{
         if(value[0] === 10){
