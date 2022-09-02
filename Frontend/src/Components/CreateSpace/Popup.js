@@ -14,7 +14,9 @@ export default function Popup() {
 
   return (
     <div>
-      <Button className=' fixed ' onClick={handleOpen}>click</Button>
+      <div className='fixed w-full bottom-0  ml-[930px] mb-8'>
+        <Button className=' ' onClick={handleOpen}>click</Button>
+      </div>
       <Modal
         open={open}
         onClose={handleClose}
