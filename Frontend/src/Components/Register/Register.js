@@ -251,7 +251,7 @@ const Register = () => {
             )}
           </Formik>
         </div>
-        <ErrMessage error={errMessage} />
+        < ErrMessage error={errMessage} className = {"notice"}/>
       </div>
     </>
   );
