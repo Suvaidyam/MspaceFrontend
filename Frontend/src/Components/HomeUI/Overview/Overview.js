@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import { useNavigate } from "react-router-dom";
 
-// let token = sessionStorage.getItem('token')
+let token = sessionStorage.getItem('token')
 const Overview = (props) => {
   const navigate = useNavigate();
  
