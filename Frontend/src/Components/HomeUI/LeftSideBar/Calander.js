@@ -17,7 +17,7 @@ export default function Calander() {
         <div className="flex justify-center items-center px-3 pt-5  shadow-transparent border-none">
 
           <Calendar
-            className="px-3   py-3 border-none shadow-transparent rounded "
+            className="px-3    border-none shadow-transparent rounded "
             value={dateState}
             onChange={changeDate}
           />
