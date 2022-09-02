@@ -39,13 +39,13 @@ const CreateSpace = () => {
 
   return (
     <>
-      <div className="max-w-[1720px] m-auto  md:flex-none lg:flex">
+      <div className="max-w-[1720px] m-auto   md:flex-none lg:flex">
         <div className="col-1 min-h-full w-full ">
           <div className="min-h-full flex   items-center justify-center md:w-full lg:min-w-[550px]  ">
             <div className="max-w-lg px-3 w-full ">
               <div>
-                <img className=" h-12 mt-3 w-auto justify-center" src={Logo} alt="Workflow" />
-                <h1 className="mt-4  text-3xl tracking-tight font-semibold text-gray-900">
+                <img className=" h-12 pt-1 w-auto justify-center" src={Logo} alt="Workflow" />
+                <h1 className="mt-2  text-3xl tracking-tight font-semibold text-gray-900">
                   Create Space
                 </h1>
                 <h4 className="mt-2  text-md text-gray-600">
@@ -108,9 +108,9 @@ const CreateSpace = () => {
                       <option value="MEETING_ROOM">MEETING ROOM</option>
                     </select>
                   </div>
-                  <div className='mt-3'>
+                  <div className='mt-2 pb-2'>
                     <button type="submit" onClick={uploadFile} className="text-white bg-blue-700 hover:bg-blue-800 
-         font-medium  text-lg w-full  pt-4 text-center
+         font-medium  text-lg w-full  py-2 text-center
          dark:bg-blue-600 dark:hover:bg-blue-700 ">Create Space</button>
                   </div>
                 </div>
