@@ -66,7 +66,7 @@ const Profile = () => {
           <div className="h-56 w-60 border-2 bg-white">
             <img className='h-full p-1' src={proImg} alt="" />
           </div>
-            <p className='w-60 bg-white border-2 py-3 flex items-center justify-center'><span className='font-normal'>Hello,</span><span className='text-xl'>Rahul Kumar</span></p>
+            <p className='w-60 bg-white border-2 py-3 flex items-center justify-center'><span className='font-normal mt-1'>Hello,</span><span className='text-xl'>Rahul Kumar</span></p>
        </div>
 
        <div className="xl:w-[70%] lg-full ">
@@ -75,29 +75,29 @@ const Profile = () => {
           <p ><span className='text-xl font-medium'>Personal Information </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Edit</span></p>
           <div className='mt-5'>
            <input type="text" id="code" value='Rahul Kumar' className="bg-gray-50 border border-gray-300
-             text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 
+             text-gray-900 text-xl  focus:ring-blue-500 focus:border-blue-500 
              block w-full p-2.5 py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white " 
               placeholder="Enter your Seat Code" />
            </div>
            <div className='mt-3'>
            <input type="email" id="code" value='rahul.suvaidyam@gmail.com' className="bg-gray-50 border border-gray-300
-             text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 
+             text-gray-900  text-xl focus:ring-blue-500 focus:border-blue-500 
              block w-full p-2.5 py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white " 
               placeholder="Enter your Seat Code" />
            </div>
            <div className='mt-3'>
-            <button className='w-full bg-[#5800FF] py-2.5 text-lg hover:bg-[#3330E4]'>Sumbit</button>
+            <button className='w-full bg-[#5800FF] text-white py-2.5 text-xl hover:bg-[#3330E4]'>Sumbit</button>
            </div>
           
-           <p className='text-lg mt-5 text-[#5800FF] pb-2'>@ welcome to M-Space</p>
+           <p className='text-lg mt-5 text-[#5800FF] pb-2'>@ Welcome to M-Space</p>
           </div>
            <div className="b sm:w-1/2 xs:full xs:pl-2 sm:pl-0 flex flex-col mt-2 pr-2">
            <p ><span className='text-xl font-medium'>Your Page </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Exit</span></p>
             <button className="w-full py-2 mt-5 hover:text-[#5800FF] cursor-pointer px-3 bg-gray-200 text-xl flex justify-between">Logout <img src={logo} alt="" /></button>
             <button className="w-full py-2 mt-3 hover:text-[#5800FF] cursor-pointer px-3 bg-gray-200 text-lg flex justify-between" onClick={handleOpen}>Change Your Password <img src={logo} alt="" /></button>
-            <p className='mt-2'><span className='text-lg '>Company :</span><span className='text-[#5800FF] text-xl'> SUVAIDYAM</span> </p>
+            <p className='mt-2'><span className='text-xl '>Company :</span><span className='text-[#5800FF] text-xl'> SUVAIDYAM</span> </p>
            </div>
          </div>
        </div>
