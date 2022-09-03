@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import { useNavigate } from "react-router-dom";
 
-let token = sessionStorage.getItem('token')
+
 const Overview = (props) => {
   const navigate = useNavigate();
 
@@ -20,7 +20,10 @@ const Overview = (props) => {
         .then((res) => {
           setcardInfo(res.data.companyspace)
           console.log(res.data.companyspace)
-        })
+        }).catch((error) => {
+          console.log(error)
+        }
+        )
     } else {
       console.log("unauthorize token is require")
     }
