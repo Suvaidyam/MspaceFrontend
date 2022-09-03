@@ -11,4 +11,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.use('/', require('./Api'));
 
+app.get("*", (req, res) => {
+    res.send("404 page not get");
+  });
+
 app.listen(port, () => console.log(`app listening on port ${port}!`))
