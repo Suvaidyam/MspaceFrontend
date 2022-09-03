@@ -11,7 +11,7 @@ const Overview = (props) => {
 
   const [cardInfo, setcardInfo] = useState([])
   const getData = () => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem(token)) {
       axios.get("http://localhost:4000/companyspace", {
         headers: {
           token
@@ -20,7 +20,10 @@ const Overview = (props) => {
         .then((res) => {
           setcardInfo(res.data.companyspace)
           console.log(res.data.companyspace)
-        })
+        }).catch((error) => {
+          console.log(error)
+        }
+        )
     } else {
       console.log("unauthorize token is require")
     }
