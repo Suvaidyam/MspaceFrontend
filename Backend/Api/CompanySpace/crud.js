@@ -24,7 +24,7 @@ module.exports = {
     },
     create: async (req, res) => { 
         let {userType} = req.decoded
-        console.log(userType)
+        // console.log(userType)
         if(userType == "COMPANY_ADMIN"){
             try {
                 const url = req.file?.path;
