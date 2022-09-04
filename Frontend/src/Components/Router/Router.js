@@ -5,6 +5,7 @@ import HomePage from '../HomeUI/HomePage'
 import MyBooking from '../MyBooking/MyBooking';
 import Profile from '../Profile/Profile';
 import TermsCondition from '../TermsCondition/TermsCondition'
+import Error from '../404/Error';
 import {
   BrowserRouter,
   Routes,
@@ -24,6 +25,7 @@ const Router = () => {
           <Route path="/home" element={<HomePage />} />
           <Route path="/MyBooking" element={<MyBooking />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter></>
   )
