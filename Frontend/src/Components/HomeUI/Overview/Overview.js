@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import { useNavigate } from "react-router-dom";
-import Error from '../../404/Error'
+
 
 
 const Overview = (props) => {
@@ -12,7 +12,7 @@ const Overview = (props) => {
 
   const [cardInfo, setcardInfo] = useState([])
   useEffect(() => {
-    let token = localStorage.getItem('token')
+    let token = sessionStorage.getItem('token')
     if (token) {
       axios.get("http://localhost:4000/companyspace", {
         headers: {
@@ -28,7 +28,8 @@ const Overview = (props) => {
         )
 
     } else {
-      console.log('token required')
+      console.error('token is require');
+
     }
   }, [])
 

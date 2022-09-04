@@ -31,23 +31,14 @@ const Login = () => {
       )
       .then((res) => {
         console.log(res.data)
-        localStorage.setItem('token',(res.data.token))
+        sessionStorage.setItem('token', (res.data.token))
         if (res.data.token) {
           navigate('/home')
         } else {
           console.log("unauthorized")
 
         }
-        // sessionStorage.setItem('token', res.data.token)
-        // // console.log(res.data.token)
-        //   if(res.data.token){
-        //     // const token = sessionStorage.getItem(token);
-        //     console.log(res.data.token)
-        //     navigate('/home')
-        //   }else{
-        //     console.log("unauthorized")
 
-        //   }
       })
       .catch((err) => {
         console.log(err.message)
