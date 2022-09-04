@@ -14,7 +14,7 @@ export default function Popup() {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div >
       <div className='bottom-16 right-12 fixed'>
         <Button className=' bg-green-500' onClick={handleOpen}><img className='bg-blue-700 w-16 rounded-full' src={icon} alt="" /></Button>
       </div>
@@ -26,7 +26,7 @@ export default function Popup() {
       >
         <Box
 
-          className='absolute  bg-white my-4  lg:left-[28%] md:left-[22%] sm:left-[16%] xs:left-[10%] xl:left-[32%] '>
+          className='absolute  bg-white my-8  lg:left-[28%] md:left-[22%] sm:left-[16%] xs:left-[10%] xl:left-[32%] '>
           <Typography>
             <Space />
           </Typography>

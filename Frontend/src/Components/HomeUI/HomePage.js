@@ -77,7 +77,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Filters */}
-                    <form className="  flex items-center flex-col justify-center mt-4 border-t border-gray-200">
+                    <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200">
 
                       <SideBar />
                       <Time />
@@ -99,9 +99,9 @@ export default function HomePage() {
                 Products
               </h2>
 
-              <div className="flex justify-center shadow-inner  bg-slate-50 ">
+              <div className="flex justify-center shadow-inner  md:bg-slate-100 ">
                 {/* Filters */}
-                <form className="hidden h-full lg:block w-[22%] shadow-inner">
+                <form className="hidden  lg:block w-[22%] shadow-inner">
                   <SideBar />
                   <Time />
                   <Findbtn />
@@ -109,9 +109,9 @@ export default function HomePage() {
                 </form>
 
                 {/* Product grid */}
-                <div className="lg:col-span-3  w-[78%]">
+                <div className="lg:col-span-3   w-[78%]">
                   {/* Replace with your content */}
-                  <div className=" h-full bg-white shadow-inner" >
+                  <div className="  bg-white shadow-inner" >
                     <div className="relative z-10  pt-2 px-12 flex items-baseline justify-between ">
                       <h1 className="text-xl font-bold tracking-tight text-gray-900">Overview</h1>
 

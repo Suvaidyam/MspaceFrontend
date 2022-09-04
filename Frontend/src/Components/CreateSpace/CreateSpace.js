@@ -34,24 +34,25 @@ const CreateSpace = () => {
 
     let token = sessionStorage.getItem('token')
     console.log(token)
-    if(token){
+    if (token) {
       axios.post(`http://localhost:4000/companyspace`, data,
-    { headers: {
-        "token" : ` ${token}`
-      }
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
-    }else{
+        {
+          headers: {
+            "token": ` ${token}`
+          }
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
+    } else {
       console.log("token require")
     }
-    
+
   }
 
 
   return (
     <>
-      <div className="max-w-[1720px] m-auto   md:flex-none lg:flex">
+      <div className="max-w-[1720px] m-auto   py-8 md:flex-none lg:flex">
         <div className="col-1 min-h-full w-full ">
           <div className="min-h-full flex   items-center justify-center md:w-full lg:min-w-[550px]  ">
             <div className="max-w-lg px-3 w-full ">
