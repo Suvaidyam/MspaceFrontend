@@ -73,8 +73,8 @@ export default function Time() {
         // settoTime(value[1])
         getFromTimeValue()
         getToTimeValue()
-        console.log("from time",fromTime.slice(0, 5))
-        console.log("to time",toTime.slice(0, 5))
+        console.log("from time", fromTime.slice(0, 5))
+        console.log("to time", toTime.slice(0, 5))
     };
     const getFromTimeValue = () => {
         if (value[0] === 10) {
@@ -192,7 +192,7 @@ export default function Time() {
         <>
             <div className='justify-center items-center '>
                 <label className="block px-3  py-3  text-sm font-bold text-gray-700 dark:text-gray-300">Select Time</label>
-                <div className="flex gap-2  justify-center items-center px-3 ">
+                <div className="flex gap-3  justify-center items-center  px-3 ">
 
                     <div>
                         <input type="text" value={fromTime} readonly id="first_name" className="bg-white border shadow border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="From" required />
@@ -205,7 +205,7 @@ export default function Time() {
             </div>
 
 
-            <Box className='flex justify-center items-center mx-5'>
+            <Box className='flex justify-center items-center mx-5 py-1'>
                 <Slider
                     getAriaLabel={() => 'Temperature range'}
                     value={value}
