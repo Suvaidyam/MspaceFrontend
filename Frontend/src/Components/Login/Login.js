@@ -7,6 +7,7 @@ import axios from 'axios'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import { Link, useNavigate } from "react-router-dom";
+import visibility from '../../Assets/visibility.svg'
 
 
 
@@ -67,26 +68,26 @@ const Login = () => {
                 <Form className="mt-8 space-y-6" method="POST">
                   <div className="rounded-md shadow-sm -space-y-px">
                     <div>
-                      <label htmlFor="email" className="text-lg ">
+                      <label htmlFor="email" className="text-lg font-medium">
                         Email
                       </label>
                       <Field id="email" name="email" type="email" autoComplete="email"
-                        className="appearance-none rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
+                        className="appearance-none rounded-sm font-medium block w-full mb-2 px-3 mt-2 py-3 border
              border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none
               focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Enter your email" />
                       <ErrorMessage className='text-red-600 mb-4' name='email' component='p' />
                     </div>
                     <div className='relative'>
-                      <label htmlFor="password" className="text-lg">
+                      <label htmlFor="password" className="text-lg font-medium">
                         Password
                       </label>
                       <Field id="password" name="password" type="password" autoComplete="current-password"
-                        className="appearance-none mt-2 mb-2  rounded-sm  block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        className="appearance-none mt-2 mb-2 font-medium rounded-sm  block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Enter your Password" />
-                      <p className='absolute right-2 bottom-3 eye' id='eye'>Hide</p>
-                      <ErrorMessage className='text-red-600' name='password' id="error" component='p' />
+                      <p className='absolute right-2 bottom-3 cursor-pointer eye' id='eye'><img src={visibility} /></p>
                     </div>
+                      <ErrorMessage className='text-red-600' name='password' id="error" component='p' />
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
@@ -94,12 +95,12 @@ const Login = () => {
                         className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
                       <label htmlFor="remember-me"
                         className="ml-2 block text-sm text-gray-900" >
-                        Remember me
+                        Remember Me
                       </label>
                     </div>
                     <div className="text-sm">
                       <Link to="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                        Forgot your password? </Link>
+                        Forgot password? </Link>
                     </div>
                   </div>
                   <div>
