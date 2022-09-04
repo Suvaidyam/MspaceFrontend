@@ -5,7 +5,7 @@ module.exports = {
         // console.log(req.decoded.company)
         let condition = {}
         if(req.decoded.company){
-            condition['company'] = mongoose.Types.ObjectId(req.decoded.company) 
+            condition['company'] = mongoose.Types.ObjectId(req.decoded.company)
         }
         try {
             let companyspace = await CompanySpace.find(condition);
