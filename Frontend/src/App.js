@@ -1,11 +1,12 @@
 import Router from './Components/Router/Router';
-import Footer from './Components/Footer/Footer';
+// import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
     <>
-     <Router/>
-     <Footer/>
+      <Router />
+
+      {/* <Footer /> */}
     </>
   );
 }

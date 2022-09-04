@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import { useNavigate } from "react-router-dom";
+import Error from '../../404/Error'
 
 
 const Overview = (props) => {
@@ -10,36 +11,28 @@ const Overview = (props) => {
   // token require for card render
 
   const [cardInfo, setcardInfo] = useState([])
-  const getData = () => {
-
-    
-
-  }
-
   useEffect(() => {
-    let token = localStorage.getItem('token') 
+    let token = localStorage.getItem('token')
     if (token) {
-      axios.get("http://localhost:4000/companyspace",{
+      axios.get("http://localhost:4000/companyspace", {
         headers: {
-          "token" : ` ${token}`
+          "token": ` ${token}`
         }
       })
-      .then((res) => {
-        setcardInfo(res.data.companyspace)
-        console.log(res.data.companyspace)
-      }).catch((error) => {
-        console.log(error)
-      }
-      )
+        .then((res) => {
+          setcardInfo(res.data.companyspace)
+          console.log(res.data.companyspace)
+        }).catch((error) => {
+          console.log(error)
+        }
+        )
 
     } else {
-      console.log("token is required")
+      console.log('token required')
     }
   }, [])
 
-  useEffect(() => {
-    getData()
-  }, [])
+
 
   const renderCard = (card) => {
     return (
