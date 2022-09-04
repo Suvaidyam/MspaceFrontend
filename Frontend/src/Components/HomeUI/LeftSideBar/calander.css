@@ -17,7 +17,9 @@ abbr {
     border-radius: 55px
 } */
 .react-calendar__navigation {
-    color: blue
+    color: blue;
+
+    margin-bottom: 0;
 }
 
 .react-calendar__navigation button {

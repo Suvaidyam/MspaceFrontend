@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import './HomeUI.css'
 
 
 import Navbar from '../Navbar/Navbar'
@@ -99,9 +100,9 @@ export default function HomePage() {
                 Products
               </h2>
 
-              <div className="flex justify-center shadow-inner  md:bg-slate-100 ">
+              <div className="flex justify-center shadow-inner  bg-slate-100 ">
                 {/* Filters */}
-                <form className="hidden  lg:block w-[22%] shadow-inner">
+                <form className="hidden   lg:block w-[22%] shadow-inner">
                   <SideBar />
                   <Time />
                   <Findbtn />
@@ -109,7 +110,7 @@ export default function HomePage() {
                 </form>
 
                 {/* Product grid */}
-                <div className="lg:col-span-3   w-[78%]">
+                <div className="lg:col-span-3  bg-white   w-[78%]">
                   {/* Replace with your content */}
                   <div className="  bg-white shadow-inner" >
                     <div className="relative z-10  pt-2 px-12 flex items-baseline justify-between ">
@@ -173,7 +174,7 @@ export default function HomePage() {
                         </button>
                       </div>
                     </div>
-                    <div className="h-screen scrollbar-hide overflow-y-scroll box">
+                    <div className="h-screen scrollbar-hide bg-white  overflow-y-scroll box">
 
                       <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
                     </div>
