@@ -1,6 +1,12 @@
 const CompanySpace = require('../../Model/CompanySpace');
+const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
+        // console.log(req.decoded.company)
+        let condition = {}
+        if(req.decoded._id){
+            condition['company'] = mongoose.Types.ObjectId(req.decoded._id) 
+        }
         try {
             let companyspace = await CompanySpace.find();
             return res.status(200).json({ message: "companyspace List", companyspace: companyspace });

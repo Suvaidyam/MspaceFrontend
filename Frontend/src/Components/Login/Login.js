@@ -31,7 +31,7 @@ const Login = () => {
       )
       .then((res) => {
         console.log(res.data)
-        localStorage.setItem('token', JSON.stringify(res.data.token))
+        localStorage.setItem('token',(res.data.token))
         if (res.data.token) {
           navigate('/home')
         } else {

@@ -31,9 +31,21 @@ const CreateSpace = () => {
     data.append('company', Company)
     data.append('spaceType', spaceType)
     data.append('maxParticipant', maxParticipant)
-    axios.post(`http://localhost:4000/companyspace`, data)
+
+    let token = localStorage.getItem('token')
+    console.log(token)
+    if(token){
+      axios.post(`http://localhost:4000/companyspace`, data,
+    { headers: {
+        "token" : ` ${token}`
+      }
+    })
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
+    }else{
+      console.log("token require")
+    }
+    
   }
 
 

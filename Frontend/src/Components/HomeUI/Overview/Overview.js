@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import { useNavigate } from "react-router-dom";
 
-let token = localStorage.getItem('token')
+
 const Overview = (props) => {
   const navigate = useNavigate();
 
@@ -12,7 +12,18 @@ const Overview = (props) => {
   const [cardInfo, setcardInfo] = useState([])
   const getData = () => {
 
-    axios.get("http://localhost:4000/companyspace")
+    
+
+  }
+
+  useEffect(() => {
+    let token = localStorage.getItem('token') 
+    if (token) {
+      axios.get("http://localhost:4000/companyspace",{
+        headers: {
+          "token" : ` ${token}`
+        }
+      })
       .then((res) => {
         setcardInfo(res.data.companyspace)
         console.log(res.data.companyspace)
@@ -21,16 +32,10 @@ const Overview = (props) => {
       }
       )
 
-  }
-
-  // useEffect(() => {
-  //   if (token) {
-  //     getData()
-
-  //   } else {
-  //     console.log("token is required")
-  //   }
-  // }, [])
+    } else {
+      console.log("token is required")
+    }
+  }, [])
 
   useEffect(() => {
     getData()
