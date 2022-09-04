@@ -32,7 +32,7 @@ const CreateSpace = () => {
     data.append('spaceType', spaceType)
     data.append('maxParticipant', maxParticipant)
 
-    let token = localStorage.getItem('token')
+    let token = sessionStorage.getItem('token')
     console.log(token)
     if(token){
       axios.post(`http://localhost:4000/companyspace`, data,
@@ -94,20 +94,6 @@ const CreateSpace = () => {
              block w-full p-2.5 py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your Participant Number" />
-                  </div>
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900
-             dark:text-gray-300 pt-2">Choose Company*</label>
-                    <select onChange={(e) => setcompany(e.target.value)} className=" rounded-sm  block w-full mb-2 px-3 mt-2 py-3 border
-             border-gray-300 placeholder-gray-500 text-gray-900 
-             sm:text-sm" id="company" name="company" as="select">
-                      {company.map((e) => {
-                        const { _id } = e
-                        return <option key={_id} value={e._id}>{e.name}</option>;
-                      })}
-                      <option value="">Select Company</option>
-                      <option value="newCompany">New Company</option>
-                    </select>
                   </div>
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900

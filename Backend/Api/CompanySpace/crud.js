@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
         console.log(req.decoded)
-        let condition = {}
-        if(req.decoded._id){
-            condition['company'] = mongoose.Types.ObjectId(req.decoded._id) 
-        }
+        // let condition = {}
+        // if(req.decoded._id){
+        //     condition['company'] = mongoose.Types.ObjectId(req.decoded._id) 
+        // }
+        
         try {
             let companyspace = await CompanySpace.find();
             return res.status(200).json({ message: "companyspace List", companyspace: companyspace });
@@ -28,13 +29,14 @@ module.exports = {
         if(userType == "COMPANY_ADMIN"){
             try {
                 const url = req.file?.path;
-                let { code, spaceType, company, maxParticipant } = req.body;
+                let {company} = req.decoded
+                let { code, spaceType, maxParticipant } = req.body;
                 let companyspace = await CompanySpace.findOne({ code, spaceType });
                 if (companyspace) {
                     return res.status(400).json({ message: "companyspace is already exists" });
                 } else {
-                    if(!code || !spaceType || !company || !maxParticipant){
-                        return res.status(400).json({ message: "code , spaceType(SEAT, MEETING_ROOM) , maxParticipant and company(company_Id) is required" });
+                    if(!code || !spaceType || !maxParticipant){
+                        return res.status(400).json({ message: "code , spaceType(SEAT, MEETING_ROOM) , maxParticipant is required" });
                     }
                     companyspace = await CompanySpace.create({code, spaceType, company ,maxParticipant, url });
                     return res.status(200).json({ message: "Company Successfully Created", companyspace: companyspace });
@@ -52,8 +54,9 @@ module.exports = {
         let {userType} = req.decoded
         if(userType == "COMPANY_ADMIN"){
             try {
-                let { code, spaceType, company, maxParticipant } = req.body;
-                let companyspace = await CompanySpace.updateOne(req.params, { code, spaceType, company, maxParticipant });
+                // let {company} = req.decoded
+                let { code, spaceType, maxParticipant } = req.body;
+                let companyspace = await CompanySpace.updateOne(req.params, { code, spaceType, maxParticipant });
                 // console.log(req.params)
                 return res.status(200).json({ message: "CompanySpace Successfully Updated", companyspace: companyspace });
             } catch (error) {
@@ -69,6 +72,7 @@ module.exports = {
         let {userType} = req.decoded
         if(userType == "COMPANY_ADMIN"){
             try {
+                
                 const companyspace = await CompanySpace.deleteOne(req.params); 
                 return res.json(companyspace);
             } catch (error) {
