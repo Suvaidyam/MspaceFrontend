@@ -8,8 +8,6 @@ import './HomeUI.css'
 import Navbar from '../Navbar/Navbar'
 import Overview from './Overview/Overview'
 import SideBar from './LeftSideBar/SideBar'
-import Time from './LeftSideBar/Time'
-import Findbtn from './LeftSideBar/Findbtn'
 import add from '../../Assets/add-circle.svg'
 
 
@@ -27,6 +25,11 @@ function classNames(...classes) {
 
 export default function HomePage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  
+
+  // get date from date component
+  // const [bookingDate, setbookingDate]=useState(null)
+  
 
   return (
     <>
@@ -80,9 +83,8 @@ export default function HomePage() {
                     {/* Filters */}
                     <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200">
 
-                      <SideBar />
-                      <Time/>
-                      <Findbtn />
+                      <SideBar/>
+                   
 
 
                     </form>
@@ -104,8 +106,6 @@ export default function HomePage() {
                 {/* Filters */}
                 <form className="hidden   lg:block w-[22%] shadow-inner">
                   <SideBar />
-                  <Time />
-                  <Findbtn />
 
                 </form>
 
