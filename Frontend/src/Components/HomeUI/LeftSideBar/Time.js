@@ -60,21 +60,21 @@ const marks = [
     },
 ];
 
-export default function Time() {
+export default function Time(props) {
     const [value, setValue] = React.useState([10, 18]);
     const [fromTime, setfromTime] = React.useState("10:00 Am");
     const [toTime, settoTime] = React.useState("06:00 Pm");
 
     const handleChange = (event, newValue) => {
-        // console.log(event.target.value[0])
+        props.setbookingTime(event.target.value)
         setValue(newValue);
         // console.log(newValue)
         // setfromTime(value[0])
         // settoTime(value[1])
         getFromTimeValue()
         getToTimeValue()
-        console.log("from time", fromTime.slice(0, 5))
-        console.log("to time", toTime.slice(0, 5))
+        // console.log("from time", fromTime.slice(0, 5))
+        // console.log("to time", toTime.slice(0, 5))
     };
     const getFromTimeValue = () => {
         if (value[0] === 10) {

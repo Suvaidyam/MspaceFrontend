@@ -4,11 +4,16 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import './calander.css'
 
-export default function Calander() {
+export default function Calander(props) {
   const [dateState, setDateState] = useState(new Date())
-  console.log(dateState)
-  const changeDate = (e) => {
-    setDateState(e)
+  // console.log(dateState)
+  
+  
+  const changeDate = (event) => {
+    setDateState(event)
+    // console.log(event)
+    props.setbookingDate(event)
+   
   }
   return (
     <>
