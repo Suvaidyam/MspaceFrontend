@@ -81,7 +81,7 @@ export default function HomePage() {
                     <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200">
 
                       <SideBar />
-                      <Time />
+                      <Time/>
                       <Findbtn />
 
 
