@@ -19,10 +19,8 @@
     "react-drag-drop-files": "^2.3.7",
     "react-flatpickr": "^3.10.13",
     "react-loading-screen": "^0.0.17",
-    "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "redux": "^4.2.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
