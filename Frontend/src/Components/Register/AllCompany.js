@@ -40,7 +40,7 @@ const SlectCompany = (props) => {
            
           {company.map((ab) => {
             const {_id} = ab
-            return <option key={_id} value={ab._id}>{ab.name}</option>;
+            return <option key={_id} value={ab._id}>{ab.name}    ({ab.code})</option>;
           })}
           <option  value="newCompany">New Company</option>
         </Field>
