@@ -13,10 +13,9 @@ import add from '../../Assets/add-circle.svg'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
   { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
+  { name: 'Meeting Room', href: '#', current: false },
+  { name: 'Seating Room', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -104,7 +103,7 @@ export default function HomePage() {
 
               <div className="flex justify-center shadow-inner  bg-slate-100 ">
                 {/* Filters */}
-                <form className="hidden   lg:block w-[22%] shadow-inner">
+                <form className="hidden h-full  lg:block w-[22%] shadow-inner">
                   <SideBar />
 
                 </form>
@@ -174,7 +173,7 @@ export default function HomePage() {
                         </button>
                       </div>
                     </div>
-                    <div className="h-screen scrollbar-hide bg-white  overflow-y-scroll box">
+                    <div className="lg:h-[550px] md:h-screen scrollbar-hide bg-white  overflow-y-scroll box">
 
                       <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
                     </div>
