@@ -95,7 +95,7 @@ const toggle =()=>{
       <div className="lg:flex md:flex-none  m-auto  max-w-screen-2xl">
         <div className="custom-tilled bg-[#5800FF] relative  lg:w-1/2 md:w-full flex flex-col  items-center justify-center">
           <div className="custom-img absolute z-100"></div>
-          <img className="w-40 absolute top-8 left-16" src={Logo} alt="Logo" />
+          <img className="w-32 absolute top-16 left-36" src={Logo} alt="Logo" />
           <div className=" text-white md:p-0 min-h-full md:w-screen md:ml-0 md:mr-0 lg:mr-48 lg:ml-10 flex flex-col  items-center justify-center mt-28 md:mt-0">
             <p className="text-xl">Already Have An Account ?</p>
             <p className="text-sm mt-2">
