@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
-import { useNavigate } from "react-router-dom";
+import Loading from '../../Skeleton/Overview';
 
 
 
 const Overview = (props) => {
-  const navigate = useNavigate();
+
+  const [isloading, setisloading] = useState(true)
 
   // token require for card render
 
@@ -21,6 +22,7 @@ const Overview = (props) => {
       })
         .then((res) => {
           setcardInfo(res.data.companyspace)
+          setisloading(false)
           console.log(res.data.companyspace)
         }).catch((error) => {
           console.log(error)
@@ -35,7 +37,9 @@ const Overview = (props) => {
 
 
 
+
   const renderCard = (card) => {
+
     return (
 
       <div className="flex   justify-center items-center mt-3 flex-wrap  ">
@@ -55,13 +59,24 @@ const Overview = (props) => {
     )
   }
   return (
+
     <>
-      <div className="flex justify-center items-center flex-wrap   pb-8">
 
-        {cardInfo.map(renderCard)}
+      {
+        isloading ? <Loading /> : <>
 
-      </div>
-      <Popup />
+          <div className="flex justify-center items-center flex-wrap   pb-8">
+
+            {cardInfo.map(renderCard)}
+
+          </div>
+          <Popup />
+        </>
+      }
+
+
+
+
     </>
   )
 }
