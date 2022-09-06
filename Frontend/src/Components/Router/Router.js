@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import HomePage from '../HomeUI/HomePage'
@@ -11,6 +11,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Protected from '../Protected/Protected';
 
 const Router = () => {
   return (
@@ -18,13 +19,13 @@ const Router = () => {
 
       <BrowserRouter>
         <Routes>
-          <Route index element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/termsCondition" element={<TermsCondition />} />
 
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/MyBooking" element={<MyBooking />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/home" element={<Protected Component={HomePage} />} />
+          <Route path="/MyBooking" element={<Protected Component={MyBooking} />} />
+          <Route path="/profile" element={<Protected Component={Profile} />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter></>
