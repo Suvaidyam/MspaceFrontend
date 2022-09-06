@@ -53,8 +53,8 @@ const toggle =()=>{
   }
   return (
     <>
-      <div className="max-w-[1720px] m-auto  md:flex-none lg:flex">
-        <div className="col-1 h-screen lg:w-[50%] md:px-0 lg:px-16">
+      <div className="max-w-[1720px] h-full mx-auto  md:flex-none lg:flex">
+        <div className="col-1 h-full lg:w-[50%] md:px-0 lg:px-16">
           <div className="min-h-full flex  items-center justify-center md:w-full lg:min-w-[462px]  py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
               <div>
