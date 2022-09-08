@@ -7,13 +7,13 @@ import './calander.css'
 export default function Calander(props) {
   const [dateState, setDateState] = useState(new Date())
   // console.log(dateState)
-  
-  
+
+
   const changeDate = (event) => {
     setDateState(event)
     var da = event
     props.setbookingDate(event)
-   
+
   }
   return (
     <>
@@ -24,6 +24,7 @@ export default function Calander(props) {
           <Calendar
             className="px-3    border-none shadow-transparent rounded "
             value={dateState}
+
             onChange={changeDate}
           />
 
