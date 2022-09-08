@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import HomePage from '../HomeUI/HomePage'
-import MyBooking from '../MyBooking/MyBooking';
 import Profile from '../Profile/Profile';
 import TermsCondition from '../TermsCondition/TermsCondition'
 import Error from '../404/Error';
+import MyBooking from '../MyBookingUI/Mybooking';
 import {
   BrowserRouter,
   Routes,
