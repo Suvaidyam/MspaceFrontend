@@ -9,9 +9,9 @@ function MyBooking() {
   return (
     <>
       <Navbar />
-      <div className='flex'>
+      <div className='xl:flex flex-none'>
 
-        <div className='w-[22%]  shadow-inner  '>
+        <div className='xl:block hidden w-[22%]  shadow-inner  '>
 
           <h1 className='px-3 pt-4 text-xl font-bold font-sans' >Book Spaces</h1>
           <h1 className='px-3 pt-4 text-sm font-bold font-sans' >Your Booking</h1>
@@ -19,11 +19,11 @@ function MyBooking() {
 
         </div>
 
-        <div className='w-[78%] flex shadow-inner bg-gray-50'>
-          <div className='w-[75%]'>
+        <div className='lg:w-full xl:w-[78%] lg:flex flex-none bg-gray-50'>
+          <div className='md:full lg:w-[75%]'>
             <CenterBox />
           </div>
-          <div className='w-[25%]'>
+          <div className='md:full  lg:w-[25%]'>
             <RightSideBar />
           </div>
         </div>
