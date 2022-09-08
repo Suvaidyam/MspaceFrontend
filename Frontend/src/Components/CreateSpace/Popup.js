@@ -3,18 +3,26 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Space from '../CreateSpace/CreateSpace'
 import icon from '../../Assets/add-circle.svg'
+import Space from '../CreateSpace/CreateSpace'
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+
+  bgcolor: 'background.paper',
 
 
+};
 
-export default function Popup() {
+export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <div >
+    <div>
       <div className='bottom-16 right-12 fixed'>
         <Button className=' bg-green-500' onClick={handleOpen}><img className='bg-blue-700 w-16 rounded-full' src={icon} alt="" /></Button>
       </div>
@@ -24,11 +32,10 @@ export default function Popup() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box
-
-          className='absolute  bg-white my-8  lg:left-[28%] md:left-[22%] sm:left-[16%] xs:left-[10%] xl:left-[32%] '>
+        <Box sx={style} className=
+          'justify-center'>
           <Typography>
-            <Space />
+            <Space className="justify-center" />
           </Typography>
 
         </Box>
