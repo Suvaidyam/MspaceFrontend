@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
 
 function MyBooking() {
   return (
-    <div>MyBooking</div>
+   <>
+    <Navbar/>
+    
+   </>
   )
 }
 
