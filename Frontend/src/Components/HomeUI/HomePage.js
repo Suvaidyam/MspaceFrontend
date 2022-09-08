@@ -11,6 +11,7 @@ import SideBar from './LeftSideBar/SideBar'
 import add from '../../Assets/add-circle.svg'
 
 
+
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
   { name: 'Newest', href: '#', current: false },
@@ -24,11 +25,11 @@ function classNames(...classes) {
 
 export default function HomePage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  
+
 
   // get date from date component
   // const [bookingDate, setbookingDate]=useState(null)
-  
+
 
   return (
     <>
@@ -40,6 +41,7 @@ export default function HomePage() {
       {/* liuhyijluk;, */}
       <div className=" w-full m-auto  ">
         <Navbar />
+
         <div className=''>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -82,8 +84,8 @@ export default function HomePage() {
                     {/* Filters */}
                     <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200">
 
-                      <SideBar/>
-                   
+                      <SideBar />
+
 
 
                     </form>
