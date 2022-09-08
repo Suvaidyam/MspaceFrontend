@@ -22,11 +22,13 @@ const Router = () => {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/termsCondition" element={<TermsCondition />} />
-
           <Route path="/home" element={<Protected Component={HomePage} />} />
-          <Route path="/MyBooking" element={<Protected Component={MyBooking} />} />
           <Route path="/profile" element={<Protected Component={Profile} />} />
           <Route path="*" element={<Error />} />
+          <Route path="/MyBooking/" element={<Protected Component={MyBooking} />}/>
+                  {/* <Route path="/viewall/" element={<Protected Component={Viewall} />}>
+                  <Route path="/all/" element={<Protected Component={<></>} />}/>
+                  </Route> */}
         </Routes>
       </BrowserRouter></>
   )
