@@ -19,7 +19,7 @@ function MyBooking() {
 
         </div>
 
-        <div className='w-[78%] flex bg-gray-50'>
+        <div className='w-[78%] flex shadow-inner bg-gray-50'>
           <div className='w-[75%]'>
             <CenterBox />
           </div>
