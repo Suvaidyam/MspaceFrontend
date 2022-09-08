@@ -11,7 +11,7 @@ export default function Calander(props) {
   
   const changeDate = (event) => {
     setDateState(event)
-    // console.log(event)
+    var da = event
     props.setbookingDate(event)
    
   }
