@@ -82,7 +82,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Filters */}
-                    <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200">
+                    <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200 bg-white">
 
                       <SideBar />
 
@@ -98,12 +98,12 @@ export default function HomePage() {
           <main className="w-full  mx-auto ">
 
 
-            <section aria-labelledby="products-heading" className=" ">
+            <section aria-labelledby="products-heading" className="  ">
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
 
-              <div className="flex justify-center shadow-inner  bg-slate-100 ">
+              <div className="flex justify-center shadow-inner  bg-white ">
                 {/* Filters */}
                 <form className="hidden h-full  lg:block w-[22%] shadow-inner">
                   <SideBar />
@@ -111,9 +111,9 @@ export default function HomePage() {
                 </form>
 
                 {/* Product grid */}
-                <div className="lg:col-span-3  bg-white   w-[78%]">
+                <div className="lg:col-span-3   w-[78%]">
                   {/* Replace with your content */}
-                  <div className="  bg-white shadow-inner" >
+                  <div className="  bg-gray-50  shadow-inner" >
                     <div className="relative z-10  pt-2 px-12 flex items-baseline justify-between ">
                       <h1 className="text-xl font-bold tracking-tight text-gray-900">Overview</h1>
 
@@ -175,7 +175,7 @@ export default function HomePage() {
                         </button>
                       </div>
                     </div>
-                    <div className="lg:h-[550px] md:h-screen scrollbar-hide bg-white  overflow-y-scroll box">
+                    <div className="lg:h-[550px] md:h-screen scrollbar-hide bg-gray-50 overflow-y-scroll box">
 
                       <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
                     </div>
