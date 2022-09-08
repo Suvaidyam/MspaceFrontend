@@ -13,6 +13,7 @@ const Protected = (props) => {
     return (
         <div>
 
+
             <Component />
         </div>
     )
