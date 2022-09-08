@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../../Assets/logo-1.png';
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 const navigation = [
   { name: 'Overview', to: '/home', current: true },
@@ -11,6 +12,26 @@ const navigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+const signout =async()=>{
+  let token = sessionStorage.getItem('token')
+    console.log(token)
+    if (token) {
+      // axios.post(`http://localhost:4000/auth/logout`,
+      //   {
+      //     headers: {
+      //       "token": ` ${token}`
+      //     }
+      //   })
+      //   .then((res) => console.log(res))
+      //   .catch((err) => console.log(err))
+      sessionStorage.removeItem('token')
+    } else {
+      console.log("token require")
+    }
+
+
 }
 
 export default function Navbar() {
@@ -110,7 +131,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                          to="#"
+                          to="#" onClick={signout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
