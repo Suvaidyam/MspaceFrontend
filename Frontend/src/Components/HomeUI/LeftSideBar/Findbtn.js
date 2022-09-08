@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Findbtn = (props) => {
-    const capacity = (event) =>{
+    const capacity = (event) => {
         // console.log(event.target.value)
         props.setcapacity(event.target.value)
     }
@@ -11,7 +11,7 @@ const Findbtn = (props) => {
                 <div>
 
                     <label htmlFor="first_name" className="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-300">Capacity</label>
-                    <input onChange={capacity} type="text" id="first_name" className="bg-white shadow border-gray-700 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Quantity" required />
+                    <input onChange={capacity} type="text" id="first_name" className="bg-white border shadow border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Quantity" required />
 
 
                 </div>
