@@ -13,7 +13,7 @@ const CenterBox = () => {
   
   return (
     <>
-    <div className="bg-gray-100 h-full w-full">
+    <div className=" h-full w-full">
       <div className="">
         <h1 className='text-3xl font-semibold pl-10 py-5'>My Bookings</h1>
       </div>
