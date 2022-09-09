@@ -7,8 +7,8 @@ import people from '../../Assets/people.png'
 const RightSideBar = () => {
   return (
     <>
-    <div className="bg-gray-50 h-full w-[85%] ">
-      <div className="flex pt-16 justify-between">
+    <div className="bg-gray-50 h-full w-[85%]  ">
+      <div className="flex pt-24 justify-between">
           <p className='font-semibold'>Upcoming</p>
           <Link to="/viewall/upcoming" className='text-blue-600 underline '>View All</Link>
       </div>

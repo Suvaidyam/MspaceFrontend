@@ -15,7 +15,7 @@ const CenterBox = () => {
     <>
     <div className=" h-full w-full">
       <div className="">
-        <h1 className='text-3xl font-semibold pl-10 py-5'>My Bookings</h1>
+        <h1 className='text-3xl font-semibold pl-10 py-8'>My Bookings</h1>
       </div>
 
       <div className="flex justify-center h-auto">
