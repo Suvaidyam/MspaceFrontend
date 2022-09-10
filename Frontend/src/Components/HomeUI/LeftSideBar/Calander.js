@@ -17,11 +17,10 @@ export default function Calander(props) {
   return (
     <>
       <div>
-
-        <div className="flex justify-center items-center px-3 pt-5  shadow-transparent border-none">
+        <div className="flex justify-center items-center px-3  pt-5 border-none">
 
           <Calendar
-            className="px-3  bg-gray-50  border-none shadow-transparent rounded "
+            className="px-3  shadow-md shadow-gray-500-50  bg-gray-50  border-none  rounded "
             value={dateState}
 
             onChange={changeDate}

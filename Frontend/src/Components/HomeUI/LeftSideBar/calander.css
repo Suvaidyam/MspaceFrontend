@@ -1,11 +1,15 @@
 @tailwind base;
+
 @tailwind components;
+
+@tailwind utilities;
 
 
 .react-calendar__tile--active {
     background-color: #5800FF;
-    color: white;
+
 }
+
 
 
 
@@ -13,9 +17,7 @@ abbr {
     text-decoration: none;
 }
 
-/* button {
-    border-radius: 55px
-} */
+
 .react-calendar__navigation {
     color: blue;
 
@@ -26,5 +28,3 @@ abbr {
     min-width: 20px;
     background: none;
 }
-
-@tailwind utilities;
