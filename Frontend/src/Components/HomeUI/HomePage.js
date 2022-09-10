@@ -113,7 +113,7 @@ export default function HomePage() {
                 {/* Product grid */}
                 <div className="lg:col-span-3   w-[78%]">
                   {/* Replace with your content */}
-                  <div className="  bg-gray-50  shadow-inner" >
+                  <div className="  bg-gray-50  h-screen shadow-inner" >
                     <div className="relative z-10  pt-2 px-12 flex items-baseline justify-between ">
                       <h1 className="text-xl font-bold tracking-tight text-gray-900">Overview</h1>
 
