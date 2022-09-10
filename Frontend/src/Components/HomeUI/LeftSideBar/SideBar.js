@@ -4,17 +4,17 @@ import Time from './Time'
 import Findbtn from './Findbtn'
 
 const SideBar = () => {
-  const [bookingTime , setbookingTime] =useState(null)
+  const [frombookingTime , setfrombookingTime] =useState(null)
+  const [tobookingTime , settobookingTime] =useState(null)
   const [bookingDate , setbookingDate] =useState()
   const [capacity , setcapacity] =useState(null)
   
   const getBookingData=()=>{
-    // if(bookingDate){
-    // const firstDate=  bookingDate.slice(0, 15)
-    // console.log(firstDate)
-    // }
-    console.log("booking time", bookingTime)
-  console.log("bookingDate", bookingDate)
+   let fromTime= bookingDate +" "+ frombookingTime;
+   let toTime = bookingDate +" "+ tobookingTime;
+   
+   console.log("fromTime",fromTime)
+  console.log("toTime",toTime)
   console.log("capacity",capacity)
   }
 
@@ -22,7 +22,7 @@ const SideBar = () => {
     <>
       <div className="">
         <Calander setbookingDate={setbookingDate}/>
-        <Time setbookingTime={setbookingTime}/>
+        <Time setfrombookingTime={setfrombookingTime} settobookingTime={settobookingTime}/>
         <Findbtn setcapacity={setcapacity} getBookingData={getBookingData}/>
       </div>
     </>
