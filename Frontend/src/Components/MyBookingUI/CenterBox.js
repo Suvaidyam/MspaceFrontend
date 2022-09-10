@@ -1,13 +1,5 @@
 import React from 'react'
 
-const meeting =[
-  {time:'9 AM',FTtime:'9 AM 10 AM',dev:'UI Design',duration:'30 min'},
-  {time:'10 AM',FTtime:'10 AM 11 AM',dev:'Backend Design',duration:'30 min'},
-  {time:'11 AM',FTtime:'11 AM 12 AM',dev:'UI Design',duration:'30 min'},
-  {time:'12 AM',FTtime:'12 AM 1 AM',dev:'Backend Design',duration:'30 min'},
-  {time:'01 PM',FTtime:'1 PM 2 PM',dev:'UI Design',duration:'30 min'},
-  {time:'02 PM',FTtime:'2 PM 3 PM',dev:'UI Design',duration:'30 min'},
-]
 
 const CenterBox = () => {
   
