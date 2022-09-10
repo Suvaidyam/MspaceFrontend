@@ -9,7 +9,7 @@ function MyBooking() {
   return (
     <>
       <Navbar />
-      <div className='xl:flex flex-none'>
+      <div className='xl:flex max-w-[1720px] mx-auto  flex-none'>
 
         <div className='xl:block hidden w-[22%]  shadow-inner  '>
 
@@ -19,7 +19,7 @@ function MyBooking() {
 
         </div>
 
-        <div className='lg:w-full xl:w-[78%] shadow-inner lg:flex flex-none bg-gray-50'>
+        <div className='lg:w-full xl:w-[78%] shadow-inner h-screen lg:flex flex-none bg-gray-50'>
           <div className='md:full lg:w-[75%]'>
             <CenterBox />
           </div>
