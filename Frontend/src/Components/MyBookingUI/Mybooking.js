@@ -19,11 +19,11 @@ function MyBooking() {
 
         </div>
 
-        <div className='lg:w-full xl:w-[78%] lg:flex flex-none bg-gray-50'>
+        <div className='lg:w-full xl:w-[78%] shadow-inner lg:flex flex-none bg-gray-50'>
           <div className='md:full lg:w-[75%]'>
             <CenterBox />
           </div>
-          <div className='md:full  lg:w-[25%]'>
+          <div className='md:full   lg:w-[25%]'>
             <RightSideBar />
           </div>
         </div>
