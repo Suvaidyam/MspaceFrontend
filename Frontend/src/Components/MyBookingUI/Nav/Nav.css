@@ -1,0 +1,13 @@
+@tailwind base;
+
+.active {
+    color: #5800FF;
+
+
+}
+
+
+
+@tailwind components;
+
+@tailwind utilities;

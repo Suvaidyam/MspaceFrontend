@@ -1,5 +1,16 @@
 @tailwind base;
 
+.active {
+    color: #5800FF;
+    text-decoration: 2px underline;
+    text-underline-offset: 8px;
+
+}
+
+.active::before {
+    text-decoration: underline
+}
+
 @tailwind components;
 
 @tailwind utilities;
