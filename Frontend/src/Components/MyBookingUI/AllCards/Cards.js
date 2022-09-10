@@ -17,14 +17,14 @@ const toggle =()=>{
           <div className="w-1/4">
             <img src={img} className=" w-4/4 h-full rounded-md"/>
           </div>
-          <div className="w-2/5 px-6 p-2">
+          <div className="w-2/5 px-6 p-2 flex justify-between flex-col">
            <div className="flex">
            <h1 className='text-xl font-medium'>Meeting Area 1</h1>
            <button className={props.btncolor}>{props.btn}</button>
            </div>
            <div className="">
-            <p className='flex items-center my-1'><img src={calendar} className="w-4 h-4 mr-2"/> <span className='text-sm'>September 5,2022</span></p>
-            <p className='flex items-center my-1'><img src={clock} className="w-4 h-4 mr-2"/> <span className='text-sm'>9 AM</span></p>
+            <p className='flex items-center mb-3'><img src={calendar} className="w-4 h-4 mr-2"/> <span className='text-sm'>September 5,2022</span></p>
+            <p className='flex items-center '><img src={clock} className="w-4 h-4 mr-2"/> <span className='text-sm'>9 AM</span></p>
            </div>
            <div className="flex items-center">
            <p className='flex items-center'><img src={people} className="w-4 h-4 mr-2"/> <span className='text-sm'>People invited</span></p>
@@ -53,8 +53,8 @@ const toggle =()=>{
       </div>
            </div>
           </div>
-          <div className=" w-1/3 mx-2 py-1.5 px-5 ">
-            <div className="flex items-end justify-end">
+          <div className=" w-1/3 mx-2 py-1.5 px-5 flex-col justify-between  flex ">
+            <div className="flex items-end flex-col justify-between ">
              {
               (open === false)? <p onClick={toggle} className='text-[#3330E4] 
               flex items-center cursor-pointer'>Set Reminder  <svg xmlns="http://www.w3.org/2000/svg" 
@@ -73,8 +73,8 @@ const toggle =()=>{
                   0a8.969 8.969 0 012.168 4.5" /></svg></p>
              }
             </div>
-            <div className="flex justify-between">
-              <p className='text-sm text-[#3330E4] underline'>Invite People</p>
+            <div className="flex  justify-end ">
+              <p className='text-sm text-[#3330E4] underline mr-8'>Invite People</p>
               <p className='text-sm text-red-500 underline'>Cancel Meeting</p>
             </div>
             
