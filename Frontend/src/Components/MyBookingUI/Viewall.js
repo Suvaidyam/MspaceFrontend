@@ -8,7 +8,7 @@ const Viewall = () => {
   return (
     <>
     <Navbar/>
-    <div className=' flex'>
+    <div className=' flex max-w-[1720px] mx-auto'>
       <div className='w-[22%] bg-white shadow-inner h-screen'>
       <h1 className='px-3 pt-4 text-xl font-bold font-sans' >Book Spaces</h1>
       <h1 className='px-3 pt-4 text-sm font-bold font-sans' >Your Booking</h1>
