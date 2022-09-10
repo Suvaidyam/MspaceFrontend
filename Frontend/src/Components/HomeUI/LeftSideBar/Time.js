@@ -62,8 +62,8 @@ const marks = [
 
 export default function Time(props) {
     const [value, setValue] = React.useState([10, 18]);
-    const [fromTime, setfromTime] = React.useState("10:00 Am");
-    const [toTime, settoTime] = React.useState("06:00 Pm");
+    const [fromTime, setfromTime] = React.useState("10:00 am");
+    const [toTime, settoTime] = React.useState("06:00 pm");
 
     const handleChange = (event, newValue) => {
         setValue(newValue);     
@@ -84,22 +84,16 @@ export default function Time(props) {
         props.setfrombookingTime(firstTime)
         props.settobookingTime(lastTime)
         const showTime =()=>{
-            if(fromHour > 12){
-                let displayfrom = fromHour - 12 +":" + fromMin +" pm"
-                setfromTime(displayfrom)
-            }else if(firstTime = 12){
-                let displayfrom = fromHour +":" + fromMin +" am"
-                setfromTime(displayfrom)
+            if(fromHour > "12"){
+                let displayfrom = fromHour - 12 +":" + fromMin;
+                setfromTime(displayfrom  +" pm")
             }else{
                 setfromTime(fromHour +":" + fromMin +" am")
             }
         // /////////////////////////////////////////////////////////////////////////
-            if(toHour > 12){
-                let displayto = toHour - 12 +":" + toMin +" pm"
-                settoTime(displayto)
-            }else if(toHour == 12){
-                let displayto = toHour +":" + toMin +" am"
-                settoTime(displayto)
+            if(toHour > "12"){
+                let displayto = toHour - 12 +":" + toMin;
+                settoTime(displayto+" pm")
             }else{
                 settoTime(toHour +":" + toMin +" am")
             }
