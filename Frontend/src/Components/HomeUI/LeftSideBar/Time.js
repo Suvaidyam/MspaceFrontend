@@ -66,7 +66,7 @@ export default function Time(props) {
     const [toTime, settoTime] = React.useState("06:00 Pm");
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);        
+        setValue(newValue);     
         let fromHour = newValue[0].toString().slice(0, 2)
         let toHour = newValue[1].toString().slice(0, 2)
      
@@ -83,123 +83,32 @@ export default function Time(props) {
 
         props.setfrombookingTime(firstTime)
         props.settobookingTime(lastTime)
-        setfromTime(firstTime+" am")
-        settoTime(lastTime+" pm")
+        const showTime =()=>{
+            if(fromHour > 12){
+                let displayfrom = fromHour - 12 +":" + fromMin +" pm"
+                setfromTime(displayfrom)
+            }else if(firstTime = 12){
+                let displayfrom = fromHour +":" + fromMin +" am"
+                setfromTime(displayfrom)
+            }else{
+                setfromTime(fromHour +":" + fromMin +" am")
+            }
+        // /////////////////////////////////////////////////////////////////////////
+            if(toHour > 12){
+                let displayto = toHour - 12 +":" + toMin +" pm"
+                settoTime(displayto)
+            }else if(toHour == 12){
+                let displayto = toHour +":" + toMin +" am"
+                settoTime(displayto)
+            }else{
+                settoTime(toHour +":" + toMin +" am")
+            }
+        }
+        showTime()
+
 
 
     };
-    
-    // const getFromTimeValue = () => {
-    //     if (value[0] === 10) {
-    //         setfromTime("10:00 Am")
-    //     } else if (value[0] === 10.5) {
-    //         setfromTime("10:30 Am")
-    //     } else if (value[0] === 11) {
-    //         setfromTime("11:00 Am")
-    //     } else if (value[0] === 11.5) {
-    //         setfromTime("11:30 Am")
-    //     } else if (value[0] === 12) {
-    //         setfromTime("12:00 Pm")
-    //     } else if (value[0] === 12.5) {
-    //         setfromTime("12:30 Pm")
-    //     } else if (value[0] === 13) {
-    //         setfromTime("01:00 Pm")
-    //     } else if (value[0] === 13.5) {
-    //         setfromTime("01:30 Pm")
-    //     } else if (value[0] === 14) {
-    //         setfromTime("02:00 Pm")
-    //     } else if (value[0] === 14.5) {
-    //         setfromTime("02:30 Pm")
-    //     } else if (value[0] === 15) {
-    //         setfromTime("03:00 Pm")
-    //     } else if (value[0] === 15.5) {
-    //         setfromTime("03:30 Pm")
-    //     } else if (value[0] === 16) {
-    //         setfromTime("04:00 Pm")
-    //     } else if (value[0] === 16.5) {
-    //         setfromTime("04:30 Pm")
-    //     } else if (value[0] === 17) {
-    //         setfromTime("05:00 Pm")
-    //     } else if (value[0] === 17.5) {
-    //         setfromTime("05:30 Pm")
-    //     } else if (value[0] === 18) {
-    //         setfromTime("06:00 Pm")
-    //     } else if (value[0] === 18.5) {
-    //         setfromTime("06:30 Pm")
-    //     } else if (value[0] === 19) {
-    //         setfromTime("07:00 Pm")
-    //     } else if (value[0] === 19.5) {
-    //         setfromTime("07:30 Pm")
-    //     } else if (value[0] === 20) {
-    //         setfromTime("08:00 Pm")
-    //     } else if (value[0] === 20.5) {
-    //         setfromTime("08:30 Pm")
-    //     } else if (value[0] === 21) {
-    //         setfromTime("09:00 Pm")
-    //     } else if (value[0] === 21.5) {
-    //         setfromTime("09:30 Pm")
-    //     } else if (value[0] === 22) {
-    //         setfromTime("10:00 Pm")
-    //     } else {
-    //         setfromTime(null)
-    //     }
-    // }
-    // const getToTimeValue = () => {
-    //     if (value[1] === 10) {
-    //         settoTime("10:00 Am")
-    //     } else if (value[1] === 10.5) {
-    //         settoTime("10:30 Am")
-    //     } else if (value[1] === 11) {
-    //         settoTime("11:00 Am")
-    //     } else if (value[1] === 11.5) {
-    //         settoTime("11:30 Am")
-    //     } else if (value[1] === 12) {
-    //         settoTime("12:00 Pm")
-    //     } else if (value[1] === 12.5) {
-    //         settoTime("12:30 Pm")
-    //     } else if (value[1] === 13) {
-    //         settoTime("01:00 Pm")
-    //     } else if (value[1] === 13.5) {
-    //         settoTime("01:30 Pm")
-    //     } else if (value[1] === 14) {
-    //         settoTime("02:00 Pm")
-    //     } else if (value[1] === 14.5) {
-    //         settoTime("02:30 Pm")
-    //     } else if (value[1] === 15) {
-    //         settoTime("03:00 Pm")
-    //     } else if (value[1] === 15.5) {
-    //         settoTime("03:30 Pm")
-    //     } else if (value[1] === 16) {
-    //         settoTime("04:00 Pm")
-    //     } else if (value[1] === 16.5) {
-    //         settoTime("04:30 Pm")
-    //     } else if (value[1] === 17) {
-    //         settoTime("05:00 Pm")
-    //     } else if (value[1] === 17.5) {
-    //         settoTime("05:30 Pm")
-    //     } else if (value[1] === 18) {
-    //         settoTime("06:00 Pm")
-    //     } else if (value[1] === 18.5) {
-    //         settoTime("06:30 Pm")
-    //     } else if (value[1] === 19) {
-    //         settoTime("07:00 Pm")
-    //     } else if (value[1] === 19.5) {
-    //         settoTime("07:30 Pm")
-    //     } else if (value[1] === 20) {
-    //         settoTime("08:00 Pm")
-    //     } else if (value[1] === 20.5) {
-    //         settoTime("08:30 Pm")
-    //     } else if (value[1] === 21) {
-    //         settoTime("09:00 Pm")
-    //     } else if (value[1] === 21.5) {
-    //         settoTime("09:30 Pm")
-    //     } else if (value[1] === 22) {
-    //         settoTime("10:00 Pm")
-    //     } else {
-    //         settoTime(null)
-    //     }
-    // }
-
 
     return (
         <>

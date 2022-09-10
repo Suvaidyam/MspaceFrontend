@@ -13,9 +13,13 @@ const SideBar = () => {
    let fromTime= bookingDate +" "+ frombookingTime;
    let toTime = bookingDate +" "+ tobookingTime;
    
-   console.log("fromTime",fromTime)
+  console.log("fromTime",fromTime)
   console.log("toTime",toTime)
   console.log("capacity",capacity)
+
+  
+
+
   }
 
   return (
