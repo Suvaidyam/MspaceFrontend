@@ -6,13 +6,12 @@ import './calander.css'
 
 export default function Calander(props) {
   const [dateState, setDateState] = useState(new Date())
-  // console.log(dateState)
 
 
   const changeDate = (event) => {
-    setDateState(event)
-    var da = event
-    props.setbookingDate(event)
+    setDateState(event);
+    let bookingDate = event.toString().slice(0, 15);
+    props.setbookingDate(bookingDate);
 
   }
   return (
