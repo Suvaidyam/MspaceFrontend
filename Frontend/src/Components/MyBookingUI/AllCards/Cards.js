@@ -12,7 +12,7 @@ const toggle =()=>{
 }
   return (
     <>
-      <div className="bg-white mx-16 rounded-md p-1.5 shadow-lg">
+      <div className="bg-white mx-12 rounded-md p-1.5 shadow-lg">
         <div className="flex">
           <div className="w-1/4">
             <img src={img} className=" w-4/4 h-full rounded-md"/>
