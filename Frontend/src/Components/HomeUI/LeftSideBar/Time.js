@@ -84,18 +84,24 @@ export default function Time(props) {
         props.setfrombookingTime(firstTime)
         props.settobookingTime(lastTime)
         const showTime =()=>{
-            if(fromHour > "12"){
+            if(fromHour > "11"){
                 let displayfrom = fromHour - 12 +":" + fromMin;
                 setfromTime(displayfrom  +" pm")
             }else{
                 setfromTime(fromHour +":" + fromMin +" am")
             }
+            if(fromHour ==="12"){
+                setfromTime(fromHour +":" + fromMin +" pm")
+            }
         // /////////////////////////////////////////////////////////////////////////
-            if(toHour > "12"){
+            if(toHour > "11"){
                 let displayto = toHour - 12 +":" + toMin;
                 settoTime(displayto+" pm")
             }else{
                 settoTime(toHour +":" + toMin +" am")
+            }
+            if(toHour ==="12"){
+                settoTime(toHour +":" + toMin +" pm")
             }
         }
         showTime()
