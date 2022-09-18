@@ -1,8 +1,14 @@
 const User = require('../../Model/User');
+const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
+        let condition = {}
+        console.log(req.decoded)
+        if(req.decoded.company){
+            condition['company'] = mongoose.Types.ObjectId(req.decoded.company)
+        }
         try {
-            let user = await User.find();
+            let user = await User.find(condition);
             return res.status(200).json({ message: "user List", user: user });
         } catch (error) {
             return res.status(500).json({ message: error.message });
