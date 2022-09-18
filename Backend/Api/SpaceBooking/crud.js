@@ -1,8 +1,23 @@
 const SpaceBooking = require('../../Model/SpaceBooking');
+const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
+        let condition = {}
+        if(req.decoded.company){
+            condition['company'] = mongoose.Types.ObjectId(req.decoded.company)
+        }
+        let {fromDateTime ,toDateTime} = req.query;
         try {
-            let spaceBooking = await SpaceBooking.find();
+            if(fromDateTime && toDateTime){
+                condition["$or"]  = [
+                    {
+                      fromTime: {$gte:fromDateTime},
+                      toTime:{$lte:toDateTime}
+                    }
+                  ]
+            }
+              console.log(JSON.stringify(condition))
+            let spaceBooking = await SpaceBooking.find(condition);
             return res.status(200).json({ message: "companyspace List", spaceBooking: spaceBooking });
         } catch (error) {
             return res.status(500).json({ message: error.message });

@@ -8,22 +8,58 @@ import Loading from '../../Skeleton/Overview';
 const Overview = (props) => {
 
   const [isloading, setisloading] = useState(true)
-
+  
+  const getBookings = (token)=>{
+    return new Promise((resolve, reject) => {
+      axios.get(`http://localhost:4000/spacebooking`, {
+        headers: {
+          "token": ` ${token}`
+        },
+        params:{
+          "fromDateTime": new Date(),
+          "toDateTime": new Date()
+        }
+        
+      })
+        .then((res) => {
+          resolve(res.data)
+         }).catch((error) => {
+          console.log(error)
+          reject(error)
+        }
+        )
+      
+    })
+   
+  }
   // token require for card render
 
   const [cardInfo, setcardInfo] = useState([])
   useEffect(() => {
     let token = sessionStorage.getItem('token')
     if (token) {
-      axios.get("http://localhost:4000/companyspace", {
+      axios.get(`http://localhost:4000/companyspace`, {
         headers: {
           "token": ` ${token}`
+        },
+        params:{
+          "fromDateTime": new Date(),
+          "toDateTime": new Date()
         }
+        
       })
-        .then((res) => {
+        .then(async(res) => {
           setcardInfo(res.data.companyspace)
           setisloading(false)
+          try {
+            let data = await getBookings(token)
+            console.log(data)
+          } catch (error) {
+            console.log(error)
+          }
           console.log(res.data.companyspace)
+
+
         }).catch((error) => {
           console.log(error)
         }
