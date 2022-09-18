@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Findbtn = (props) => {
+    props.setbtnClick("abc")
     const capacity = (event) => {
         // console.log(event.target.value)
         props.setcapacity(event.target.value)

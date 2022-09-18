@@ -6,9 +6,12 @@ import Loading from '../../Skeleton/Overview';
 
 
 const Overview = (props) => {
+  const {fromTime , toTime, capacity} = props.bookingData;
+  console.log(props.bookingData)
 
   const [isloading, setisloading] = useState(true)
-  
+
+
   const getBookings = (token)=>{
     return new Promise((resolve, reject) => {
       axios.get(`http://localhost:4000/spacebooking`, {
@@ -16,12 +19,13 @@ const Overview = (props) => {
           "token": ` ${token}`
         },
         params:{
-          "fromDateTime": new Date(),
-          "toDateTime": new Date()
+          "fromDateTime": fromTime,
+          "toDateTime": toTime
         }
         
       })
         .then((res) => {
+          console.log(res.data)
           resolve(res.data)
          }).catch((error) => {
           console.log(error)
@@ -64,12 +68,10 @@ const Overview = (props) => {
           console.log(error)
         }
         )
-
     } else {
       console.error('token is require');
-
     }
-  }, [])
+  },props.btnClick)
 
   return (
 

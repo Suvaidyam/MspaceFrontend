@@ -25,6 +25,11 @@ function classNames(...classes) {
 
 export default function HomePage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [bookingData , setbookingData]= useState(new Date());
+  const [btnClick , setbtnClick] = useState("..")
+  console.log(btnClick)
+
+
 
 
   // get date from date component
@@ -79,7 +84,7 @@ export default function HomePage() {
                     {/* Filters */}
                     <form className="  flex  flex-col justify-center mt-4 border-t border-gray-200 bg-white">
 
-                      <SideBar />
+                      <SideBar setbookingData={setbookingData} setbtnClick={setbtnClick}/>
 
 
 
@@ -101,7 +106,7 @@ export default function HomePage() {
               <div className="flex justify-center shadow-inner  bg-white ">
                 {/* Filters */}
                 <form className="hidden h-full  lg:block w-[22%] shadow-inner">
-                  <SideBar />
+                  <SideBar setbookingData={setbookingData} setbtnClick={setbtnClick}/>
 
                 </form>
 
@@ -172,7 +177,7 @@ export default function HomePage() {
                     </div>
                     <div className="lg:h-[550px] md:h-screen scrollbar-hide bg-gray-50 overflow-y-scroll box">
 
-                      <Overview book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
+                      <Overview btnClick={btnClick} bookingData={bookingData} book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
                     </div>
                   </div>
 
