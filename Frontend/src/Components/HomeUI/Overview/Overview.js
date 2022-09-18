@@ -50,7 +50,7 @@ const Overview = (props) => {
       companySpace:companySpace,
       fromTime:fromTime,
       toTime:toTime,
-      participants:["6300b061767fa6162f26f4b3"]
+      // participants:["6300b061767fa6162f26f4b3"]
 
     }
     axios.post(`http://localhost:4000/spacebooking`, body, {
@@ -58,7 +58,7 @@ const Overview = (props) => {
     }
     )
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         handleOpen()
 
       }).catch((error) => {
@@ -83,7 +83,7 @@ const Overview = (props) => {
 
       })
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           resolve(res.data)
         }).catch((error) => {
           console.log(error)
@@ -100,6 +100,7 @@ const Overview = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   useEffect(() => {
     if (token) {
       axios.get(`http://localhost:4000/companyspace`, {
@@ -168,7 +169,7 @@ const Overview = (props) => {
                         <Box sx={style} className=
                           'justify-center'>
                           <Typography>
-                            <PopupBtn className="justify-center" bookedTime="10:00-11:00"  bookedDate="06 September, 2020" handleClose={handleClose} />
+                            <PopupBtn className="justify-center" bookedTime={fromTime}  bookedDate="06 September, 2020" handleClose={handleClose} />
                           </Typography>
 
                         </Box>
