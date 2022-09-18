@@ -1,7 +1,7 @@
 import React from 'react'
 import Event from '../../Assets/Events-cuate.svg'
 
-const BookingSummary = () => {
+const BookingSummary = (props) => {
   const date = "06 September, 2020";
   const time = "10:00-11:00"
   return (
@@ -25,7 +25,7 @@ const BookingSummary = () => {
 
             <div className='flex justify-end my-3'>
               <button className='text-[#5800FF] font-semibold'>Add To Your Calendar</button>
-              <button className='text-[#5800FF] font-medium ml-4'>Cancle</button>
+              <button onClick={props.handleClose} className='text-[#5800FF] font-medium ml-4'>Cancle</button>
             </div>
           </form>
         </div>
