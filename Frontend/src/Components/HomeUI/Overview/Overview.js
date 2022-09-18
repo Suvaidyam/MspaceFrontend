@@ -8,7 +8,6 @@ import Btn from '../../BookingSummary/Popup'
 const Overview = (props) => {
   const { fromTime, toTime, capacity } = props.bookingData;
 
-
   console.log(props.bookingData)
 
   const [isloading, setisloading] = useState(true)
