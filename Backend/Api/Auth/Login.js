@@ -14,6 +14,7 @@ const Login = async (req, res) => {
             let loginHistory = await LoginHistory.create({ user: user._id });
             let token = JWT.sign({
                 _id: user._id,
+                name: user.name,
                 email: user.email,
                 company: user.company,
                 userType: user.userType,
