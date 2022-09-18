@@ -6,7 +6,7 @@ const BookingSummary = () => {
   const time = "10:00-11:00"
   return (
     <>
-      <div className='bg-gray-300 w-[100%]  flex items-center justify-center'>
+      <div className='bg-gray-300 w-[100%] shadow-transparent  flex items-center justify-center'>
         <div className='bg-white w-[400px] p-1  flex-col'>
           <div className="flex items-center">
             <h2 className='text-blue-700 mx-auto text-2xl font-bold'>Congratulation !!!</h2>
@@ -18,7 +18,11 @@ const BookingSummary = () => {
             <p className=''>{time}</p>
           </div>
           <form className=' mx-3'>
-            <input type="text" className='border w-full mt-4 p-2 ' placeholder='invite people' />
+            <input type="text" className=' border border-gray-300  hover:bg-gray-50 shadow-sm h-10 w-full' />
+
+
+
+
             <div className='flex justify-end my-3'>
               <button className='text-[#5800FF] font-semibold'>Add To Your Calendar</button>
               <button className='text-[#5800FF] font-medium ml-4'>Cancle</button>
