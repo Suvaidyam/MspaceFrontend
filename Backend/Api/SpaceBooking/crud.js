@@ -2,9 +2,11 @@ const SpaceBooking = require('../../Model/SpaceBooking');
 const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
+        console.log(req.decoded)
         let condition = {}
         if(req.decoded.company){
-            condition['company'] = mongoose.Types.ObjectId(req.decoded.company)
+            condition['company'] = mongoose.Types.ObjectId(req.decoded.company);
+            condition['user'] = mongoose.Types.ObjectId(req.decoded._id);
         }
         let {fromDateTime ,toDateTime} = req.query;
         try {

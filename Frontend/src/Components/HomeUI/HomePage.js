@@ -177,7 +177,7 @@ export default function HomePage() {
                     </div>
                     <div className="lg:h-[550px] md:h-screen scrollbar-hide bg-gray-50 overflow-y-scroll box">
 
-                      <Overview btnClick={btnClick} bookingData={bookingData} book={'Book Space'} add={add} bgcolor={'bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'} />
+                      <Overview btnClick={btnClick} bookingData={bookingData} add={add}/>
                     </div>
                   </div>
 
