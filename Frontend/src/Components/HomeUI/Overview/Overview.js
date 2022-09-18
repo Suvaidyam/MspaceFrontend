@@ -40,18 +40,26 @@ const Overview = (props) => {
   }
 
 
-  const bookSpace = (token) => {
-    axios.post(`http://localhost:4000/spacebooking`, {
-      headers: {
-        "token": ` ${token}`
-      },
-      body: {
-        "companySpace": ""
-      }
+  const bookSpace = (companySpace) => {
+    console.log(companySpace)
+    let token = sessionStorage.getItem('token')
+    let headers = {
+      token
+    }
+    let body ={
+      companySpace:companySpace,
+      fromTime:fromTime,
+      toTime:toTime,
+      participants:["6300b061767fa6162f26f4b3"]
 
-    })
+    }
+    axios.post(`http://localhost:4000/spacebooking`, body, {
+      headers
+    }
+    )
       .then((response) => {
         console.log(response.data)
+        handleOpen()
 
       }).catch((error) => {
         console.log(error)
@@ -148,7 +156,7 @@ const Overview = (props) => {
                       <h1 className="p-2  font-bold text-xs ml-1">Meeting Room {card.code}</h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>capacity: {card.maxParticipant}</h1>
                     </div>
                     <div className='flex justify-center py-2 '>
-                      <button onClick={handleOpen} type="button" className='bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'><img className='mt-0.5' src={props.add} alt="" /> <span className='text-lg'> Book Space</span></button>
+                      <button onClick={()=>{bookSpace(_id)}}  type="button" className='bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'><img className='mt-0.5' src={props.add} alt="" /> <span className='text-lg'> Book Space</span></button>
 
 
                       <Modal

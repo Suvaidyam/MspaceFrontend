@@ -4,9 +4,11 @@ import Time from './Time'
 import Findbtn from './Findbtn'
 
 const SideBar = (props) => {
-  const [frombookingTime , setfrombookingTime] =useState(null)
-  const [tobookingTime , settobookingTime] =useState(null)
-  const [bookingDate , setbookingDate] =useState()
+  let todayDate = new Date()
+  let selectedTime=[{from:"10:00"},{to:"18:00"}]
+  const [frombookingTime , setfrombookingTime] =useState(selectedTime[0].from)
+  const [tobookingTime , settobookingTime] =useState(selectedTime[1].to)
+  const [bookingDate , setbookingDate] =useState(todayDate.toISOString().slice(0, 10))
   const [capacity , setcapacity] =useState(null)
   
   const getBookingData=()=>{

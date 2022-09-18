@@ -19,14 +19,14 @@ const signout = async () => {
   let token = sessionStorage.getItem('token')
   console.log(token)
   if (token) {
-    // axios.post(`http://localhost:4000/auth/logout`,
-    //   {
-    //     headers: {
-    //       "token": ` ${token}`
-    //     }
-    //   })
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err))
+    axios.post(`http://localhost:4000/auth/logout`,{},
+      {
+        headers: {
+          "token": ` ${token}`
+        }
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
     sessionStorage.removeItem('token')
   } else {
     console.log("token require")

@@ -21,7 +21,7 @@ export default function BasicModal() {
   return (
     <div>
       <div className='bottom-16 right-12 fixed'>
-        <Button className=' bg-green-500' onClick={handleOpen}><img className='bg-blue-700 w-16 rounded-full' src={icon} alt="" /></Button>
+        <Button onClick={handleOpen}><img className='bg-blue-700 w-16 rounded-full' src={icon} alt="" /></Button>
       </div>
       <Modal
         open={open}
