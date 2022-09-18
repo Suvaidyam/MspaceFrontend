@@ -2,7 +2,25 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import Loading from '../../Skeleton/Overview';
-import Btn from '../../BookingSummary/Popup'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import PopupBtn from '../../BookingSummary/BookingSummary'
+
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+
+  bgcolor: 'background.paper',
+
+
+};
+
 
 
 const Overview = (props) => {
@@ -12,12 +30,12 @@ const Overview = (props) => {
 
   const [isloading, setisloading] = useState(true)
   let token = sessionStorage.getItem('token')
-  let paylode =JSON.parse(sessionStorage.getItem('paylode')) 
-  let {userType} = paylode
+  let paylode = JSON.parse(sessionStorage.getItem('paylode'))
+  let { userType } = paylode
   let admin = false;
-  if(userType ==="COMPANY_ADMIN"){
+  if (userType === "COMPANY_ADMIN") {
     admin = true;
-  }else{
+  } else {
     admin = false;
   }
 
@@ -71,6 +89,9 @@ const Overview = (props) => {
   // token require for card render
 
   const [cardInfo, setcardInfo] = useState([])
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   useEffect(() => {
     if (token) {
       axios.get(`http://localhost:4000/companyspace`, {
@@ -127,8 +148,23 @@ const Overview = (props) => {
                       <h1 className="p-2  font-bold text-xs ml-1">Meeting Room {card.code}</h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>capacity: {card.maxParticipant}</h1>
                     </div>
                     <div className='flex justify-center py-2 '>
-                      <button onClick={bookSpace} type="button" className='bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'><img className='mt-0.5' src={props.add} alt="" /> <span className='text-lg'> Book Space</span></button>
-                      <Btn />
+                      <button onClick={handleOpen} type="button" className='bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'><img className='mt-0.5' src={props.add} alt="" /> <span className='text-lg'> Book Space</span></button>
+
+
+                      <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                      >
+                        <Box sx={style} className=
+                          'justify-center'>
+                          <Typography>
+                            <PopupBtn className="justify-center" />
+                          </Typography>
+
+                        </Box>
+                      </Modal>
                     </div>
                   </div>
                 </div>
@@ -136,8 +172,8 @@ const Overview = (props) => {
             })}
 
           </div>
-          
-            {admin? <Popup />: null}
+
+          {admin ? <Popup /> : null}
         </>
       }
 
