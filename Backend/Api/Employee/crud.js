@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
         let condition = {}
-        console.log(req.decoded)
+        // console.log(req.decoded)
         if(req.decoded.company){
             condition['company'] = mongoose.Types.ObjectId(req.decoded.company)
         }
@@ -44,7 +44,7 @@ module.exports = {
         try {
             let { name, password, email, company } = req.body;
             let user = await User.updateOne(req.params, {name, password, email, company });
-            console.log(req.params)
+            // console.log(req.params)
             return res.status(200).json({ message: "Company Successfully Updated", user: user });
         } catch (error) {
             return res.status(500).json({ message: error.message });

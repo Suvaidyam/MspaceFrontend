@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react'
 import Event from '../../Assets/Events-cuate.svg'
 
 const BookingSummary = (props) => {
-  const [employee, setemployee] = useState('')
+  const [employee, setemployee] = useState([])
   const token = sessionStorage.getItem('token')
   const headers = { token }
 
-  const getCompany = () => {
+  const getUser = () => {
 
     axios.get('http://localhost:4000/employee', { headers })
       .then((res) => {
@@ -18,7 +18,7 @@ const BookingSummary = (props) => {
       })
   }
   useEffect(() => {
-    getCompany()
+    getUser()
   }, [])
   return (
     <>

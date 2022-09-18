@@ -2,7 +2,7 @@ const SpaceBooking = require('../../Model/SpaceBooking');
 const mongoose = require('mongoose')
 module.exports = {
     findAll: async (req, res) => {
-        console.log(req.decoded)
+        // console.log(req.decoded)
         let condition = {}
         if(req.decoded.company){
             condition['company'] = mongoose.Types.ObjectId(req.decoded.company);
@@ -18,7 +18,7 @@ module.exports = {
                     }
                   ]
             }
-              console.log(JSON.stringify(condition))
+            //   console.log(JSON.stringify(condition))
             let spaceBooking = await SpaceBooking.find(condition);
             return res.status(200).json({ message: "companyspace List", spaceBooking: spaceBooking });
         } catch (error) {
@@ -34,9 +34,10 @@ module.exports = {
         }
     },
     create: async (req, res) => { 
-        console.log(req.decoded)
+        // console.log(req.decoded)
         let {company, _id} = req.decoded
         let user = _id
+        let participants = _id
         try {
             let { companySpace, fromTime, toTime, participants } = req.body;
             let spaceBooking = await SpaceBooking.findOne({ companySpace, fromTime,toTime  });
