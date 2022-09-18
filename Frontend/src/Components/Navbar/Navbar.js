@@ -36,6 +36,8 @@ const signout = async () => {
 }
 
 export default function Navbar() {
+  let paylode =JSON.parse(sessionStorage.getItem('paylode')) 
+  const {name} = paylode
   return (
     <Disclosure as="nav" className="bg-white shadow-md">
       {({ open }) => (
@@ -107,7 +109,7 @@ export default function Navbar() {
                         alt=""
                       />
                     </Menu.Button>
-                    <p className='mt-2 ml-3 hidden md:block'>Aniket Kumar</p>
+                    <p className='mt-2 ml-3 hidden md:block'>{name}</p>
                   </div>
                   <Transition
                     as={Fragment}

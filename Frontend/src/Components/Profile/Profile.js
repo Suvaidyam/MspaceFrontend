@@ -9,6 +9,8 @@ const Profile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  let paylode =JSON.parse(sessionStorage.getItem('paylode')) 
+  const {name, email, company} = paylode
   return (
     <>
      <div>
@@ -66,7 +68,7 @@ const Profile = () => {
           <div className="h-56 w-60 border-2 bg-white">
             <img className='h-full p-1' src={proImg} alt="" />
           </div>
-            <p className='w-60 bg-white border-2 py-3 flex items-center justify-center'><span className='font-normal mt-1'>Hello,</span><span className='text-xl'>Rahul Kumar</span></p>
+            <p className='w-60 bg-white border-2 py-3 flex items-center justify-center'><span className='font-normal mt-1'>Hello,</span><span className='text-xl'>{name}</span></p>
        </div>
 
        <div className="xl:w-[70%] lg-full ">
@@ -74,14 +76,14 @@ const Profile = () => {
           <div className="px-2 pt-2 sm:w-1/2 xs:full">
           <p ><span className='text-xl font-medium'>Personal Information </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Edit</span></p>
           <div className='mt-5'>
-           <input type="text" id="code" value='Rahul Kumar' className="bg-gray-50 border border-gray-300
+           <input type="text" id="code" value={name} className="bg-gray-50 border border-gray-300
              text-gray-900 text-xl  focus:ring-blue-500 focus:border-blue-500 
              block w-full p-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white " 
-              placeholder="Enter your Seat Code" />
+              placeholder="Enter your Name" />
            </div>
            <div className='mt-3'>
-           <input type="email" id="code" value='rahul.suvaidyam@gmail.com' className="bg-gray-50 border border-gray-300
+           <input type="email" id="code" value={email} className="bg-gray-50 border border-gray-300
              text-gray-900  text-xl focus:ring-blue-500 focus:border-blue-500 
              block w-full p-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white " 
@@ -97,7 +99,7 @@ const Profile = () => {
            <p ><span className='text-xl font-medium'>Your Page </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Exit</span></p>
             <button className="w-full py-2 mt-5 hover:text-[#5800FF] cursor-pointer px-3 bg-gray-200 text-xl flex justify-between">Logout <img src={logo} alt="" /></button>
             <button className="w-full py-2 mt-3 hover:text-[#5800FF] cursor-pointer px-3 bg-gray-200 text-lg flex justify-between" onClick={handleOpen}>Change Your Password <img src={logo} alt="" /></button>
-            <p className='mt-2'><span className='text-xl '>Company :</span><span className='text-[#5800FF] text-xl'> SUVAIDYAM</span> </p>
+            <p className='mt-2'><span className='text-xl '>Company :</span><span className='text-[#5800FF] text-xl'>{company}</span> </p>
            </div>
          </div>
        </div>
