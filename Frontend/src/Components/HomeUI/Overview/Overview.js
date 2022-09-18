@@ -168,7 +168,7 @@ const Overview = (props) => {
                         <Box sx={style} className=
                           'justify-center'>
                           <Typography>
-                            <PopupBtn className="justify-center" handleClose={handleClose} />
+                            <PopupBtn className="justify-center" bookedTime="10:00-11:00"  bookedDate="06 September, 2020" handleClose={handleClose} />
                           </Typography>
 
                         </Box>
