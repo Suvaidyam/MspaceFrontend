@@ -71,7 +71,7 @@ const Overview = (props) => {
     } else {
       console.error('token is require');
     }
-  },props.btnClick)
+  },[])
 
   return (
 
