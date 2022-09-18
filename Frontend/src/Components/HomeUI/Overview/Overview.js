@@ -7,10 +7,21 @@ import Btn from '../../BookingSummary/Popup'
 
 const Overview = (props) => {
   const { fromTime, toTime, capacity } = props.bookingData;
+
+
   console.log(props.bookingData)
 
   const [isloading, setisloading] = useState(true)
   let token = sessionStorage.getItem('token')
+  let paylode =JSON.parse(sessionStorage.getItem('paylode')) 
+  let {userType} = paylode
+  let admin = false;
+  if(userType ==="COMPANY_ADMIN"){
+    admin = true;
+  }else{
+    admin = false;
+  }
+
 
   const bookSpace = (token) => {
     axios.post(`http://localhost:4000/spacebooking`, {
@@ -126,8 +137,8 @@ const Overview = (props) => {
             })}
 
           </div>
-          <Popup />
-
+          
+            {admin? <Popup />: null}
         </>
       }
 
