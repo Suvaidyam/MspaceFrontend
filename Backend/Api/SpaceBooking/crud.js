@@ -34,14 +34,17 @@ module.exports = {
         }
     },
     create: async (req, res) => { 
+        console.log(req.decoded)
+        let {company, _id} = req.decoded
+        let user = _id
         try {
-            let { company, user, companySpace, fromTime, toTime, participants } = req.body;
+            let { companySpace, fromTime, toTime, participants } = req.body;
             let spaceBooking = await SpaceBooking.findOne({ companySpace, fromTime,toTime  });
             if (spaceBooking) {
                 return res.status(400).json({ message: "spaceBooking is already exists" });
             } else {
-                if(!company || !user || !companySpace || !fromTime || !toTime || !participants){
-                    return res.status(400).json({ message: "company(companyREF_Id), user(userREF_Id),companySpace(REF_Id)  , fromTime , toTime and participants is required" });
+                if( !companySpace || !fromTime || !toTime){
+                    return res.status(400).json({ message: "companySpace(REF_Id)  , fromTime , toTime is required" });
                 }
                 spaceBooking = await SpaceBooking.create({company, user, companySpace, fromTime, toTime, participants });
                 return res.status(200).json({ message: "Company Successfully Created", spaceBooking: spaceBooking });
