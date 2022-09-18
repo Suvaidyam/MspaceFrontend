@@ -7,7 +7,7 @@ const Login = async (req, res) => {
     try {
         let { email, password } = req.body;
         if (!email || !password) {
-            return res.status(400).json({ message: 'Bad Request: email and password are required' });
+            return res.status(400).json({ message:'email and password are required' });
         };
         let user = await User.findOne({ email, password });
         if (user) {
@@ -25,7 +25,7 @@ const Login = async (req, res) => {
                 token: token
             });
         } else {
-            return res.status(400).json({ message: 'Bad Request: email and password are incorrect' });
+            return res.status(400).json({ message:'email and password are incorrect' });
         };
     } catch (error) {
         return res.status(500).json({ message: error.message })
