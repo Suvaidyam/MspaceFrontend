@@ -17,30 +17,24 @@ const initialValues = {
 const validationSchema = Yup.object({
   email: Yup.string().email('Invailid email format ?').required('Email is required !'),
   password: Yup.string().required('Password is required !')
-
 })
 const Login = () => {
-
   const [open, setOpen] = useState(false)
+  const [error, seterror] = useState(null)
 
   const toggle = () => {
     setOpen(!open)
   }
 
   const navigate = useNavigate();
-
   const onSubmit = values => {
     axios
       .post(
         `http://localhost:4000/auth/login`,
         { email: values.email, password: values.password },
-
       )
       .then((res) => {
-
-
         sessionStorage.setItem('token', (res.data.token))
-
         if (res.data.token) {
 
           navigate('/home')
@@ -48,15 +42,12 @@ const Login = () => {
           let payload = token.split(".")
           let data = atob(payload[1])
           sessionStorage.setItem('paylode', data)
-          console.log(data)
         } else {
           console.log("unauthorized")
-
         }
-
       })
       .catch((err) => {
-        console.log(err.message)
+        seterror(err.response.data.message)
       });
   }
   return (
@@ -91,6 +82,7 @@ const Login = () => {
               focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Enter your email" />
                       <ErrorMessage className='text-red-600 mb-4' name='email' component='p' />
+                      <p className='text-red-600 mb-4'>{error}</p>
                     </div>
                     <div className='relative'>
                       <label className="text-lg font-medium">
