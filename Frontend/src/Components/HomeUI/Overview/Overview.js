@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Popup from '../../CreateSpace/Popup'
 import Loading from '../../Skeleton/Overview';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PopupBtn from '../../BookingSummary/BookingSummary'
@@ -160,7 +160,7 @@ const Overview = (props) => {
                         <Box sx={style} className=
                           'justify-center'>
                           <Typography>
-                            <PopupBtn className="justify-center" />
+                            <PopupBtn className="justify-center" handleClose={handleClose} />
                           </Typography>
 
                         </Box>
