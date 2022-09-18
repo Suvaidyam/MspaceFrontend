@@ -10,8 +10,8 @@ const SideBar = () => {
   const [capacity , setcapacity] =useState(null)
   
   const getBookingData=()=>{
-   let fromTime= bookingDate +" "+ frombookingTime;
-   let toTime = bookingDate +" "+ tobookingTime;
+   let fromTime= bookingDate +"T"+ frombookingTime +".000Z";
+   let toTime = bookingDate +"T"+ tobookingTime +".000Z";
    
   console.log("fromTime",fromTime)
   console.log("toTime",toTime)

@@ -33,11 +33,6 @@ export default function HomePage() {
 
   return (
     <>
-
-
-
-
-
       {/* liuhyijluk;, */}
       <div className=" w-full m-auto  ">
         <Navbar />

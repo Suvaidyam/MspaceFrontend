@@ -10,7 +10,7 @@ export default function Calander(props) {
 
   const changeDate = (event) => {
     setDateState(event);
-    let bookingDate = event.toString().slice(0, 15);
+    let bookingDate = event.toISOString().slice(0, 10);
     props.setbookingDate(bookingDate);
 
   }
