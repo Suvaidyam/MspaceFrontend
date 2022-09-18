@@ -3,17 +3,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import icon from '../../Assets/add-circle.svg'
+import icon from '../../Assets/create_room.svg'
 import Space from '../CreateSpace/CreateSpace'
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-
   bgcolor: 'background.paper',
-
-
 };
 
 export default function BasicModal() {
