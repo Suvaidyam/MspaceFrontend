@@ -3,10 +3,19 @@ import React, { useEffect, useState } from 'react'
 import Event from '../../Assets/Events-cuate.svg'
 import invideIcon from '../../Assets/telegram-app.svg'
 
+import Select from 'react-select';
+// import { colourOptions } from '../data';
+
 const BookingSummary = (props) => {
-  const [employee, setemployee] = useState([])
+  const [employee, setemployee] = useState({})
   const token = sessionStorage.getItem('token')
   const headers = { token }
+
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
 
   const getUser = () => {
 
@@ -14,6 +23,7 @@ const BookingSummary = (props) => {
       .then((res) => {
         console.log(res.data.user)
         setemployee(res.data.user)
+        console.log(employee)
       }).catch((error) => {
         console.log(error)
       })
@@ -35,16 +45,13 @@ const BookingSummary = (props) => {
             <p className=''>{props.bookedTime}</p>
           </div>
           <form className=' mx-3'>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option value="">Invite People</option>
-
-              {employee.map((ab) => {
-                const { _id } = ab
-                return <option key={_id} value={ab._id}>{ab.name}    ({ab.email}) <img src={invideIcon} alt="" /></option>;
-              })}
-
-
-            </select>
+            <Select
+            defaultValue={employee[1]}
+            isMulti
+            name="employee"
+            options={employee}
+            className=" bg-black"
+            classNamePrefix="select"/>
 
 
 
