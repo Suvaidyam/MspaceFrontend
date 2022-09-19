@@ -3,14 +3,13 @@ import { Outlet, Link } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Nav from './Nav/Nav'
 import LeftSideBar from './LeftSideBar'
-import AddPeople from './AddPeople/AddPeople'
 
 const Viewall = () => {
 
   return (
     <>
       <Navbar />
-      <div className=' flex max-w-[1720px] mx-auto relative items-center justify-center'>
+      <div className=' flex max-w-[1720px] mx-auto'>
         <div className='w-[22%] bg-white shadow-inner h-screen'>
           <h1 className='px-3 pt-4 text-xl font-bold font-sans' >Book Spaces</h1>
           <h1 className='px-3 pt-4 text-sm font-bold font-sans' >Your Booking</h1>
@@ -27,7 +26,7 @@ const Viewall = () => {
           <Nav />
           <Outlet />
         </div>
-        <div className="fixed  z-[101] "><AddPeople /></div>
+
       </div>
     </>
   )
