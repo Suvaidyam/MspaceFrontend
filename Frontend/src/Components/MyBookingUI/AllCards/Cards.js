@@ -4,6 +4,8 @@ import calendar from '../../../Assets/calendar.png'
 import clock from '../../../Assets/clock.png'
 import people from '../../../Assets/people.png'
 import { meeting } from '../Data'
+import { IoMdNotifications } from "react-icons/io";
+import { AiOutlineBell } from "react-icons/ai";
 
 const Cards = (props) => {
   const [open, setOpen] = useState(false)
@@ -26,32 +28,27 @@ const Cards = (props) => {
                   <button className={props.btncolor}>{props.btn}</button>
                 </div>
                 <div className="">
-                  <p className='flex items-center mb-3'><img src={calendar} className="w-4 h-4 mr-2" /> <span className='text-sm'>{item.date}</span></p>
-                  <p className='flex items-center '><img src={clock} className="w-4 h-4 mr-2" /> <span className='text-sm'>{item.time} AM</span></p>
+                  <p className='flex items-center mb-3'><img src={calendar} className="w-4 h-4 mr-2" />
+                    <span className='text-sm'>{item.date}</span></p>
+                  <p className='flex items-center '><img src={clock} className="w-4 h-4 mr-2" />
+                    <span className='text-sm'>{item.time} AM</span></p>
                 </div>
                 <div className="flex items-center">
-                  <p className='flex items-center'><img src={people} className="w-4 h-4 mr-2" /> <span className='text-sm'>People invited</span></p>
+                  <p className='flex items-center'><img src={people} className="w-4 h-4 mr-2" />
+                    <span className='text-sm'>People invited</span></p>
                   <div className="flex -space-x-1 overflow-hidden ml-6">
                     <img
                       className="inline-block h-4 w-4 rounded-full ring-2 ring-white"
-                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
+                      src={item.peopleimg1} alt="" />
                     <img
                       className="inline-block h-4 w-4 rounded-full ring-2 ring-white"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
+                      src={item.peopleimg2} alt="" />
                     <img
                       className="inline-block h-4 w-4 rounded-full ring-2 ring-white"
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                      alt=""
-                    />
+                      src={item.peopleimg3} alt="" />
                     <img
                       className="inline-block h-4 w-4 rounded-full ring-2 ring-white"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
+                      src={item.peopleimg4} alt="" />
                     <p className='text-xs pl-3 font-medium'>5 more</p>
                   </div>
                 </div>
@@ -60,20 +57,9 @@ const Cards = (props) => {
                 <div className="flex items-end flex-col justify-between ">
                   {
                     (open === false) ? <p onClick={toggle} className='text-[#3330E4] 
-               flex items-center cursor-pointer'>Set Reminder  <svg xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0
-                005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64
-                 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                      </svg><span className='text-lg font-bold'>+</span></p> :
+               flex items-center cursor-pointer'>Set Reminder <AiOutlineBell className='text-xl' /><span className='text-lg font-bold'>+</span></p> :
                       <p onClick={toggle} className='text-[#3330E4] flex items-center cursor-pointer'>Remove Reminder
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                          strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"> <path strokeLinecap="round"
-                            strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118
-                  9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64
-                   3.56 1.085  5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3
-                    3 0 11-5.714  0M3.124 7.5A8.969 8.969 0 015.292 3m13.416
-                   0a8.969 8.969 0 012.168 4.5" /></svg></p>
+                        <IoMdNotifications className='text-xl' /></p>
                   }
                 </div>
                 <div className="flex  justify-end ">
