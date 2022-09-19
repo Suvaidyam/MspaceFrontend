@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../../Assets/logo-1.png';
 import { NavLink } from "react-router-dom";
+import Avatar from '../../Assets/avatar.png'
 import axios from 'axios'
 import './Navbar.css'
 
@@ -19,7 +20,7 @@ const signout = async () => {
   let token = sessionStorage.getItem('token')
   console.log(token)
   if (token) {
-    axios.post(`http://localhost:4000/auth/logout`,{},
+    axios.post(`http://localhost:4000/auth/logout`, {},
       {
         headers: {
           "token": ` ${token}`
@@ -36,8 +37,8 @@ const signout = async () => {
 }
 
 export default function Navbar() {
-  let paylode =JSON.parse(sessionStorage.getItem('paylode')) 
-  const {name} = paylode
+  let paylode = JSON.parse(sessionStorage.getItem('paylode'))
+  const { name } = paylode
   return (
     <Disclosure as="nav" className="bg-white shadow-md">
       {({ open }) => (
@@ -105,7 +106,7 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-10 w-10 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={Avatar}
                         alt=""
                       />
                     </Menu.Button>
