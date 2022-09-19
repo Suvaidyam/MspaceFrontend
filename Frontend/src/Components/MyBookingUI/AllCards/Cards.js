@@ -6,12 +6,27 @@ import people from '../../../Assets/people.png'
 import { meeting } from '../Data'
 import { IoMdNotifications } from "react-icons/io";
 import { AiOutlineBell } from "react-icons/ai";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Add from '../AddPeople/AddPeople'
 
 const Cards = (props) => {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const [open, setOpen] = useState(false)
+  const [icon, setIcon] = useState(false)
 
   const toggle = () => {
-    setOpen(!open)
+    setIcon(!icon)
   }
   return (
     <>
@@ -56,14 +71,14 @@ const Cards = (props) => {
               <div className=" w-1/3 mx-2 py-1.5 px-5 flex-col justify-between  flex ">
                 <div className="flex items-end flex-col justify-between ">
                   {
-                    (open === false) ? <p onClick={toggle} className='text-[#3330E4] 
+                    (icon === false) ? <p onClick={toggle} className='text-[#3330E4] 
                flex items-center cursor-pointer'>Set Reminder <AiOutlineBell className='text-xl' /><span className='text-lg font-bold'>+</span></p> :
                       <p onClick={toggle} className='text-[#3330E4] flex items-center cursor-pointer'>Remove Reminder
                         <IoMdNotifications className='text-xl' /></p>
                   }
                 </div>
                 <div className="flex  justify-end ">
-                  <p className='text-sm text-[#3330E4] underline mr-8 cursor-pointer'>Invite People</p>
+                  <p className='text-sm text-[#3330E4] underline mr-8 cursor-pointer' onClick={handleOpen}>Invite People</p>
                   <p className='text-sm text-red-500 underline cursor-pointer'>Cancel Meeting</p>
                 </div>
 
@@ -72,6 +87,19 @@ const Cards = (props) => {
           </div>
         ))}
       </div>
+      <Modal
+        open={open}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className=
+          'justify-center'>
+          <Typography>
+            <Add handleClose={handleClose} />
+          </Typography>
+
+        </Box>
+      </Modal>
 
     </>
   )
