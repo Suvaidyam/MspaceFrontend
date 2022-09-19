@@ -64,12 +64,14 @@ const Login = () => {
                 <h4 className="mt-2  text-md text-gray-600">
                   Please provide following details to continue
                 </h4>
+                <p className='text-red-600 mb-4 p-relative'>{error}</p>
               </div>
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
               >
+                
                 <Form className="mt-8 space-y-6" method="POST">
                   <div className="rounded-md shadow-sm -space-y-px">
                     <div>
@@ -82,7 +84,7 @@ const Login = () => {
               focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Enter your email" />
                       <ErrorMessage className='text-red-600 mb-4' name='email' component='p' />
-                      <p className='text-red-600 mb-4'>{error}</p>
+                      
                     </div>
                     <div className='relative'>
                       <label className="text-lg font-medium">

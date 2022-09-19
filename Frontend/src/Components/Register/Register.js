@@ -8,7 +8,7 @@ import google from "../../Assets/google.png";
 import microsoft from "../../Assets/microsoft.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import ErrMessage from "../ErrorMessage/ErrMessage";
+
 
 const initialValues = {
   name: "",
@@ -39,9 +39,9 @@ const toggle =()=>{
   const navigate = useNavigate();
 
   const [company, setCompany] = useState("");
+  const [error, seterror] = useState(null);
   const [companyName, setcompanyName] = useState("");
   const [companyCode, setcompanyCode] = useState("");
-  const [errMessage, seterrMessage] = useState([]);
   const [companyLogo, setcompanyLogo] = useState(null);
   const [disable, setdisable] = useState(true);
   const [buttonCheck, setbuttonCheck] = useState("group relative w-full flex justify-center mt-4 py-3 px-4 rounded-sm border border-transparent text-md font-medium  text-white bg-indigo-400");
@@ -72,12 +72,12 @@ const toggle =()=>{
       .then((res) => {
         console.log(res);
         console.log(res.data.message);
-        seterrMessage(res.data.message);
+        seterror(res.data.message);
         navigate("/");
       })
       .catch((err) => {
         console.log(err.response.data.message);
-        seterrMessage(err.response.data.message);
+        seterror(err.response.data.message);
       });
   };
   const acceptTearmsCondition = (e) => {
@@ -119,8 +119,9 @@ const toggle =()=>{
           <p className="lg:mx-5">
             Please provide following details to continue
           </p>
+          
           </div>
-
+          <p className='text-red-600 mb-4 p-relative'>{error}</p>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -271,7 +272,6 @@ const toggle =()=>{
             )}
           </Formik>
         </div>
-        < ErrMessage error={errMessage} className = {"notice"}/>
       </div>
     </>
   );
