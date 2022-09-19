@@ -9,7 +9,7 @@ const Register = async (req, res) => {
             return res.status(400).json({ message: "name company_refId,password,email  is required" })
         };
         if (company || (companyName && companyCode)) {
-        let user = await User.findOne({ email, password });
+        let user = await User.findOne({ email });
             if (user) {
                 return res.status(400).json({ message: "Dublicate User" });
             } else {
