@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Event from '../../Assets/Events-cuate.svg'
+import invideIcon from '../../Assets/telegram-app.svg'
 
 const BookingSummary = (props) => {
   const [employee, setemployee] = useState([])
@@ -34,14 +35,12 @@ const BookingSummary = (props) => {
             <p className=''>{props.bookedTime}</p>
           </div>
           <form className=' mx-3'>
-
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an option</label>
             <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option value="">Select Company</option>
+              <option value="">Invite People</option>
 
               {employee.map((ab) => {
                 const { _id } = ab
-                return <option key={_id} value={ab._id}>{ab.name}    ({ab.email})</option>;
+                return <option key={_id} value={ab._id}>{ab.name}    ({ab.email}) <img src={invideIcon} alt="" /></option>;
               })}
 
 
