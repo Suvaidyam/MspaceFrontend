@@ -101,15 +101,14 @@ const Overview = (props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  useEffect(() => {
-    if (token) {
+    const getCompanySpace = (fromTime, toTime)=>{
       axios.get(`http://localhost:4000/companyspace`, {
         headers: {
           "token": ` ${token}`
         },
         params: {
-          "fromDateTime": new Date(),
-          "toDateTime": new Date()
+          "fromDateTime": fromTime,
+          "toDateTime": toTime
         }
 
       })
@@ -129,10 +128,17 @@ const Overview = (props) => {
           console.log(error)
         }
         )
+    }
+  useEffect(() => {
+    if (token) {
+      let fromDateTime = fromTime?fromTime:new Date()
+      let toDateTime = toTime?toTime:new Date()
+      console.log(fromTime, fromDateTime)
+      getCompanySpace(fromDateTime, toDateTime)
     } else {
       console.error('token is require');
     }
-  }, [])
+  }, [fromTime ,toTime])
 
   return (
 

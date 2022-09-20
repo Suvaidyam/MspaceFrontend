@@ -26,14 +26,8 @@ function classNames(...classes) {
 export default function HomePage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [bookingData , setbookingData]= useState(new Date());
-  const [btnClick , setbtnClick] = useState("..")
-  console.log(btnClick)
+  const [btnClick , setbtnClick] = useState("")
 
-
-
-
-  // get date from date component
-  // const [bookingDate, setbookingDate]=useState(null)
 
 
   return (
