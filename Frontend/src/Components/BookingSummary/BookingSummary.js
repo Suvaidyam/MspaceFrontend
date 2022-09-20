@@ -22,7 +22,8 @@ const BookingSummary = (props) => {
     axios.get('http://localhost:4000/employee', { headers })
       .then((res) => {
         console.log(res.data.user)
-        setemployee(res.data.user)
+       let employeeOptions = res.data.user.map((option) => ({label: option.name, value:option._id}))
+        setemployee(employeeOptions)
         console.log(employee)
       }).catch((error) => {
         console.log(error)
