@@ -6,13 +6,32 @@ import proImg from '../../Assets/avatar.png'
 import { BsCameraFill } from 'react-icons/bs'
 import { MdLogout, MdPassword } from 'react-icons/md'
 import Navbar from '../Navbar/Navbar';
+import axios from 'axios';
+import { useState } from 'react';
 
 const Profile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [userCompany, setuserCompany] = useState()
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { name, email, company } = paylode
+  const { name, email, company } = paylode;
+
+  let token = sessionStorage.getItem('token')
+  let headers = {
+    token
+  }
+  axios.get(`http://localhost:4000/company/${company}`,{
+    headers
+  }
+  ).then((response) => {
+      setuserCompany(response.data.company.name)
+
+    }).catch((error) => {
+      console.log(error)
+    }
+    )
+
   return (
     <>
       <div>
@@ -112,7 +131,7 @@ const Profile = () => {
               <p ><span className='text-xl font-medium'>Your Page </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Exit</span></p>
               <button className="w-full py-2.5 mt-5 text-[#5800FF]  px-3 bg-gray-200 text-md font-semibold  flex items-center justify-between">Logout <MdLogout className='text-gray-600 cursor-pointer hover:text-[#5800FF]' /></button>
               <button className="w-full py-2 mt-3 text-[#5800FF] px-3 bg-gray-200 text-md font-semibold  flex items-center justify-between" onClick={handleOpen}>Change Your Password <MdPassword className='text-gray-600 cursor-pointer hover:text-[#5800FF]' /></button>
-              <p className='mt-2'><span className='text-md font-semibold  '>Company :</span><span className='text-[#5800FF] text-md font-semibold '>{company}</span> </p>
+              <p className='mt-2'><span className='text-md font-semibold  '>Company :</span><span className='text-[#5800FF] text-md font-semibold '>{" "+userCompany}</span> </p>
             </div>
           </div>
         </div>
