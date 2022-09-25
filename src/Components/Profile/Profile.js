@@ -8,6 +8,7 @@ import { MdLogout, MdPassword } from 'react-icons/md'
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
 import { useState } from 'react';
+import { GrFormClose } from 'react-icons/gr'
 
 const Profile = () => {
   const [open, setOpen] = React.useState(false);
@@ -21,16 +22,16 @@ const Profile = () => {
   let headers = {
     token
   }
-  axios.get(`http://localhost:4000/company/${company}`,{
+  axios.get(`http://localhost:4000/company/${company}`, {
     headers
   }
   ).then((response) => {
-      setuserCompany(response.data.company.name)
+    setuserCompany(response.data.company.name)
 
-    }).catch((error) => {
-      console.log(error)
-    }
-    )
+  }).catch((error) => {
+    console.log(error)
+  }
+  )
 
   return (
     <>
@@ -44,13 +45,16 @@ const Profile = () => {
         >
           <Box
 
-            className='absolute top-36  bg-white my-4 lg:left-[28%] md:left-[22%] sm:left-[16%] xs:left-[10%] xl:left-[32%] '>
+            className='fixed flex items-center w-full h-full justify-center my-4'>
             <Typography>
               <div className="flex w-full  items-center justify-center">
-                <div className="w-[520px]  bg-white p-4">
+                <div className="w-[520px] flex flex-col gap-3 bg-white px-4 py-3">
                   <div>
+                    <div className='flex justify-end'>
+                      <p className='cursor-pointer' onClick={handleClose}> <GrFormClose className='text-2xl ' /></p>
+                    </div>
                     <label className="block mb-2 text-sm font-medium text-gray-900
-                    dark:text-gray-300 pt-2">Current Password*</label>
+                    dark:text-gray-300 ">Current Password*</label>
                     <input type="text" id="file" className="bg-gray-50 border border-gray-300
                       text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 
                      block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
@@ -59,7 +63,7 @@ const Profile = () => {
                   </div>
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900
-                    dark:text-gray-300 pt-2">New Password*</label>
+                    dark:text-gray-300 ">New Password*</label>
                     <input type="text" id="file" className="bg-gray-50 border border-gray-300
                       text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 
                      block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
@@ -68,12 +72,16 @@ const Profile = () => {
                   </div>
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900
-                    dark:text-gray-300 pt-2">Re New Password*</label>
+                    dark:text-gray-300 ">Re New Password*</label>
                     <input type="text" id="file" className="bg-gray-50 border border-gray-300
                       text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 
                      block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
                     dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your current password" />
+                  </div>
+                  <div>
+                    <button className=" bg-[#5800FF] text-white text-lg font-medium block w-full p-2 "
+                    >Save</button>
                   </div>
                 </div>
               </div>
@@ -131,7 +139,7 @@ const Profile = () => {
               <p ><span className='text-xl font-medium'>Your Page </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Exit</span></p>
               <button className="w-full py-2.5 mt-5 text-[#5800FF]  px-3 bg-gray-200 text-md font-semibold  flex items-center justify-between">Logout <MdLogout className='text-gray-600 cursor-pointer hover:text-[#5800FF]' /></button>
               <button className="w-full py-2 mt-3 text-[#5800FF] px-3 bg-gray-200 text-md font-semibold  flex items-center justify-between" onClick={handleOpen}>Change Your Password <MdPassword className='text-gray-600 cursor-pointer hover:text-[#5800FF]' /></button>
-              <p className='mt-2'><span className='text-md font-semibold  '>Company :</span><span className='text-[#5800FF] text-md font-semibold '>{" "+userCompany}</span> </p>
+              <p className='mt-2'><span className='text-md font-semibold  '>Company :</span><span className='text-[#5800FF] text-md font-semibold '>{" " + userCompany}</span> </p>
             </div>
           </div>
         </div>
