@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PopupBtn from '../../BookingSummary/BookingSummary'
-
+import { useSelector } from 'react-redux';
 
 
 const style = {
@@ -24,9 +24,12 @@ const style = {
 
 
 const Overview = (props) => {
-  const { fromTime, toTime, capacity } = props.bookingData;
+  const {capacity } = props.bookingData;
+  const fromTime = useSelector( state => state.fromTime)
+  const toTime = useSelector( state => state.toTime)
 
-  console.log(props.bookingData)
+// console.log("fromTime", fromTime, "toTime",toTime)
+  // console.log(props.bookingData)
 
   const [isloading, setisloading] = useState(true)
   let token = sessionStorage.getItem('token')
@@ -51,7 +54,6 @@ const Overview = (props) => {
       fromTime:fromTime,
       toTime:toTime,
       // participants:["6300b061767fa6162f26f4b3"]
-
     }
     axios.post(`http://localhost:4000/spacebooking`, body, {
       headers
@@ -83,7 +85,7 @@ const Overview = (props) => {
 
       })
         .then((res) => {
-          // console.log(res.data)
+          console.log("abhishek",res.data)
           resolve(res.data)
         }).catch((error) => {
           console.log(error)

@@ -20,7 +20,7 @@ const SideBar = (props) => {
    dispatch(fromTimeAction(fromTime));
    dispatch(toTimeAction(toTime))
 
-let bookingData = {fromTime,toTime,capacity}
+let bookingData = {capacity}
 props.setbookingData(bookingData)
   }
 

@@ -20,8 +20,8 @@ const BookingSummary = (props) => {
 //   handel display booking time from time to time
   let fromDisplayTime = props.fromTime.substring(11, 16);
   let toDisplayTime = props.toTime.substring(11, 16);
-  console.log(fromDisplayTime)
-  console.log(toDisplayTime)
+  // console.log(fromDisplayTime)
+  // console.log(toDisplayTime)
   const options = [
     { value: 'null', label: 'Not User Found' },
   ]
