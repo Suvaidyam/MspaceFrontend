@@ -28,7 +28,7 @@ const BookingSummary = (props) => {
 
     axios.get('http://localhost:4000/employee', { headers })
       .then((res) => {
-       let employeeOptions = res.data.user.map((option) => ({label: option.name, value:option._id}));
+       let employeeOptions = res.data.user.map((option) => ({label: option.email, value:option._id}));
        if(employeeOptions){
         setemployee(employeeOptions)
        }else{
@@ -41,6 +41,10 @@ const BookingSummary = (props) => {
   useEffect(() => {
     getUser()
   }, [])
+
+  const invite = ()=>{
+    console.log("invite work")
+  }
   return (
     <>
       <div className='bg-gray-300 w-[100%] shadow-transparent  flex items-center justify-center'>
@@ -54,7 +58,7 @@ const BookingSummary = (props) => {
             <p className=''>{displayMonth}</p>
             <p className=''>{fromDisplayTime +" - "+ toDisplayTime}</p>
           </div>
-          <form className=' mx-3'>
+          <div className=' mx-3'>
             <Select
             // defaultValue={employee[1]}
             isMulti
@@ -65,9 +69,9 @@ const BookingSummary = (props) => {
             <div className='flex justify-end my-3'>
               <button className='text-[#5800FF] font-semibold'>Add To Your Calendar</button>
               <button  onClick={props.handleClose} className='text-[#ff0000] font-medium mx-3'>Cancle</button>
-              <button className='text-[#5800FF] font-medium ml-4'><MdSend className='text-2xl'/></button>
+              <button className='text-[#5800FF] font-medium ml-4' onClick={invite}><MdSend className='text-2xl'/></button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
