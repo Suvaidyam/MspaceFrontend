@@ -135,7 +135,6 @@ const Overview = (props) => {
     if (token) {
       let fromDateTime = fromTime?fromTime:new Date()
       let toDateTime = toTime?toTime:new Date()
-      console.log(fromTime, fromDateTime)
       getCompanySpace(fromDateTime, toDateTime)
     } else {
       console.error('token is require');

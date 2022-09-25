@@ -7,7 +7,7 @@ import {fromTimeAction,toTimeAction} from '../../../Service/Action/time'
 
 const SideBar = (props) => {
   let todayDate = new Date()
-  let selectedTime=[{from:"10:00"},{to:"18:00"}]
+  let selectedTime=[{from:"10:00:00"},{to:"18:00:00"}]
   const [frombookingTime , setfrombookingTime] =useState(selectedTime[0].from)
   const [tobookingTime , settobookingTime] =useState(selectedTime[1].to)
   const [bookingDate , setbookingDate] =useState(todayDate.toISOString().slice(0, 10))
