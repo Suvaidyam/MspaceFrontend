@@ -133,9 +133,7 @@ const Overview = (props) => {
     }
   useEffect(() => {
     if (token) {
-      let fromDateTime = fromTime?fromTime:new Date()
-      let toDateTime = toTime?toTime:new Date()
-      getCompanySpace(fromDateTime, toDateTime)
+      getCompanySpace(fromTime, toTime)
     } else {
       console.error('token is require');
     }
