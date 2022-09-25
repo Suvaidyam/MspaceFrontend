@@ -192,10 +192,6 @@ const Overview = (props) => {
           {admin ? <Popup /> : null}
         </>
       }
-
-
-
-
     </>
   )
 }
