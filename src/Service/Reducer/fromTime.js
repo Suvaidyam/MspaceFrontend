@@ -1,5 +1,4 @@
-const fromTodayDate = new Date().toISOString().slice(0,11)+"10:00.000Z"
-// const initialState = {fromTodayDate,toTodayDate}
+const fromTodayDate = new Date().toISOString().slice(0,11)+"10:00:00.000Z"
 
 const fromTimeReducer = (state =fromTodayDate, action)=>{
     switch(action.type){
