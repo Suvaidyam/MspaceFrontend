@@ -104,12 +104,12 @@ let token = sessionStorage.getItem('token')
         .then(async (res) => {
           setmeetingRoom(res.data.companyspace)
           setisloading(false)
-          try {
-            let data = await getBookings(token)
-            console.log("ABHISHEK",data)
-          } catch (error) {
-            console.log(error)
-          }
+          // try {
+          //   let data = await getBookings(token)
+          //   console.log("ABHISHEK",data)
+          // } catch (error) {
+          //   console.log(error)
+          // }
           console.log(res.data.companyspace)
         }).catch((error) => {
           console.log(error)
@@ -119,7 +119,7 @@ let token = sessionStorage.getItem('token')
     setisloading(true)// when time change skelton loading on
     setmeetingRoom([])// meeting rooms value is empty
     if (token) {
-      getBookings(fromTime, toTime)
+      getBookings(token)
       getCompanySpace()
     } else {
       console.error('token is require');
