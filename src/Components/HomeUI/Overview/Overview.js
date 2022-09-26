@@ -21,18 +21,22 @@ const style = {
 
 };
 
-
-
 const Overview = (props) => {
-  const {capacity } = props.bookingData;
-  const fromTime = useSelector( state => state.fromTime)
-  const toTime = useSelector( state => state.toTime)
+  // const {capacity } = props.bookingData;
+  const fromTime = useSelector( state => state.fromTime)// getting time value from redux
+  const toTime = useSelector( state => state.toTime) // getting time value from redux
 
 // console.log("fromTime", fromTime, "toTime",toTime)
   // console.log(props.bookingData)
 
   const [isloading, setisloading] = useState(true)
-  let token = sessionStorage.getItem('token')
+  const [meetingRoom, setmeetingRoom] = useState([])
+  const [spaceBookings, setspaceBookings] = useState([])
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
+  // THIS IS FOR CHECKING USER LOGINED IS ADMIN OR EMPLOYE
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
   let { userType } = paylode
   let admin = false;
@@ -42,7 +46,7 @@ const Overview = (props) => {
     admin = false;
   }
 
-
+// THIS IS FOR BOOKING MEETING ROOMS OF COMPANY
   const bookSpace = (companySpace) => {
     console.log(companySpace)
     let token = sessionStorage.getItem('token')
@@ -60,18 +64,15 @@ const Overview = (props) => {
     }
     )
       .then((response) => {
-        // console.log(response.data)
         handleOpen()
 
       }).catch((error) => {
         console.log(error)
       }
-      )
+      )};
 
-
-  }
-
-
+// THIS IS FOR GET ALL THE BOOKING BETWEEN SLECTED TIME
+let token = sessionStorage.getItem('token')
   const getBookings = (token) => {
     return new Promise((resolve, reject) => {
       axios.get(`http://localhost:4000/spacebooking`, {
@@ -82,73 +83,63 @@ const Overview = (props) => {
           "fromDateTime": fromTime,
           "toDateTime": toTime
         }
-
       })
         .then((res) => {
-          console.log("abhishek",res.data)
+          console.log("TODAY BOOKED SPACES BETWEEN SLECTED TIME",res.data.spaceBooking)
+          setspaceBookings(res.data.spaceBooking)
           resolve(res.data)
         }).catch((error) => {
           console.log(error)
           reject(error)
-        }
-        )
+        })
+    })};
 
-    })
-
-  }
-  // token require for card render
-
-  const [cardInfo, setcardInfo] = useState([])
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-    const getCompanySpace = (fromTime, toTime)=>{
+//  THIS API IS FOR GETTING ALL MEETING SPACE OF COMPANY
+    const getCompanySpace = ()=>{
       axios.get(`http://localhost:4000/companyspace`, {
         headers: {
           "token": ` ${token}`
-        },
-        params: {
-          "fromDateTime": fromTime,
-          "toDateTime": toTime
         }
-
       })
         .then(async (res) => {
-          setcardInfo(res.data.companyspace)
+          setmeetingRoom(res.data.companyspace)
           setisloading(false)
           try {
             let data = await getBookings(token)
-            console.log(data)
+            console.log("ABHISHEK",data)
           } catch (error) {
             console.log(error)
           }
           console.log(res.data.companyspace)
-
-
         }).catch((error) => {
           console.log(error)
-        }
-        )
-    }
+        })};
+
   useEffect(() => {
+    setisloading(true)// when time change skelton loading on
+    setmeetingRoom([])// meeting rooms value is empty
     if (token) {
-      getCompanySpace(fromTime, toTime)
+      getBookings(fromTime, toTime)
+      getCompanySpace()
     } else {
       console.error('token is require');
     }
-  }, [fromTime ,toTime])
+  }, [fromTime ,toTime]);
+/// THIS IS FOR FILTERING MEATINGROOMS  AND BOOKED MEATING ROOMS 
+  let newSpace = meetingRoom.map((space) => {
+    space['bookings'] = spaceBookings.filter(f => f.meetingRoom === space._id);
+    return space;
+});
+console.log("No of booked spaces of each meeting rooms",newSpace)
 
   return (
-
     <>
-
       {
         isloading ? <Loading /> : <>
 
           <div className="flex justify-center items-center flex-wrap   pb-8">
 
-            {cardInfo.map((card) => {
+            {meetingRoom.map((card) => {
               const { _id } = card
               return (
 
@@ -156,7 +147,7 @@ const Overview = (props) => {
 
                   <div className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  justify-between mx-9 mt-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 
-                    <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={`http://localhost:4000/${card.url}`} alt />
+                    <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={`http://localhost:4000/${card.url}`} alt="MettingRooms" />
 
                     <div className='justify-between flex'>
                       <h1 className="p-2  font-bold text-xs ml-1">Meeting Room {card.code}</h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>capacity: {card.maxParticipant}</h1>
