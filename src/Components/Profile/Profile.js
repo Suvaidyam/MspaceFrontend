@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import * as React from 'react'
-import proImg from '../../Assets/avatar.png'
+import Avatar from '../../Assets/avatar.png'
 import { BsCameraFill } from 'react-icons/bs'
 import { MdLogout, MdPassword } from 'react-icons/md'
 import Navbar from '../Navbar/Navbar';
@@ -16,7 +16,6 @@ const Profile = () => {
   const handleClose = () => setOpen(false);
   const [userCompany, setuserCompany] = useState();
   const [url, setUrl] = useState();
-  console.log(url)
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
   const { name, email, company, _id } = paylode;
 
@@ -137,7 +136,7 @@ const Profile = () => {
             <div className="w-[250px]  flex flex-col  items-center">
               <div className="group flex items-center justify-center flex-col shadow-2xl w-full h-56">
                 <div className="w-56 h-full relative rounded-full border-2 border-[#5800FF]">
-                  <img className='w-full h-full rounded-full object-cover ' src={url ? 'http://localhost:4000/' + url : proImg} alt="profile" />
+                  <img className='w-full h-full rounded-full object-cover ' src={url ? `http://localhost:4000/${url}` : Avatar} alt="profile" />
                   <label className='w-10 h-10 flex absolute bg-[#5800FF] border right-3 drop-shadow-lg  rounded-full bottom-3 items-center justify-center 
                     cursor-pointer'>
                     <BsCameraFill className='text-white' />
