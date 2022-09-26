@@ -32,6 +32,7 @@ const Overview = (props) => {
   const [isloading, setisloading] = useState(true)
   const [meetingRoom, setmeetingRoom] = useState([])
   const [spaceBookings, setspaceBookings] = useState([])
+  const [bookings, setbookings] = useState(null)
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -110,10 +111,21 @@ let token = sessionStorage.getItem('token')
           // } catch (error) {
           //   console.log(error)
           // }
-          console.log(res.data.companyspace)
+          // console.log(res.data.companyspace)
         }).catch((error) => {
           console.log(error)
         })};
+
+/// THIS IS FOR FILTERING MEATINGROOMS  AND BOOKED MEATING ROOMS 
+
+// console.log("abcd",newSpace[0].bookings)
+const noOfBookedSpace = ()=>{
+  let newSpace = meetingRoom.map((space) => {
+    space['bookings'] = spaceBookings.filter(f => f.companySpace == space._id);
+    return space;
+});
+console.log("No of booked spaces of each meeting rooms",newSpace)
+}
 
   useEffect(() => {
     setisloading(true)// when time change skelton loading on
@@ -121,16 +133,12 @@ let token = sessionStorage.getItem('token')
     if (token) {
       getBookings(token)
       getCompanySpace()
+      noOfBookedSpace()
     } else {
       console.error('token is require');
     }
   }, [fromTime ,toTime]);
-/// THIS IS FOR FILTERING MEATINGROOMS  AND BOOKED MEATING ROOMS 
-  let newSpace = meetingRoom.map((space) => {
-    space['bookings'] = spaceBookings.filter(f => f.meetingRoom === space._id);
-    return space;
-});
-console.log("No of booked spaces of each meeting rooms",newSpace)
+
 
   return (
     <>
@@ -142,15 +150,11 @@ console.log("No of booked spaces of each meeting rooms",newSpace)
             {meetingRoom.map((card) => {
               const { _id } = card
               return (
-
                 <div key={_id} className="flex   justify-center items-center mt-3 flex-wrap  ">
-
                   <div className=" transform transition duration-1000 hover:scale-105    w-[270px] h-[250px]  justify-between mx-9 mt-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-
                     <img className="  p-1 items-center rounded-lg  w-[284px] h-[152px]" src={`http://localhost:4000/${card.url}`} alt="MettingRooms" />
-
                     <div className='justify-between flex'>
-                      <h1 className="p-2  font-bold text-xs ml-1">Meeting Room {card.code}</h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>capacity: {card.maxParticipant}</h1>
+                      <h1 className="p-2  font-bold text-xs ml-1">Meeting Room {card.code} ____</h1> <h1 className='pr-2 font-bold text-xs mt-1.5 opacity-70'>capacity: {card.maxParticipant}</h1>
                     </div>
                     <div className='flex justify-center py-2 '>
                       <button onClick={()=>{bookSpace(_id)}}  type="button" className='bg-[#3CCF4E] text-white  flex   focus:outline-none font-medium justify-center  text-sm w-[240px] ml-2 py-2 text-center mr-2 mb-2'><img className='mt-0.5' src={props.add} alt="" /> <span className='text-lg'> Book Space</span></button>
