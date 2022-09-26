@@ -16,7 +16,7 @@ const Profile = () => {
   const handleClose = () => setOpen(false);
   const [userCompany, setuserCompany] = useState()
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { name, email, company } = paylode;
+  const { name, email, company , url} = paylode;
 
   let token = sessionStorage.getItem('token')
   let headers = {
@@ -99,7 +99,7 @@ const Profile = () => {
           <div className="group flex items-center justify-center flex-col border-2 
              border-gray-300 w-56 h-56 ">
             <div className="w-full h-full relative rounded-full border-2">
-              <img src={proImg} alt="" />
+              <img src={url? 'http://localhost:4000/'+ url : proImg} alt="profile" />
               <label className='w-10 h-10 flex absolute bg-[#5800FF] border-2 right-3 drop-shadow-lg  rounded-full bottom-3 items-center justify-center 
                cursor-pointer'>
                 <BsCameraFill className='text-white' />
