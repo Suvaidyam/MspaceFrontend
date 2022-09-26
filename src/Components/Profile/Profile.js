@@ -7,16 +7,19 @@ import { BsCameraFill } from 'react-icons/bs'
 import { MdLogout, MdPassword } from 'react-icons/md'
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GrFormClose } from 'react-icons/gr'
 
 const Profile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [userCompany, setuserCompany] = useState()
+  const [userCompany, setuserCompany] = useState();
+  const [url, setUrl] = useState();
+  console.log(url)
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { name, email, company, url } = paylode;
+  const { name, email, company, _id } = paylode;
+
 
   let token = sessionStorage.getItem('token')
   let headers = {
@@ -32,6 +35,40 @@ const Profile = () => {
     console.log(error)
   }
   )
+
+
+  const uploadImg = (e) => {
+    const imageFile = e.target.files[0]
+    const body = new FormData()
+    body.append('file', imageFile)
+
+    axios.put(`http://localhost:4000/employee/${_id}`,
+      body,
+      {
+        headers
+      }).then((res) => {
+        console.log(res)
+      }).catch((error) => {
+        console.log(error)
+      })
+
+  }
+  const img = () => {
+    axios.get(`http://localhost:4000/employee/${_id}`,
+      {
+        headers
+      }).then((res) => {
+        setUrl(res.data.user.url)
+      }).catch((error) => {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    img()
+  }, [url])
+
+
 
   return (
     <>
@@ -102,9 +139,9 @@ const Profile = () => {
                 <div className="w-56 h-full relative rounded-full border-2 border-[#5800FF]">
                   <img className='w-full h-full rounded-full object-cover ' src={url ? 'http://localhost:4000/' + url : proImg} alt="profile" />
                   <label className='w-10 h-10 flex absolute bg-[#5800FF] border right-3 drop-shadow-lg  rounded-full bottom-3 items-center justify-center 
-               cursor-pointer'>
+                    cursor-pointer'>
                     <BsCameraFill className='text-white' />
-                    <input type="file" name='uploadimage' accept='image/*'
+                    <input onChange={uploadImg} type="file" name='uploadimage' accept='image/*'
                       className='w-0 h-0' />
                   </label>
                 </div>

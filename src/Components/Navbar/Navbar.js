@@ -1,4 +1,5 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
+import React from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../../Assets/logo-1.png';
@@ -35,10 +36,32 @@ const signout = async () => {
 
 
 }
+let token = sessionStorage.getItem('token')
+let headers = {
+  token
+}
 
 export default function Navbar() {
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { name, url } = paylode
+  const { _id } = paylode
+  const [url, setUrl] = useState();
+  const [name, setName] = useState();
+
+  const img = () => {
+    axios.get(`http://localhost:4000/employee/${_id}`,
+      {
+        headers
+      }).then((res) => {
+        setUrl(res.data.user.url)
+        setName(res.data.user.name)
+      }).catch((error) => {
+        console.log(error)
+      })
+  }
+
+  React.useEffect(() => {
+    img()
+  }, [])
   return (
     <Disclosure as="nav" className="bg-white shadow-md">
       {({ open }) => (
