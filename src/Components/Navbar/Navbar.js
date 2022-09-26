@@ -38,7 +38,7 @@ const signout = async () => {
 
 export default function Navbar() {
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { name , url} = paylode
+  const { name, url } = paylode
   return (
     <Disclosure as="nav" className="bg-white shadow-md">
       {({ open }) => (
@@ -105,8 +105,8 @@ export default function Navbar() {
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-10 w-10 rounded-full"
-                        src={url? 'http://localhost:4000/'+ url : Avatar}
+                        className="h-10 w-10 object-cover rounded-full"
+                        src={url ? 'http://localhost:4000/' + url : Avatar}
                         alt=""
                       />
                     </Menu.Button>
