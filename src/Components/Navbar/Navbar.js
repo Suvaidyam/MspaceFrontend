@@ -43,9 +43,8 @@ let headers = {
 
 export default function Navbar() {
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { _id } = paylode
+  const { _id, name } = paylode
   const [url, setUrl] = useState();
-  const [name, setName] = useState();
 
   const img = () => {
     axios.get(`http://localhost:4000/employee/${_id}`,
@@ -53,11 +52,11 @@ export default function Navbar() {
         headers
       }).then((res) => {
         setUrl(res.data.user.url)
-        setName(res.data.user.name)
       }).catch((error) => {
         console.log(error)
       })
   }
+
 
   React.useEffect(() => {
     img()
