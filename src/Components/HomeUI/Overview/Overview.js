@@ -32,7 +32,7 @@ const Overview = (props) => {
   const [isloading, setisloading] = useState(true)
   const [meetingRoom, setmeetingRoom] = useState([])
   const [spaceBookings, setspaceBookings] = useState([])
-  const [bookings, setbookings] = useState(null)
+  // const [bookings, setbookings] = useState(null)
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
