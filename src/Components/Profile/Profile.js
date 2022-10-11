@@ -12,6 +12,8 @@ import { GrFormClose } from 'react-icons/gr'
 
 const Profile = () => {
   const [open, setOpen] = React.useState(false);
+  const [readOnly, setreadOnly] = React.useState(true);
+  const [editBtn, seteditBtn] = React.useState("Edit");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [userCompany, setuserCompany] = useState();
@@ -66,6 +68,10 @@ const Profile = () => {
   useEffect(() => {
     img()
   }, [url])
+  const edit =()=>{
+    setreadOnly(false)
+    seteditBtn("Remove")
+  }
 
 
 
@@ -154,16 +160,16 @@ const Profile = () => {
             <div className="w-full  lg:w-[750px]  h-24">
               <div className=" w-full xs:flex-none sm:flex shadow-lg  bg-white">
                 <div className="px-2 pt-2 sm:w-1/2 xs:full">
-                  <p ><span className='text-xl font-medium'>Personal Information </span ><span className='text-[#5800FF] ml-5 font-medium cursor-pointer'> Edit</span></p>
+                  <p ><span className='text-xl font-medium'>Personal Information </span ><span onClick={edit} className='text-[#5800FF] ml-5 font-medium cursor-pointer'>{editBtn}</span></p>
                   <div className='mt-5'>
-                    <input type="text" id="code" value={name} className="bg-gray-50 border border-gray-300
+                    <input type="text" readOnly={readOnly} id="code" value={name} className="bg-gray-50 border border-gray-300
              text-gray-900 text-md font-semibold  focus:ring-blue-500 focus:border-blue-500 
              block w-full p-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white "
                       placeholder="Enter your Name" />
                   </div>
                   <div className='mt-3'>
-                    <input type="email" id="code" value={email} className="bg-gray-50 border border-gray-300
+                    <input type="email" id="code" readOnly={readOnly} value={email} className="bg-gray-50 border border-gray-300
              text-gray-900  text-md font-semibold  focus:ring-blue-500 focus:border-blue-500 
              block w-full p-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
               dark:text-white "
