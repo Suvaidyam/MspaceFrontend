@@ -78,8 +78,8 @@ const Cards = (props) => {
                   }
                 </div>
                 <div className="flex  justify-end ">
-                  <p className='text-sm text-[#3330E4] underline mr-8 cursor-pointer' onClick={handleOpen}>Invite People</p>
-                  <p className='text-sm text-red-500 underline cursor-pointer'>Cancel Meeting</p>
+                  <p className='text-sm text-[#3330E4] underline mr-8 cursor-pointer' onClick={handleOpen}> {props.invitePeople}</p>
+                  <p className='text-sm text-red-500 underline cursor-pointer'>{props.cancleMeeting}</p>
                 </div>
 
               </div>

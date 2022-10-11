@@ -3,7 +3,7 @@ import Cards from '../AllCards/Cards'
 const All = () => {
   return (
     <>
-      <Cards btn={'Today'} btncolor={'mx-2 bg-green-200 px-4 rounded-md border-2 text-green-500 border-green-500'} />
+      <Cards cancleMeeting="Cancel Meeting" invitePeople="Invite People" btn={'Today'} btncolor={'mx-2 bg-green-200 px-4 rounded-md border-2 text-green-500 border-green-500'} />
     </>
   )
 }
