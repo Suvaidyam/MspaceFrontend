@@ -44,6 +44,7 @@ const CreateSpace = (props) => {
       .then((res) => {
         console.log(res)
         props.handleClose()
+        window.location.reload();
         
       })
         .catch((err) => console.log(err))
