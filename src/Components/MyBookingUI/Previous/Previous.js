@@ -4,7 +4,7 @@ import Cards from '../AllCards/Cards'
 const Previous = () => {
   return (
     <>
-      <Cards btn={'Previous'} btncolor={'mx-2 bg-gray-200 px-4 rounded-md border-2 border-gray-500 text-gray-500'} />
+      <Cards cancleMeeting="" invitePeople="" btn={'Previous'} btncolor={'mx-2 bg-gray-200 px-4 rounded-md border-2 border-gray-500 text-gray-500'} />
 
     </>
   )
