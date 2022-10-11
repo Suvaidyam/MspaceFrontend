@@ -1,3 +1,4 @@
+
 const ProfileDetailsReducer = (state="", action)=>{
     switch(action.type){
         case "PROFILEDETAILS" :
