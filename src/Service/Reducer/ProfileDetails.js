@@ -1,5 +1,6 @@
+const localData = sessionStorage.getItem("paylode")
 
-const ProfileDetailsReducer = (state="", action)=>{
+const ProfileDetailsReducer = (state= localData, action)=>{
     switch(action.type){
         case "PROFILEDETAILS" :
             return action.payload;
