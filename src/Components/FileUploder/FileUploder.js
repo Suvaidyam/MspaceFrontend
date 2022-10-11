@@ -14,4 +14,4 @@ function FileUploder(props) {
   );
 }
 
-export default FileUploder;
+export default FileUploder
