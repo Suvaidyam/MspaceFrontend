@@ -33,6 +33,7 @@ const Overview = (props) => {
   const [isloading, setisloading] = useState(true)
   const [meetingRoom, setmeetingRoom] = useState([])
   const [spaceBookings, setspaceBookings] = useState([])
+  const [newCompanySpace, setnewCompanySpace] = useState(false)
   // const [bookings, setbookings] = useState(null)
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -103,6 +104,7 @@ let token = sessionStorage.getItem('token')
         .then(async (res) => {
           setmeetingRoom(res.data.companyspace)
           setisloading(false)
+          setnewCompanySpace(true)
           // try {
           //   let data = await getBookings(token)
           //   console.log("ABHISHEK",data)
@@ -140,13 +142,18 @@ console.log("No of booked spaces of each meeting rooms",newSpace)
 
   return (
     <>
-    {meetingRoom.length===0 ? <div className="w-full h-full flex justify-center items-center">
+     {admin ? <div>
+      {newCompanySpace ? <>
+      {meetingRoom.length == 0 ? <div className="w-full h-full flex justify-center items-center">
        <CreateMeetingRoom/>
-       </div>:<Loading />}
+       </div>:<></>}
+       </>: <></>}
+      
+     </div> : null}
       {
-        isloading ? <></> : <>
+        isloading ? <Loading /> : <>
 
-          <div className="flex justify-center items-center flex-wrap   pb-8">
+          <div className="flex justify-center items-center flex-wrap pb-8">
 
             {meetingRoom.map((card) => {
               const { _id } = card
