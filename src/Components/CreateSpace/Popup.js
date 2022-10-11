@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import icon from '../../Assets/create_room.svg'
-import Space from '../CreateSpace/CreateSpace'
+import CreateSpace from '../CreateSpace/CreateSpace'
 const style = {
   position: 'absolute',
   top: '50%',
@@ -17,7 +17,7 @@ export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  
   return (
     <div>
       <div className='bottom-16 right-12 fixed'>
@@ -32,7 +32,7 @@ export default function BasicModal() {
         <Box sx={style} className=
           'justify-center'>
           <Typography>
-            <Space className="justify-center" />
+            <CreateSpace handleClose={handleClose} className="justify-center" />
           </Typography>
 
         </Box>
