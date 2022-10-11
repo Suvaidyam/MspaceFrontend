@@ -64,7 +64,7 @@ const Overview = (props) => {
     }
     )
       .then((response) => {
-        handleClose()
+        handleOpen()
 
       }).catch((error) => {
         console.log(error)
