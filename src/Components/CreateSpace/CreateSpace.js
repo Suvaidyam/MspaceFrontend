@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import Logo from '../../Assets/logo-1.png'
 
-const CreateSpace = () => {
+const CreateSpace = (props) => {
   const [code, setCode] = useState();
   const [file, setFile] = useState();
   const [spaceType, setUserType] = useState('');
@@ -41,7 +41,11 @@ const CreateSpace = () => {
             "token": ` ${token}`
           }
         })
-        .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res)
+        props.handleClose()
+        
+      })
         .catch((err) => console.log(err))
     } else {
       console.log("token require")

@@ -64,7 +64,7 @@ const Overview = (props) => {
     }
     )
       .then((response) => {
-        handleOpen()
+        handleClose()
 
       }).catch((error) => {
         console.log(error)
@@ -128,6 +128,7 @@ console.log("No of booked spaces of each meeting rooms",newSpace)
 }
 
   useEffect(() => {
+    setnewCompanySpace(false) //  when time change false new company space 
     setisloading(true)// when time change skelton loading on
     setmeetingRoom([])// meeting rooms value is empty
     if (token) {
@@ -146,8 +147,7 @@ console.log("No of booked spaces of each meeting rooms",newSpace)
       {newCompanySpace ? <>
       {meetingRoom.length == 0 ? <div className="w-full h-full flex justify-center items-center">
        <CreateMeetingRoom/>
-       </div>:<></>}
-       </>: <></>}
+       </div>:<></>}</>: <></>}
       
      </div> : null}
       {
