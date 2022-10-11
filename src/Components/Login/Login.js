@@ -7,6 +7,8 @@ import axios from 'axios'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import { Link, useNavigate } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import { ProfileDetailsAction } from '../../Service/Action/ProfileDetails'
 
 
 
@@ -21,11 +23,12 @@ const validationSchema = Yup.object({
 const Login = () => {
   const [open, setOpen] = useState(false)
   const [error, seterror] = useState(null)
-
+  const dispatch = useDispatch()
+  
   const toggle = () => {
     setOpen(!open)
   }
-
+ 
   const navigate = useNavigate();
   const onSubmit = values => {
     axios
@@ -36,11 +39,13 @@ const Login = () => {
       .then((res) => {
         sessionStorage.setItem('token', (res.data.token))
         if (res.data.token) {
-
+         
           navigate('/home')
           let token = res.data.token
           let payload = token.split(".")
           let data = atob(payload[1])
+          dispatch(ProfileDetailsAction(data))
+
           sessionStorage.setItem('paylode', data)
         } else {
           console.log("unauthorized")
