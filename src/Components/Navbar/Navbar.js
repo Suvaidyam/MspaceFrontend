@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import Avatar from '../../Assets/avatar.png'
 import axios from 'axios'
 import './Navbar.css'
+import { useSelector } from 'react-redux';
 
 const navigation = [
   { name: 'Overview', to: '/home', current: true },
@@ -36,31 +37,11 @@ const signout = async () => {
 
 
 }
-let token = sessionStorage.getItem('token')
-let headers = {
-  token
-}
-
 export default function Navbar() {
-  let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { _id, name } = paylode
-  const [url, setUrl] = useState();
+  const profileDetails = useSelector( state => state.profileDetails)
+  const profileData =JSON.parse(profileDetails)
+  const {url,name} = profileData;
 
-  const img = () => {
-    axios.get(`http://localhost:4000/employee/${_id}`,
-      {
-        headers
-      }).then((res) => {
-        setUrl(res.data.user.url)
-      }).catch((error) => {
-        console.log(error)
-      })
-  }
-
-
-  React.useEffect(() => {
-    img()
-  }, [])
   return (
     <Disclosure as="nav" className="bg-white shadow-md">
       {({ open }) => (

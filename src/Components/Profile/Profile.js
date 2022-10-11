@@ -7,8 +7,9 @@ import { BsCameraFill } from 'react-icons/bs'
 import { MdLogout, MdPassword } from 'react-icons/md'
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { GrFormClose } from 'react-icons/gr'
+import { useState } from 'react';
+import { GrFormClose } from 'react-icons/gr';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
   const [open, setOpen] = React.useState(false);
@@ -17,9 +18,11 @@ const Profile = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [userCompany, setuserCompany] = useState();
-  const [url, setUrl] = useState();
-  let paylode = JSON.parse(sessionStorage.getItem('paylode'))
-  const { name, email, company, _id } = paylode;
+  const profileDetails = useSelector( state => state.profileDetails)
+  const profileData =JSON.parse(profileDetails)
+  const { name, email, _id , url , company} = profileData;
+
+
 
 
   let token = sessionStorage.getItem('token')
@@ -54,20 +57,7 @@ const Profile = () => {
       })
 
   }
-  const img = () => {
-    axios.get(`http://localhost:4000/employee/${_id}`,
-      {
-        headers
-      }).then((res) => {
-        setUrl(res.data.user.url)
-      }).catch((error) => {
-        console.log(error)
-      })
-  }
 
-  useEffect(() => {
-    img()
-  }, [url])
   const edit =()=>{
     setreadOnly(false)
     seteditBtn("Remove")
