@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PopupBtn from '../../BookingSummary/BookingSummary'
 import { useSelector } from 'react-redux';
+import CreateMeetingRoom from '../../CreateMeetingRoom/CreateMeetingRoom';
 
 
 const style = {
@@ -41,11 +42,8 @@ const Overview = (props) => {
   let paylode = JSON.parse(sessionStorage.getItem('paylode'))
   let { userType } = paylode
   let admin = false;
-  if (userType === "COMPANY_ADMIN") {
-    admin = true;
-  } else {
-    admin = false;
-  }
+ 
+  userType === "COMPANY_ADMIN" ? admin = true :  admin = false;
 
 // THIS IS FOR BOOKING MEETING ROOMS OF COMPANY
   const bookSpace = (companySpace) => {
@@ -142,8 +140,11 @@ console.log("No of booked spaces of each meeting rooms",newSpace)
 
   return (
     <>
+    {meetingRoom.length===0 ? <div className="w-full h-full flex justify-center items-center">
+       <CreateMeetingRoom/>
+       </div>:<Loading />}
       {
-        isloading ? <Loading /> : <>
+        isloading ? <></> : <>
 
           <div className="flex justify-center items-center flex-wrap   pb-8">
 
@@ -182,9 +183,9 @@ console.log("No of booked spaces of each meeting rooms",newSpace)
 
           </div>
 
-          {admin ? <Popup /> : null}
         </>
       }
+      {admin ? <Popup /> : null}
     </>
   )
 }
